@@ -1,0 +1,108 @@
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6rem;
+    background:  linear-gradient( 90deg, #afb2b6, #555e61);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 6rem;
+    font-size: 1.4rem;
+}
+
+.logo img {
+    height: auto;
+    width: 18rem;
+    margin-right: 0;
+}
+
+.logo h2 {
+    font-weight: bold;
+    font-style: italic;
+}
+
+span {
+    color: rgb(219, 18, 18); 
+    font-style: italic;
+    font-weight: bold;
+}
+
+.desctop-btn {
+    display: flex;
+    margin-right: 6rem;
+}
+
+.desctop-btn button {
+    margin: auto;
+    cursor: pointer;
+}
+
+.log {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    margin-right: 4rem;
+    cursor: pointer;
+}
+
+.post {
+    height: 3rem;
+    width: 10rem;
+    background-color:#0088a9;
+    border-radius: 2rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+}
+
+.menu {
+    display: none;
+}
+.menu img {
+    height: 2rem;
+    width: auto;
+}
+
+.vehicle-type {
+    position: absolute;
+    display: none;
+}
+.vehicle-type button{
+    display: block;
+}
+
+.vehicle-type img {
+    height: 2rem;
+    width: auto;
+}
+
+.logIn-menu {
+    display: none;
+}
+.logIn-menu button {
+    display: block;
+}
+
+
+@media only screen and (max-width: 1200px){
+
+    .header {
+        background-color: #afb2b6;
+    }
+
+    .desctop-btn {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+}

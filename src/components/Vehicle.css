@@ -1,0 +1,100 @@
+
+@media only screen and (min-width: 1200px) {
+
+.vehicle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 6rem;
+    background:  linear-gradient( 0deg, #afb2b6, #555e61);
+
+}
+
+.close-path {
+    display: none;
+}
+
+.type-sedann, .type-motorcycle, .type-truck, .type-tire {
+    height: 6rem;
+    width: 10rem;
+    border: none;
+    background:  linear-gradient( 0deg, #afb2b6, #555e61);
+}
+
+
+button img {
+    height: 4rem;
+    width: auto;
+}
+.type-sedann img {
+    padding-top: 1rem;
+    height: 3rem;
+}
+
+
+.type-motorcycle img {
+    padding-top: 0.5rem;
+    height: 5.5rem;
+}
+
+.type-truck img{
+    height: 4.5rem;
+}
+
+.type-sedann:hover, .type-motorcycle:hover, .type-truck:hover, .type-tire:hover  {
+    background: white;
+    cursor: pointer;
+}
+
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .vehicle{
+        display: block;
+    }
+    .type-sedann, .type-motorcycle, .type-truck, .type-tire {
+        width: 100%;
+        height: 4.2rem;
+        background-color: #afb2b6;
+        border: none;
+        border-bottom: 1px solid black;
+        cursor: pointer;
+    }
+    .close-path {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4.2rem;
+        font-size: 1.4rem;
+        font-weight: bold;
+        background-color: #afb2b6;
+        border-bottom: 1px solid black;
+        cursor: pointer;
+    }
+    .close-path img {
+        margin-left: 1rem;
+    }
+
+    .type-sedann img {
+        height: 2.8rem;
+        width: auto;
+    }
+    
+    .type-motorcycle img {
+        height: 4rem;
+        width: auto;
+    }
+    
+    .type-truck img{
+        height: 3.5rem;
+        width: auto;
+    }
+
+    .type-tire img {
+        height: 3rem;
+        width: auto;
+    }
+ 
+}

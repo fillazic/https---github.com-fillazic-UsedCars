@@ -1,11 +1,13 @@
 import './Header.css';
+import Vehicle from './Vehicle';
 
 function Header() {
+
     return (
       <div className='header'>
 
         <div className='logo'>
-          <img  src="images/logo1.png" alt="44"/>
+          <img  src="images/logo2.png" alt="logo"/>
           <h2>Used <br/><span>Cars</span></h2>
         </div>
 
@@ -15,21 +17,25 @@ function Header() {
         </div>
 
         <div className='menu'>
-          <img  src="images/sedan.png" alt="44"/>
-          <img src="images/search.png" alt="44"/>
-          <img src="images/hamburger-menu.png" alt="44"/>
+          <img  className='sedan-btn' src="images/sedann.png" alt="car"/>
+          <img  className='search-btn' src="images/search.png" alt="search"/>
+          <img  className='menu-btn' src="images/hamburger-menu.png" alt="menu"/>
         </div>
 
         <div className='vehicle-type'>
-          <button><img  src="images/sedan.png" alt="44"/></button>
-          <button><img  src="images/motorcycle.png" alt="44"/></button>
-          <button><img  src="images/truck.png" alt="44"/></button>
-          <button><img  src="images/tire.png" alt="44"/></button>
+          <Vehicle />
         </div>
 
         <div className='logIn-menu'>
-          <button>LogIn</button>
-          <button>Post an ad</button>
+
+          <div className='profile-btn'>
+            <button className='logIn' >Log In</button>
+            <button>Post an ad</button>
+          </div>
+          <div className='under-profile'>
+            
+          </div>
+
         </div>
         
       </div>

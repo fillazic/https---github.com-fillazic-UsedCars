@@ -3,9 +3,8 @@
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     height: 6rem;
-    background:  linear-gradient( 90deg, #afb2b6, #555e61);
+    background-color: rgb(39, 35, 35);
 }
 
 .logo {
@@ -17,11 +16,12 @@
 
 .logo img {
     height: auto;
-    width: 18rem;
+    width: 16rem;
     margin-right: 0;
 }
 
 .logo h2 {
+    color :white;
     font-weight: bold;
     font-style: italic;
 }
@@ -34,6 +34,7 @@ span {
 
 .desctop-btn {
     display: flex;
+    align-items: center;
     margin-right: 6rem;
 }
 
@@ -66,12 +67,11 @@ span {
     display: none;
 }
 .menu img {
-    height: 2rem;
+    height: 2.4rem;
     width: auto;
 }
 
 .vehicle-type {
-    position: absolute;
     display: none;
 }
 .vehicle-type button{
@@ -94,7 +94,23 @@ span {
 @media only screen and (max-width: 1200px){
 
     .header {
+        background: none;
         background-color: #afb2b6;
+    }
+
+    .logo {
+        margin-left: 0rem;
+        font-size: 1rem;
+        padding-left: 1rem;
+    }
+
+    .logo h2 {
+        color: black;
+    }
+    .logo img {
+        height: auto;
+        width: 12rem;
+        margin-right: 0;
     }
 
     .desctop-btn {
@@ -103,6 +119,109 @@ span {
 
     .menu {
         display: flex;
+        align-items: baseline;
+        padding-right: 1rem;
+        cursor: pointer;
     }
 
+    .menu img {
+        margin: auto 1rem;
+
+    }
+
+    .vehicle-type {
+        position: absolute;
+        display: none;
+        right: 0;
+        width: 45%;
+        height: 100%;
+        background-color: #555e61;
+        border-left: 1px solid black;
+    }
+
+
+
+    .logIn-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 45%;
+        background-color: #656668;
+    }
+
+    .profile-btn {
+        height: 8rem;
+        width: 100%;
+        border-bottom: 2px solid white;
+    }
+
+    .under-profile {
+        opacity: 0.5;
+    }
+
+    .logIn-menu button {
+        margin: 1rem auto;
+        width: 80%;
+        height: 3rem;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+
+    .logIn {
+        height: 3rem;
+        width: 10rem;
+        background-color:#0088a9;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+
+}
+
+@media only screen and (max-width: 820px){
+    
+    .logo img {
+        display: none;
+    }
+    
+    .logo h2 {
+        padding: 0.7rem;
+        border-radius: 50%;
+        background-color: white;
+    }
+
+    
+}
+
+@media only screen and (max-width: 500px){
+
+    .header {
+        height: 4.4rem;
+    }
+    .menu{
+        padding-right: 0rem;
+        margin: auto 0;
+    }
+    .menu img {
+        height: 2rem;
+        width: auto;
+        margin-left: 0.2rem;
+    }
+
+    .logo {
+        margin-left: 0rem;
+        font-size: 0.8rem;
+    }
+
+    .logo h2 {
+        padding: 0.4rem;
+        border-radius: 50%;
+        background-color: white;
+        
+    }
 }

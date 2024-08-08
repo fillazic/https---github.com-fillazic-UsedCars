@@ -1,0 +1,46 @@
+
+.car {
+    width: 35rem;
+    height: 35rem;
+    background-color: lightgray;
+    margin: 15px;
+    border: 1px #585353 solid;
+    box-shadow: 10px 10px 5px #bdb3b3;
+  }
+   .info {
+    cursor: pointer;
+  }
+  
+  .car-image {
+    height: 25rem;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    border-bottom: 1px rgb(88, 83, 83) solid;
+  }
+  
+  .car-image img {
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+  }
+
+  .info , .engine {
+    margin: auto 1rem;
+  }
+  
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    font-weight: bold;
+    font-size: 1.4rem;
+    font-family: "Montserrat";
+  }
+  
+  .engine {
+    display: flex;
+    justify-content: space-between;
+  }

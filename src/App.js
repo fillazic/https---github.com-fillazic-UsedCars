@@ -3,6 +3,7 @@ import './App.css';
 import Header  from './components/Header';
 import Vehicle from './components/Vehicle';
 import Form from './components/Form';
+import Posts from './components/Posts';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Vehicle/>
       </div>
       <Form />
+      <Posts />
     </div>
   );
 }

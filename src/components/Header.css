@@ -5,6 +5,7 @@
     justify-content: space-between;
     height: 6rem;
     background-color: rgb(39, 35, 35);
+    box-shadow: 12px 12px 15px 15px #8b9092;
 }
 
 .logo {
@@ -96,6 +97,7 @@ span {
     .header {
         background: none;
         background-color: #afb2b6;
+        box-shadow: none;
     }
 
     .logo {

@@ -1,0 +1,91 @@
+
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #555e61;
+    height: 25rem;
+  }
+
+  .popular {
+    margin-top: 2rem;
+    margin-left: 8%;
+    width: 90%;
+  }
+  .popular div {
+    text-align:start;
+    width: 60%;
+  }
+
+  .popular button {
+    height: 2.2rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    color: #555e61;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .popular button:hover {
+    color: white;
+    background-color: #0088a9;
+  }
+
+  .contact {
+    margin-top: 2rem;
+    margin-right: 10%;
+  }
+  .contact div {
+    width: 100%;
+    display: flex;
+  }
+  .contact img {
+    margin: auto 0;
+    margin-right: 1rem;
+    height: 2.2rem;
+    width: 2.2rem;
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width: 1200px) {
+
+    .popular div {
+        width: 90%;
+      }
+
+    .popular button {
+        font-size: 1.2rem;
+    }
+
+
+  }
+
+  @media only screen and (max-width: 950px) {
+
+    .footer {
+        display: block;
+        height: auto;
+        margin: auto;
+    }
+
+    .popular {
+        margin: auto;
+        margin-left: 1rem;
+        padding-top: 1rem;
+      }
+    
+      .popular div {
+        margin: auto;
+        margin-top: 0;
+        margin-left: 0;
+      }
+
+    .contact {
+        margin: auto;
+        margin-left: 1rem ;
+        padding-bottom: 2rem;
+    }
+  }

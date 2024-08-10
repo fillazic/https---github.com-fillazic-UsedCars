@@ -4,6 +4,7 @@ import Header  from './components/Header';
 import Vehicle from './components/Vehicle';
 import Form from './components/Form';
 import Posts from './components/Posts';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       </div>
       <Form />
       <Posts />
+      <Footer />
     </div>
   );
 }

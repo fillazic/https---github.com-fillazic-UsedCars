@@ -21,17 +21,18 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: auto 0.5rem;
 }
 
 .model select {
-    width: 16rem;
+    width: 20rem;
     height: 2.3rem;
     border-radius: 0.5rem;
 }
 
 
 .model input {
-    width: 16rem;
+    width: 20rem;
     height: 2rem;
     border-radius: 0.5rem;
 }
@@ -43,10 +44,11 @@ form {
 .features {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .features select {
-    width: 16rem;
+    width: 20rem;
     height: 2.3rem;
     margin: 1rem;
     border-radius: 0.5rem;
@@ -107,6 +109,92 @@ form {
     visibility: hidden;
 }
 
+/*Detail form*/
+
+
+.power {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px solid black;
+    margin: auto 0.5rem;
+}
+
+.power div {
+    width: 22rem;
+    text-align: left;
+}
+
+.power select {
+    width: 20rem;
+    height: 2.3rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+
+.power input {
+    width: 5rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    margin: 1rem
+}
+
+#kw-1 {
+    margin-right: 1.5rem;
+    margin-left: 0;
+}
+
+#ccm-1 {
+    margin-right: 1.5rem;
+    margin-left: 0;
+}
+
+
+
+
+.feature-one, .feature-two {
+    display: flex;
+    justify-content: center;
+}
+
+.feature-one select, .feature-two select {
+    width: 20rem;
+    height: 2.3rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+}
+
+/*SAFETY*/
+
+.safety {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    border-top: 1px solid black;
+}
+
+.safety div{
+    width: 10rem;
+    margin: 1rem;
+    text-align: start;
+}
+
+.all-feature {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    border-top: 1px solid black;
+}
+
+.all-feature div{
+    width: 10rem;
+    margin: 1rem;
+    text-align: start;
+}
+
+
+
 @media only screen and (max-width: 1200px) {
 
     .form {
@@ -123,10 +211,15 @@ form {
     form {
         text-align: center;
     }
-    .model , .features , .search-button {
+    .model , .features , .search-button, .power, .feature-one, .feature-two {
         display: block;
         width: 100%;
         margin: auto;
+    }
+
+    .power div {
+        padding-left: 0.5rem;
+        text-align: center;
     }
 
     .model select , .model input{

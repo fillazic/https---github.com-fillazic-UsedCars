@@ -21,19 +21,19 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto 0.5rem;
+    margin: auto;
 }
 
 .model select {
     width: 20rem;
-    height: 2.3rem;
+    height: 2.6rem;
     border-radius: 0.5rem;
 }
 
 
 .model input {
-    width: 20rem;
-    height: 2rem;
+    width: 19.59rem;
+    height: 2.3rem;
     border-radius: 0.5rem;
 }
 
@@ -45,6 +45,7 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto;
 }
 
 .features select {
@@ -59,13 +60,15 @@ form {
     justify-content: center;
     align-items: center;
 }
+
 .search-button button {
-    width: 16rem;
+    width: 20rem;
     height: 2.3rem;
-    margin: 1rem;
-    border:none;
+    border: none;
     border-radius: 0.5rem;
+    margin: 1rem;
 }
+
 
 #search-form {
     height: 3rem;
@@ -89,6 +92,7 @@ form {
     height: 100%;
     align-content: center;
 }
+
 .search-div img{
     margin: auto;
     margin-left: 0;
@@ -107,6 +111,7 @@ form {
 
 .hidden-btn {
     visibility: hidden;
+    width: 20rem;
 }
 
 /*Detail form*/
@@ -115,14 +120,15 @@ form {
 .power {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     border-top: 1px solid black;
-    margin: auto 0.5rem;
+    
 }
 
 .power div {
-    width: 22rem;
+    width: 20rem;
     text-align: left;
+    margin: 1rem;
 }
 
 .power select {
@@ -137,17 +143,16 @@ form {
     width: 5rem;
     height: 2rem;
     border-radius: 0.5rem;
-    margin: 1rem
 }
 
-#kw-1 {
+#kw {
     margin-right: 1.5rem;
-    margin-left: 0;
+
 }
 
-#ccm-1 {
+#ccm {
     margin-right: 1.5rem;
-    margin-left: 0;
+
 }
 
 
@@ -205,16 +210,29 @@ form {
         border-top-right-radius: 0.8rem;
         width: 80%;
     }
+
+    #kw {
+        margin-right: 0.4rem;
+    }
+    
+    #ccm {
+        margin-right: 0.4rem;
+     }
+    
 }
 
 @media only screen and (max-width: 820px){
     form {
         text-align: center;
     }
-    .model , .features , .search-button, .power, .feature-one, .feature-two {
+    .model , .features , .power, .feature-one, .feature-two {
         display: block;
         width: 100%;
         margin: auto;
+    }
+
+    .hidden-btn {
+        display: none;
     }
 
     .power div {
@@ -230,9 +248,7 @@ form {
         width: 80%;
     }
 
-    .search-button {
-        width: 80%;
-    }
+
 
 }
 

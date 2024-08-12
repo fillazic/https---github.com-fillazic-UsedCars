@@ -45,15 +45,15 @@ function Form() {
                 </div>
                 <div className='search-button'>
                     <button className='hidden-btn'>More Detail</button>
-                    <button className='detail'>More Detail</button>
+                    <button className='detail'>Less Detail</button>
                     <button id='search-form'>
                        <div className='search-div'>
                         <h4>Search</h4>
                         <img src="./images/search-white.png"/>
                        </div>
                     </button>
-                </div>
-
+            </div>
+            
                 <div className="power" >
                     <div>
                      <input type="number" id="kw" name="kw" placeholder="kW From" />
@@ -73,7 +73,7 @@ function Form() {
                     </select>
                 </div>
 
-                    <div className='feature-one' >
+                <div className='feature-one' >
 
                     <select name="color" id="color">
                         <option value="Color" >Color</option>

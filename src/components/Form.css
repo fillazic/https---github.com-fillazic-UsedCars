@@ -17,6 +17,17 @@ form {
     margin-bottom: 2rem;
 }
 
+form select, form input {
+    font-size: 1rem;
+    color: #7f8286;
+    background-color: #fff;
+    border: 1px solid #7f8286;;
+}
+
+form select:hover, form input:hover {
+    border: 1px solid #db1212;
+}
+
 .model {
     display: flex;
     align-items: center;
@@ -24,10 +35,55 @@ form {
     margin: auto;
 }
 
-.model select {
+div.selected-container {
     width: 20rem;
     height: 2.6rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #7f8286;
     border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+div.selected-container:hover {
+    .icon i {
+        color:#db1212;
+    }
+    border: 1px solid #db1212;
+}
+
+#selected-items {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    font-size: 1rem;
+    color: #7f8286;
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+}
+
+#selected-items option {
+    padding-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.icon {
+    height: 100%;
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.icon i {
+    font-size: 1.5rem;
+    color: #7f8286;
 }
 
 
@@ -35,9 +91,6 @@ form {
     width: 19.59rem;
     height: 2.3rem;
     border-radius: 0.5rem;
-}
-
-.model select, .model input {
     margin: 1rem;
 }
 
@@ -46,13 +99,6 @@ form {
     justify-content: center;
     align-items: center;
     margin: auto;
-}
-
-.features select {
-    width: 20rem;
-    height: 2.3rem;
-    margin: 1rem;
-    border-radius: 0.5rem;
 }
 
 .search-button {
@@ -125,19 +171,13 @@ form {
     
 }
 
-.power div {
+
+.power-input {
     width: 20rem;
-    text-align: left;
+    display: flex;
+    justify-content: left;
     margin: 1rem;
 }
-
-.power select {
-    width: 20rem;
-    height: 2.3rem;
-    border-radius: 0.5rem;
-    margin: 1rem;
-}
-
 
 .power input {
     width: 5rem;
@@ -163,12 +203,6 @@ form {
     justify-content: center;
 }
 
-.feature-one select, .feature-two select {
-    width: 20rem;
-    height: 2.3rem;
-    margin: 1rem;
-    border-radius: 0.5rem;
-}
 
 /*SAFETY*/
 
@@ -229,23 +263,19 @@ form {
         display: block;
         width: 100%;
         margin: auto;
+        text-align: center;
+    }
+
+    div.selected-container {
+        margin: 1rem auto;
     }
 
     .hidden-btn {
         display: none;
     }
 
-    .power div {
-        padding-left: 0.5rem;
-        text-align: center;
-    }
-
-    .model select , .model input{
-        width: 80%;
-    }
-
-    .features select {
-        width: 80%;
+    .power-input {
+        margin: 1rem auto;
     }
 
 
@@ -261,4 +291,5 @@ form {
     .form {
         margin-top: 0;
     }
+    
 }

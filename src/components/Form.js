@@ -7,45 +7,64 @@ function Form() {
         <div className='form' >
             <form>
                 <div className='model' >
-                    <select name="mark" id="mark" >
-                            <option value="All models" >All models</option>
-                            <option value="Mercedes-Benz">Mercedes-Benz</option>
-                            <option value="Audi">Audi</option>
-                            <option value="Wolksvagen">Wolksvagen</option>
-                            <option value="BMW">BMW</option>
-                            <option value="Volvo">Volvo</option>
-                            <option value="Saab">Saab</option>
-                    </select>
+                    <div className='selected-container'>
+                        <select name="mark" id="selected-items" >
+                                <option value="All models" >All models</option>
+                                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                <option value="Audi">Audi</option>
+                                <option value="Wolksvagen">Wolksvagen</option>
+                                <option value="BMW">BMW</option>
+                                <option value="Volvo">Volvo</option>
+                                <option value="Saab">Saab</option>
+                        </select>
+                        <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                        </div>
+                    </div>
                     <input name='model' placeholder='model'/>
                     <input name='price' placeholder='price'/>
                 </div>
 
                 <div className='features'>
-                    <select name="year" id="year">
-                            <option value="year" >Year</option>
-                    </select>
+                    <div className='selected-container'>
+                        <select name="year" id="selected-items">
+                                <option value="year" >Year</option>
+                        </select>
+                        <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                        </div>
+                    </div>
 
-                    <select name="type" id="type">
-                            <option value="Vehicle-type" >Vehicle type</option>
-                            <option value="Saloon">Saloon</option>
-                            <option value="Estate-Car">Estate Car</option>
-                            <option value="Off-road">Off-road/Pickup Truck/SUV</option>
-                            <option value="Sports">Sports Car/Coupe</option>
-                            <option value="Van">Van/Minibus</option>
-                    </select>
-
-                    <select name="fuel" id="fuel">
-                            <option value="Fuel" >Fuel</option>
-                            <option value="Petrol">Petrol</option>
-                            <option value="Diesel">Diesel</option>
-                            <option value="Electic">Electic</option>
-                            <option value="Hybrid">Hybrid</option>
-                            <option value="Natural gas">Natural gas</option>
-                    </select>
+                    <div className='selected-container'>                    
+                        <select name="type" id="selected-items">
+                                <option value="Vehicle-type" >Vehicle type</option>
+                                <option value="Saloon">Saloon</option>
+                                <option value="Estate-Car">Estate Car</option>
+                                <option value="Off-road">Off-road/Pickup Truck/SUV</option>
+                                <option value="Sports">Sports Car/Coupe</option>
+                                <option value="Van">Van/Minibus</option>
+                        </select>
+                        <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                        </div>
+                    </div>
+                    <div className='selected-container'>
+                        <select name="fuel" id="selected-items">
+                                <option value="Fuel" >Fuel</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="Electic">Electic</option>
+                                <option value="Hybrid">Hybrid</option>
+                                <option value="Natural gas">Natural gas</option>
+                        </select>
+                        <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                        </div>
+                    </div>
                 </div>
                 <div className='search-button'>
                     <button className='hidden-btn'>More Detail</button>
-                    <button className='detail'>Less Detail</button>
+                    <button className='detail'>More Detail</button>
                     <button id='search-form'>
                        <div className='search-div'>
                         <h4>Search</h4>
@@ -55,27 +74,32 @@ function Form() {
             </div>
             
                 <div className="power" >
-                    <div>
-                     <input type="number" id="kw" name="kw" placeholder="kW From" />
-                     <input type="number" id="kw-1" name="kw-1" placeholder="kW To" />
+                    <div className='power-input'>
+                        <input type="number" id="kw" name="kw" placeholder="kW From" />
+                        <input type="number" id="kw-1" name="kw-1" placeholder="kW To" />
                      </div>
 
-                    <div>
-                     <input type="number" id="ccm" name="ccm" placeholder="ccm From" />
-                     <input type="number" id="ccm-1" name="ccm-1" placeholder="ccm To" />
+                    <div className='power-input'>
+                        <input type="number" id="ccm" name="ccm" placeholder="ccm From" />
+                        <input type="number" id="ccm-1" name="ccm-1" placeholder="ccm To" />
                     </div>
 
-                    <select name="trensmission" id="transmission">
-                        <option value="" ></option>
-                        <option value="Automatic" >Automatic</option>
-                        <option value="Manual gearbox">Manual gearbox</option>
-                        <option value="Semi-automatic">Semi-automatic</option>
-                    </select>
+                    <div className='selected-container'>
+                        <select name="trensmission" id="selected-items">
+                            <option value="">Transmission</option>
+                            <option value="Automatic" >Automatic</option>
+                            <option value="Manual gearbox">Manual gearbox</option>
+                            <option value="Semi-automatic">Semi-automatic</option>
+                        </select>
+                        <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                        </div>
+                    </div>
                 </div>
 
                 <div className='feature-one' >
-
-                    <select name="color" id="color">
+                <div className='selected-container'>
+                    <select name="color" id="selected-items">
                         <option value="Color" >Color</option>
                         <option value="Silver">Silver</option>
                         <option value="Black">Black</option>
@@ -83,46 +107,76 @@ function Form() {
                         <option value="Blue">Blue</option>
                         <option value="Red">Red</option>
                     </select>
+                    <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                    </div>
+                </div>
 
-                    <select name="door" id="door">
+                <div className='selected-container'>
+                    <select name="door" id="selected-items">
                         <option value="Number od doors" >Number of doors</option>
                         <option value="two-doors">2/3</option>
                         <option value="four-doors">4/5</option>
                     </select>
+                    <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                    </div>
+                </div>
 
-                    <select name="seats" id="seats">
+                <div className='selected-container'>
+                    <select name="seats" id="selected-items">
                         <option value="Number od seats" >Number of seats</option>
                         <option value="two-doors">2/3</option>
                         <option value="four-doors">4/5</option>
                     </select>
+                    <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                    </div>
+                </div>
+
                 </div>
 
                 <div className='feature-two' >
-                <select name="AC" id="AC">
-                    <option value="Air-condition" >Air-condition</option>
-                    <option value="No-AC">No air conditioning</option>
-                    <option value="Manual-AC">Manual air conditionig</option>
-                    <option value="Automatic-AC">Automatic air conditioning</option>
-                </select>
+                    <div className='selected-container'>
+                        <select name="AC" id="selected-items">
+                            <option value="Air-condition" >Air-condition</option>
+                            <option value="No-AC">No air conditioning</option>
+                            <option value="Manual-AC">Manual air conditionig</option>
+                            <option value="Automatic-AC">Automatic air conditioning</option>
+                        </select>
+                        <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                        </div>
+                    </div>
 
-                <select name="emission" id="emission">
-                    <option value="Any" >Emission</option>
-                    <option value="Euro1">Euro1</option>
-                    <option value="Euro2">Euro2</option>
-                    <option value="Euro3">Euro3</option>
-                    <option value="Euro4">Euro4</option>
-                    <option value="Euro5">Euro5</option>
-                    <option value="Euro6">Euro6</option>
-                    <option value="Euro6c">Euro6c</option>
-                    <option value="Euro6d-TEMP">Euro6d-TEMP</option>
-                    <option value="Euro6d">Euro6d</option>
-                </select>
+                    <div className='selected-container'>
+                        <select name="emission" id="selected-items">
+                            <option value="Any" >Emission</option>
+                            <option value="Euro1">Euro1</option>
+                            <option value="Euro2">Euro2</option>
+                            <option value="Euro3">Euro3</option>
+                            <option value="Euro4">Euro4</option>
+                            <option value="Euro5">Euro5</option>
+                            <option value="Euro6">Euro6</option>
+                            <option value="Euro6c">Euro6c</option>
+                            <option value="Euro6d-TEMP">Euro6d-TEMP</option>
+                            <option value="Euro6d">Euro6d</option>
+                        </select>
+                        <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                        </div>
+                    </div>
 
-                <select name="Interior" id="Interior">
-                    <option value="Interior" >Interior</option>
-                    <option value="Cloth">Cloth</option>
-                    <option value="Full-leather">Full-leather</option>
-                </select>
+                    <div className='selected-container'>
+                        <select name="Interior" id="selected-items">
+                            <option value="Interior" >Interior</option>
+                            <option value="Cloth">Cloth</option>
+                            <option value="Full-leather">Full-leather</option>
+                        </select>
+                        <div className='icon'>
+                            <i class='fa fa-caret-down' ></i>
+                        </div>
+                    </div>
                 </div>
 
                 <h3>Safety</h3>

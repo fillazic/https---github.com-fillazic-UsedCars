@@ -17,14 +17,14 @@ form {
     margin-bottom: 2rem;
 }
 
-form select, form input {
+.model input,  .power input{
     font-size: 1rem;
     color: #7f8286;
     background-color: #fff;
-    border: 1px solid #7f8286;;
+    border: 1px solid #7f8286;
 }
 
-form select:hover, form input:hover {
+.model input:hover,  .power input:hover {
     border: 1px solid #db1212;
 }
 
@@ -32,7 +32,6 @@ form select:hover, form input:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
 }
 
 div.selected-container {
@@ -90,6 +89,9 @@ div.selected-container:hover {
 .model input {
     width: 19.59rem;
     height: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 0.5rem;
     margin: 1rem;
 }
@@ -180,21 +182,14 @@ div.selected-container:hover {
 }
 
 .power input {
-    width: 5rem;
+    width: 5.5rem; 
     height: 2rem;
     border-radius: 0.5rem;
 }
 
-#kw {
-    margin-right: 1.5rem;
-
+#kw, #ccm {
+    margin-right: 1rem;
 }
-
-#ccm {
-    margin-right: 1.5rem;
-
-}
-
 
 
 
@@ -232,6 +227,66 @@ div.selected-container:hover {
     text-align: start;
 }
 
+[type="checkbox"] {
+    opacity: 0;
+}
+
+[type="checkbox"] + label {
+    position: relative;
+    padding-left: 1.5rem;
+    cursor: pointer;
+    display: inline-block;
+    color:#7f8286;
+}
+
+[type="checkbox"] + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    outline: 2px solid #7f8286 ;
+    background-color: white;
+}
+
+[type="checkbox"]:checked + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    outline: 3px solid #db1212 ;
+    background-color: white;
+}
+
+[type="checkbox"]:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url("../../public/images/correct-red.png");
+    background-size:contain ;
+    transform: scale(1);
+    opacity: 1;
+    transition: all .3s ease;
+}
+
+[type="checkbox"]:not(:checked) + label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url("../../public/images/correct-red.png");
+    background-size:contain ;
+    transform: scale(0);
+    opacity: 0;
+}
 
 
 @media only screen and (max-width: 1200px) {
@@ -242,7 +297,7 @@ div.selected-container:hover {
     form {
         border-top-left-radius: 0.8rem;
         border-top-right-radius: 0.8rem;
-        width: 80%;
+        width: 90%;
     }
 
     #kw {
@@ -258,16 +313,22 @@ div.selected-container:hover {
 @media only screen and (max-width: 820px){
     form {
         text-align: center;
+        width: 100%;
     }
-    .model , .features , .power, .feature-one, .feature-two {
+    .model, .features, .power, .search-button, .feature-one, .feature-two {
         display: block;
         width: 100%;
         margin: auto;
         text-align: center;
     }
 
-    div.selected-container {
+    div.selected-container, .model input{
         margin: 1rem auto;
+
+    }
+
+    .search-button button{
+        margin: 1rem 5rem;
     }
 
     .hidden-btn {
@@ -291,5 +352,9 @@ div.selected-container:hover {
     .form {
         margin-top: 0;
     }
-    
+
+    .search-button button{
+        margin: 1rem auto;
+    }
+
 }

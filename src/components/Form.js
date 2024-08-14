@@ -182,58 +182,58 @@ function Form() {
                 <h3>Safety</h3>
                 <div className='safety' >
                     <div>
-                    <input type="radio" id="ABS" name="ABS" value="ABS" />
+                    <input type="checkbox" id="ABS" name="ABS" value="ABS" />
                     <label for="ABS">ABS</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="ESP" name="ESP" value="ESP" />
+                    <input type="checkbox" id="ESP" name="ESP" value="ESP" />
                     <label for="ESP">ESP</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="ASR" name="ASR" value="ASR" />
+                    <input type="checkbox" id="ASR" name="ASR" value="ASR" />
                     <label for="ASR">ASR</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="airbags" name="airbags" value="Driven Airbags" />
-                    <label for="airbags">Driven Airbags</label>
+                    <input type="checkbox" id="driven-airbags" name="driven-airbags" value="Driven Airbags" />
+                    <label for="driven-airbags">Driven Airbags</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="airbags" name="airbags" value="Front Airbags" />
-                    <label for="airbags">Front Airbags</label>
+                    <input type="checkbox" id="front-airbags" name="front-airbags" value="Front Airbags" />
+                    <label for="front-airbags">Front Airbags</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="airbags" name="airbags" value="Side Airbags" />
-                    <label for="airbags">Side Airbags</label>
+                    <input type="checkbox" id="side-airbags" name="side-airbagss" value="Side Airbags" />
+                    <label for="side-airbags">Side Airbags</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="airbags" name="airbags" value="More Airbags" />
-                    <label for="airbags">More Airbags</label>
+                    <input type="checkbox" id="more-airbags" name="more-airbags" value="More Airbags" />
+                    <label for="more-airbags">More Airbags</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="alarm" name="alarm" value="Alarm system" />
+                    <input type="checkbox" id="alarm" name="alarm" value="Alarm system" />
                     <label for="alarm">Alarm system</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="central-lock" name="central-lock" value="Central lock" />
+                    <input type="checkbox" id="central-lock" name="central-lock" value="Central lock" />
                     <label for="central-lock">Central lock</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="child-lock" name="child-lock" value="Child Lock" />
+                    <input type="checkbox" id="child-lock" name="child-lock" value="Child Lock" />
                     <label for="child-lock">Child lock</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="blind-spot" name="blind-spot" value="Blind spot monitor" />
-                    <label for="blind-spot">Blind spot monitor</label>
+                    <input type="checkbox" id="blind-spot" name="blind-spot" value="Blind spot monitor" />
+                    <label for="blind-spot">Blind spot</label>
                     </div>
 
                
@@ -242,112 +242,112 @@ function Form() {
                 <div className='all-feature'>
                     
                     <div>
-                    <input type="radio" id="metalic-color" name="metalic-color" value="Metalic color" />
+                    <input type="checkbox" id="metalic-color" name="metalic-color" value="Metalic color" />
                     <label for="metalic-color">Metalic color</label>
                     </div>
                     
                     <div>
-                    <input type="radio" id="power-steering" name="power-steering" value="Power steering" />
+                    <input type="checkbox" id="power-steering" name="power-steering" value="Power steering" />
                     <label for="power-steering">Power steering</label>
                     </div>
                     
                     <div>
-                    <input type="radio" id="remote-locking" name="remote-locking" value="Remote locking" />
+                    <input type="checkbox" id="remote-locking" name="remote-locking" value="Remote locking" />
                     <label for="remote-locking">Remote locking</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="trip-computer" name="trip-computer" value="Trip computer" />
+                    <input type="checkbox" id="trip-computer" name="trip-computer" value="Trip computer" />
                     <label for="trip-computer">Trip computer</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="sunroof" name="sunroof" value="Sunroof" />
+                    <input type="checkbox" id="sunroof" name="sunroof" value="Sunroof" />
                     <label for="sunroof">Sunroof</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="tow-hitch" name="tow-hitch" value="Tow hitch" />
+                    <input type="checkbox" id="tow-hitch" name="tow-hitch" value="Tow hitch" />
                     <label for="tow-hitch">Tow hitch</label>
                     </div>
                     
                     <div>
-                    <input type="radio" id="panoramic-roof" name="spanoramic-roof" value="Panoramic roof" />
+                    <input type="checkbox" id="panoramic-roof" name="spanoramic-roof" value="Panoramic roof" />
                     <label for="panoramic-roof">Panoramic roof</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="tinted-windows" name="tinted-windows" value="Tinted windows" />
+                    <input type="checkbox" id="tinted-windows" name="tinted-windows" value="Tinted windows" />
                     <label for="tinted-windows" >Tinted-windows</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="electric-windows" name="electric-windows" value="Electric windows" />
+                    <input type="checkbox" id="electric-windows" name="electric-windows" value="Electric windows" />
                     <label for="electric-windows">Electric windows</label>
                     </div>
                     
                     <div>
-                    <input type="radio" id="electric-mirrors" name="electric-mirrors" value="Electric mirrors" />
+                    <input type="checkbox" id="electric-mirrors" name="electric-mirrors" value="Electric mirrors" />
                     <label for="electric-mirrors">Electric mirrors</label>
                     </div>
                     
                     <div>
-                    <input type="radio" id="mirror-heaters" name="mirror-heaters" value="Mirror heaters" />
+                    <input type="checkbox" id="mirror-heaters" name="mirror-heaters" value="Mirror heaters" />
                     <label for="mirror-heaters">Mirror heaters</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="s.-wheel-heater" name="s.-wheel-heater" value="S. wheel heater" />
+                    <input type="checkbox" id="s.-wheel-heater" name="s.-wheel-heater" value="S. wheel heater" />
                     <label for="s.-wheel-heater">S. wheel heater</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="height-adj-seat" name="height-adj-seat" value="Height adj. seat" />
+                    <input type="checkbox" id="height-adj-seat" name="height-adj-seat" value="Height adj. seat" />
                     <label for="height-adj-seat">Height adj. seat</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="electrically-adj-seat" name="electrically-adj-seat" value="Electrically adj. seat" />
-                    <label for="helectrically-adj-seat">Electrically adj. seat</label>
+                    <input type="checkbox" id="electrically-adj-seat" name="electrically-adj-seat" value="El. adj. seat" />
+                    <label for="helectrically-adj-seat">El. adj. seat</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="seat-heaters" name="seat-heaters" value="Seat heaters" />
+                    <input type="checkbox" id="seat-heaters" name="seat-heaters" value="Seat heaters" />
                     <label for="seat-heaters">Seat heaters</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="fog-lights" name="fog-lights" value="Fog lights" />
+                    <input type="checkbox" id="fog-lights" name="fog-lights" value="Fog lights" />
                     <label for="fog-lights">Fog lights</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="xenon-lights" name="xenon-lights" value="Xenon lights" />
+                    <input type="checkbox" id="xenon-lights" name="xenon-lights" value="Xenon lights" />
                     <label for="xenon-lights">Xenon lights</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="lights-sensors" name="lights-sensors" value="Lights sensors" />
+                    <input type="checkbox" id="lights-sensors" name="lights-sensors" value="Lights sensors" />
                     <label for="lights-sensors">Lights sensors</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="rain-sensors" name="rain-sensors" value="Rain sensors" />
+                    <input type="checkbox" id="rain-sensors" name="rain-sensors" value="Rain sensors" />
                     <label for="rain-sensors">Rain sensors</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="parking-sensors" name="parking-sensors" value="Praking sensors" />
+                    <input type="checkbox" id="parking-sensors" name="parking-sensors" value="Praking sensors" />
                     <label for="parking-sensors">Parking sensors</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="roof-rack" name="roof-rack" value="Roof rack" />
+                    <input type="checkbox" id="roof-rack" name="roof-rack" value="Roof rack" />
                     <label for="roof-rack">Roof rack</label>
                     </div>
 
                     <div>
-                    <input type="radio" id="aluminum-rims" name="aluminum-rims" value="Aluminum rims" />
+                    <input type="checkbox" id="aluminum-rims" name="aluminum-rims" value="Aluminum rims" />
                     <label for="aluminum-rims">Aluminum rims</label>
                     </div>
 

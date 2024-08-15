@@ -75,7 +75,12 @@ span {
 .vehicle-type {
     display: none;
 }
-.vehicle-type button{
+
+.vehicle-type-visible {
+    display: none;
+}
+
+.vehicle-type button {
     display: block;
 }
 
@@ -85,6 +90,10 @@ span {
 }
 
 .logIn-menu {
+    display: none;
+}
+
+.logIn-menu-visible {
     display: none;
 }
 .logIn-menu button {
@@ -132,22 +141,77 @@ span {
     }
 
     .vehicle-type {
-        position: absolute;
         display: none;
+    }
+    .vehicle-type-visible {
+        position: absolute;
+        display: block;
+        z-index: 2;
         right: 0;
         width: 45%;
-        height: 100%;
+        height: 100vh;
         background-color: #555e61;
         border-left: 1px solid black;
     }
 
+    .header-vehicle{
+        display: block;
+    }
+    .type-sedann-h, .type-motorcycle-h, .type-truck-h, .type-tire-h {
+        width: 100%;
+        height: 4.3rem;
+        background-color: #afb2b6;
+        border: none;
+        border-bottom: 1px solid black;
+        cursor: pointer;
+    }
+    .close-path-h {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4.2rem;
+        font-size: 1.4rem;
+        font-weight: bold;
+        background-color: #afb2b6;
+        border-bottom: 1px solid black;
+        cursor: pointer;
+    }
+    .close-path-h img {
+        margin-left: 1rem;
+        height: 2rem;
+        width: auto;
+    }
 
+    .type-sedann-h img {
+        height: 2.8rem;
+        width: auto;
+    }
+    
+    .type-motorcycle-h img {
+        height: 4rem;
+        width: auto;
+    }
+    
+    .type-truck-h img{
+        height: 3.5rem;
+        width: auto;
+    }
+
+    .type-tire-h img {
+        height: 3rem;
+        width: auto;
+    }
 
     .logIn-menu {
         display: none;
+    }
+
+    .logIn-menu-visible {
+        display: block;
         position: absolute;
+        z-index: 2;
         right: 0;
-        height: 100%;
+        height: 100vh;
         width: 45%;
         background-color: #656668;
     }
@@ -155,33 +219,74 @@ span {
     .profile-btn {
         height: 8rem;
         width: 100%;
-        border-bottom: 2px solid white;
+        padding-bottom: 1rem;
+        text-align: center;
+        display: block;
     }
 
     .under-profile {
         opacity: 0.5;
     }
 
+    .close-path-log{
+        height: 3rem;
+        display: flex;
+        position: relative;
+        text-align: center;
+        align-items: center ;
+        justify-content: center;
+        width: 90%;
+        background-color:white;
+        color:#555e61;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: auto;
+        margin-top: 1rem;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+    .close-path-log img {
+        position: absolute;
+        right: 1rem;
+        height: 2rem;
+        width: auto;
+    }
+
     .logIn-menu button {
-        margin: 1rem auto;
-        width: 80%;
+        display: block;
         height: 3rem;
         font-size: 1rem;
         font-weight: bold;
         border: none;
         border-radius: 1rem;
-        cursor: pointer;
     }
 
     .logIn {
         height: 3rem;
-        width: 10rem;
+        width: 90%;
         background-color:#0088a9;
         color: white;
         font-weight: bold;
         font-size: 1.2rem;
+        margin-top: 1rem ;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
     }
-
+    .post-ad {
+        height: 3rem;
+        width: 90%;
+        background-color:white;
+        color:#555e61;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        border: none;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+    
 
 }
 

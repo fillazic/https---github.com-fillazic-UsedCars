@@ -14,10 +14,6 @@
     border-top-right-radius: 0.8rem;
 }
 
-.close-path {
-    display: none;
-}
-
 .type-sedann, .type-motorcycle, .type-truck, .type-tire {
     height: 6rem;
     width: 10rem;
@@ -50,54 +46,4 @@ button img {
     cursor: pointer;
 }
 
-}
-
-@media only screen and (max-width: 1200px) {
-
-    .vehicle{
-        display: block;
-    }
-    .type-sedann, .type-motorcycle, .type-truck, .type-tire {
-        width: 100%;
-        height: 4.2rem;
-        background-color: #afb2b6;
-        border: none;
-        border-bottom: 1px solid black;
-        cursor: pointer;
-    }
-    .close-path {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 4.2rem;
-        font-size: 1.4rem;
-        font-weight: bold;
-        background-color: #afb2b6;
-        border-bottom: 1px solid black;
-        cursor: pointer;
-    }
-    .close-path img {
-        margin-left: 1rem;
-    }
-
-    .type-sedann img {
-        height: 2.8rem;
-        width: auto;
-    }
-    
-    .type-motorcycle img {
-        height: 4rem;
-        width: auto;
-    }
-    
-    .type-truck img{
-        height: 3.5rem;
-        width: auto;
-    }
-
-    .type-tire img {
-        height: 3rem;
-        width: auto;
-    }
- 
 }

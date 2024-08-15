@@ -1,7 +1,14 @@
+import React, { useState } from 'react';
 import './Form.css';
 
 
 function Form() {
+
+    const [detailForm, setDetailForm]= useState(false);
+
+    const detailHandler = () => {
+        setDetailForm(!detailForm)
+    }
 
     return (
         <div className='form' >
@@ -64,7 +71,9 @@ function Form() {
                 </div>
                 <div className='search-button'>
                     <button className='hidden-btn'>More Detail</button>
-                    <button className='detail'>More Detail</button>
+                    <button type='button' className='detail' onClick={detailHandler} >
+                        {!detailForm? 'More Detail' : 'Less Detail'}
+                    </button>
                     <button id='search-form'>
                        <div className='search-div'>
                         <h4>Search</h4>
@@ -73,6 +82,7 @@ function Form() {
                     </button>
             </div>
             
+            <div className={ !detailForm? 'detail-form-hidden' : 'detail-form-visible' } >
                 <div className="power" >
                     <div className='power-input'>
                         <input type="number" id="kw" name="kw" placeholder="kW From" />
@@ -355,13 +365,15 @@ function Form() {
             
             <div className='search-button'>
                     <button className='hidden-btn'>More Detail</button>
-                    <button className='detail'>Less Detail</button>
+                    <button type='button' className='detail' onClick={detailHandler} >Less Detail</button>
                     <button id='search-form'>
                        <div className='search-div'>
                         <h4>Search</h4>
                         <img src="./images/search-white.png"/>
                        </div>
                     </button>
+            </div>
+
             </div>
 
             </form>

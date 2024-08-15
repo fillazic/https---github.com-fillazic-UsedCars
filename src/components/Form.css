@@ -163,7 +163,17 @@ div.selected-container:hover {
 }
 
 /*Detail form*/
+.detail-form-hidden {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease-out, opacity 0.2s;
+}
 
+.detail-form-visible {
+    max-height: auto;
+    opacity: 1;
+    transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+}
 
 .power {
     display: flex;
@@ -320,6 +330,10 @@ div.selected-container:hover {
         width: 100%;
         margin: auto;
         text-align: center;
+    }
+
+    .model {
+        padding-top: 0.5rem;
     }
 
     div.selected-container, .model input{

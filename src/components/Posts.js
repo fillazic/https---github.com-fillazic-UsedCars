@@ -1,26 +1,50 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCars } from '../slices/carSlice';
 import './Posts.css';
 
 function Posts() {
 
-    return (
-        <div>
-            <div id="car" className="car">
+    const dispatch = useDispatch();
+    const cars = useSelector(state => state.cars.cars);
+    const status = useSelector(state => state.cars.status);
+    const error = useSelector(state => state.cars.error);
 
+    useEffect(() => {
+        if (status === 'idle') {
+          dispatch(fetchCars());
+        }
+      }, [status, dispatch]);
+    
+      if (status === 'loading') {
+        return <div>Loading...</div>;
+      }
+    
+      if (status === 'failed') {
+        return <div>Error: {error}</div>;
+      }
+      
+    return (
+        <div className="car-container">
+            {cars.map((car) => (
+             <div id="car" className="car" key={car.id} >
                 <div className="car-image">
                     <img src="./images/truck.png" alt="Volvo 480" />
                 </div>
 
                 <div className="info">
-                    <p id="mark">Volvo 480ES</p>
-                    <p className="price">1500$</p>
+                    <p id="mark">{car.make}  {car.model}</p>
+                    <p className="price">{car.price}$</p>
                 </div>
 
                 <div className="engine">
-                    <p className="fuel">Benzin | 1800ccm</p>
-                    <p className="year">1991. god.</p>
+                    <p className="fuel">{car.fuel} | 1800ccm</p>
+                    <p className="year">{car.year}</p>
                 </div> 
-            </div>      
-        </div>
+            </div>
+    
+))}
+            </div>
     )
 }
 

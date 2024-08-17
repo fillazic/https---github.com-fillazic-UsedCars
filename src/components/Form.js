@@ -4,14 +4,19 @@ import './Form.css';
 
 function Form() {
 
+    const [formVisible, setFormVisible] = useState(false);
     const [detailForm, setDetailForm]= useState(false);
 
     const detailHandler = () => {
         setDetailForm(!detailForm)
     }
 
+    const formHandler = () => {
+         setFormVisible(!formVisible)
+    }
+
     return (
-        <div className='form' >
+        <div className={!formVisible? 'form' : 'form-visible'} >
             <form>
                 <div className='model' >
                     <div className='selected-container'>
@@ -25,7 +30,7 @@ function Form() {
                                 <option value="Saab">Saab</option>
                         </select>
                         <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
                     <input name='model' placeholder='model'/>
@@ -38,7 +43,7 @@ function Form() {
                                 <option value="year" >Year</option>
                         </select>
                         <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
 
@@ -52,7 +57,7 @@ function Form() {
                                 <option value="Van">Van/Minibus</option>
                         </select>
                         <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
                     <div className='selected-container'>
@@ -65,7 +70,7 @@ function Form() {
                                 <option value="Natural gas">Natural gas</option>
                         </select>
                         <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
                 </div>
@@ -102,7 +107,7 @@ function Form() {
                             <option value="Semi-automatic">Semi-automatic</option>
                         </select>
                         <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
                 </div>
@@ -118,7 +123,7 @@ function Form() {
                         <option value="Red">Red</option>
                     </select>
                     <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                     </div>
                 </div>
 
@@ -129,7 +134,7 @@ function Form() {
                         <option value="four-doors">4/5</option>
                     </select>
                     <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                     </div>
                 </div>
 
@@ -140,7 +145,7 @@ function Form() {
                         <option value="four-doors">4/5</option>
                     </select>
                     <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                     </div>
                 </div>
 
@@ -155,7 +160,7 @@ function Form() {
                             <option value="Automatic-AC">Automatic air conditioning</option>
                         </select>
                         <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
 
@@ -173,7 +178,7 @@ function Form() {
                             <option value="Euro6d">Euro6d</option>
                         </select>
                         <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
 
@@ -184,7 +189,7 @@ function Form() {
                             <option value="Full-leather">Full-leather</option>
                         </select>
                         <div className='icon'>
-                            <i class='fa fa-caret-down' ></i>
+                            <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
                 </div>
@@ -193,57 +198,57 @@ function Form() {
                 <div className='safety' >
                     <div>
                     <input type="checkbox" id="ABS" name="ABS" value="ABS" />
-                    <label for="ABS">ABS</label>
+                    <label htmlFor="ABS">ABS</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="ESP" name="ESP" value="ESP" />
-                    <label for="ESP">ESP</label>
+                    <label htmlFor="ESP">ESP</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="ASR" name="ASR" value="ASR" />
-                    <label for="ASR">ASR</label>
+                    <label htmlFor="ASR">ASR</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="driven-airbags" name="driven-airbags" value="Driven Airbags" />
-                    <label for="driven-airbags">Driven Airbags</label>
+                    <label htmlFor="driven-airbags">Driven Airbags</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="front-airbags" name="front-airbags" value="Front Airbags" />
-                    <label for="front-airbags">Front Airbags</label>
+                    <label htmlFor="front-airbags">Front Airbags</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="side-airbags" name="side-airbagss" value="Side Airbags" />
-                    <label for="side-airbags">Side Airbags</label>
+                    <label htmlFor="side-airbags">Side Airbags</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="more-airbags" name="more-airbags" value="More Airbags" />
-                    <label for="more-airbags">More Airbags</label>
+                    <label htmlFor="more-airbags">More Airbags</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="alarm" name="alarm" value="Alarm system" />
-                    <label for="alarm">Alarm system</label>
+                    <label htmlFor="alarm">Alarm system</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="central-lock" name="central-lock" value="Central lock" />
-                    <label for="central-lock">Central lock</label>
+                    <label htmlFor="central-lock">Central lock</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="child-lock" name="child-lock" value="Child Lock" />
-                    <label for="child-lock">Child lock</label>
+                    <label htmlFor="child-lock">Child lock</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="blind-spot" name="blind-spot" value="Blind spot monitor" />
-                    <label for="blind-spot">Blind spot</label>
+                    <label htmlFor="blind-spot">Blind spot</label>
                     </div>
 
                
@@ -253,112 +258,112 @@ function Form() {
                     
                     <div>
                     <input type="checkbox" id="metalic-color" name="metalic-color" value="Metalic color" />
-                    <label for="metalic-color">Metalic color</label>
+                    <label htmlFor="metalic-color">Metalic color</label>
                     </div>
                     
                     <div>
                     <input type="checkbox" id="power-steering" name="power-steering" value="Power steering" />
-                    <label for="power-steering">Power steering</label>
+                    <label htmlFor="power-steering">Power steering</label>
                     </div>
                     
                     <div>
                     <input type="checkbox" id="remote-locking" name="remote-locking" value="Remote locking" />
-                    <label for="remote-locking">Remote locking</label>
+                    <label htmlFor="remote-locking">Remote locking</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="trip-computer" name="trip-computer" value="Trip computer" />
-                    <label for="trip-computer">Trip computer</label>
+                    <label htmlFor="trip-computer">Trip computer</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="sunroof" name="sunroof" value="Sunroof" />
-                    <label for="sunroof">Sunroof</label>
+                    <label htmlFor="sunroof">Sunroof</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="tow-hitch" name="tow-hitch" value="Tow hitch" />
-                    <label for="tow-hitch">Tow hitch</label>
+                    <label htmlFor="tow-hitch">Tow hitch</label>
                     </div>
                     
                     <div>
                     <input type="checkbox" id="panoramic-roof" name="spanoramic-roof" value="Panoramic roof" />
-                    <label for="panoramic-roof">Panoramic roof</label>
+                    <label htmlFor="panoramic-roof">Panoramic roof</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="tinted-windows" name="tinted-windows" value="Tinted windows" />
-                    <label for="tinted-windows" >Tinted-windows</label>
+                    <label htmlFor="tinted-windows" >Tinted-windows</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="electric-windows" name="electric-windows" value="Electric windows" />
-                    <label for="electric-windows">Electric windows</label>
+                    <label htmlFor="electric-windows">Electric windows</label>
                     </div>
                     
                     <div>
                     <input type="checkbox" id="electric-mirrors" name="electric-mirrors" value="Electric mirrors" />
-                    <label for="electric-mirrors">Electric mirrors</label>
+                    <label htmlFor="electric-mirrors">Electric mirrors</label>
                     </div>
                     
                     <div>
                     <input type="checkbox" id="mirror-heaters" name="mirror-heaters" value="Mirror heaters" />
-                    <label for="mirror-heaters">Mirror heaters</label>
+                    <label htmlFor="mirror-heaters">Mirror heaters</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="s.-wheel-heater" name="s.-wheel-heater" value="S. wheel heater" />
-                    <label for="s.-wheel-heater">S. wheel heater</label>
+                    <label htmlFor="s.-wheel-heater">S. wheel heater</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="height-adj-seat" name="height-adj-seat" value="Height adj. seat" />
-                    <label for="height-adj-seat">Height adj. seat</label>
+                    <label htmlFor="height-adj-seat">Height adj. seat</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="electrically-adj-seat" name="electrically-adj-seat" value="El. adj. seat" />
-                    <label for="helectrically-adj-seat">El. adj. seat</label>
+                    <label htmlFor="helectrically-adj-seat">El. adj. seat</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="seat-heaters" name="seat-heaters" value="Seat heaters" />
-                    <label for="seat-heaters">Seat heaters</label>
+                    <label htmlFor="seat-heaters">Seat heaters</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="fog-lights" name="fog-lights" value="Fog lights" />
-                    <label for="fog-lights">Fog lights</label>
+                    <label htmlFor="fog-lights">Fog lights</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="xenon-lights" name="xenon-lights" value="Xenon lights" />
-                    <label for="xenon-lights">Xenon lights</label>
+                    <label htmlFor="xenon-lights">Xenon lights</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="lights-sensors" name="lights-sensors" value="Lights sensors" />
-                    <label for="lights-sensors">Lights sensors</label>
+                    <label htmlFor="lights-sensors">Lights sensors</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="rain-sensors" name="rain-sensors" value="Rain sensors" />
-                    <label for="rain-sensors">Rain sensors</label>
+                    <label htmlFor="rain-sensors">Rain sensors</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="parking-sensors" name="parking-sensors" value="Praking sensors" />
-                    <label for="parking-sensors">Parking sensors</label>
+                    <label htmlFor="parking-sensors">Parking sensors</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="roof-rack" name="roof-rack" value="Roof rack" />
-                    <label for="roof-rack">Roof rack</label>
+                    <label htmlFor="roof-rack">Roof rack</label>
                     </div>
 
                     <div>
                     <input type="checkbox" id="aluminum-rims" name="aluminum-rims" value="Aluminum rims" />
-                    <label for="aluminum-rims">Aluminum rims</label>
+                    <label htmlFor="aluminum-rims">Aluminum rims</label>
                     </div>
 
             </div>

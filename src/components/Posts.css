@@ -1,13 +1,14 @@
 
 .car-container {
   display: flex;
+  width: 100%;
 }
 
 .car {
     width: 35rem;
     height: 35rem;
     background-color: lightgray;
-    margin: 15px;
+    margin: 1rem;
     border: 1px #585353 solid;
     box-shadow: 10px 10px 5px #bdb3b3;
   }
@@ -54,5 +55,11 @@
     
     .car-container {
       display: block;
+      margin: auto;
+      text-align: center;
+    }
+
+    .car {
+      margin: 1rem auto;
     }
 }

@@ -47,10 +47,11 @@ div.selected-container {
 }
 
 div.selected-container:hover {
+    border: 1px solid #db1212;
     .icon i {
         color:#db1212;
     }
-    border: 1px solid #db1212;
+
 }
 
 #selected-items {
@@ -167,12 +168,16 @@ div.selected-container:hover {
     max-height: 0;
     opacity: 0;
     transition: max-height 0.5s ease-out, opacity 0.2s;
+    visibility: hidden;
 }
+
+
 
 .detail-form-visible {
     max-height: auto;
     opacity: 1;
     transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+    visibility: visible;
 }
 
 .power {

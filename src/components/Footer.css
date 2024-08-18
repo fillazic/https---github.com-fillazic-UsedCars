@@ -5,6 +5,7 @@
     justify-content: space-between;
     background-color: #555e61;
     height: 25rem;
+    z-index: 3;
   }
 
   .popular {
@@ -13,7 +14,7 @@
     width: 90%;
   }
   .popular div {
-    text-align:start;
+    text-align: start;
     width: 60%;
   }
 
@@ -29,9 +30,14 @@
     cursor: pointer;
   }
 
-  .popular button:hover {
+ #popular-btn {
+    z-index: 2;
+  }
+
+  #popular-btn:hover {
     color: white;
     background-color: #0088a9;
+
   }
 
   .contact {
@@ -47,6 +53,10 @@
     margin-right: 1rem;
     height: 2.2rem;
     width: 2.2rem;
+    cursor: pointer;
+  }
+
+  img.logo {
     cursor: pointer;
   }
 

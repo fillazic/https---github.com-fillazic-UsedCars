@@ -34,10 +34,3 @@
     transform: rotate(360deg);
   }
 }
-
-
-@media only screen and (max-width: 1200px){
-  .vehicle-path {
-    display: none;
-  }
-}

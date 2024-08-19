@@ -7,12 +7,12 @@ export const fetchCars = createAsyncThunk(
     async () => {
       const { data, error } = await supabase
         .from('Car')
-        .select('*'); // Fetch all fields for all cars
+        .select(` *, Models ( model_name ), Makes ( make_name )`); 
   
       if (error) {
-        throw new Error(error.message);
+        throw new (error.message);
       }
-  
+      
       return data; // Return the full car data
     }
   );

@@ -283,7 +283,7 @@ div.selected-container:hover {
     top: 0;
     width: 1.2rem;
     height: 1.2rem;
-    background-image: url("../images-src/correct-red.png");
+    background-image: url("./images-src/correct-red.png");
     background-size:contain ;
     transform: scale(1);
     opacity: 1;
@@ -297,7 +297,7 @@ div.selected-container:hover {
     top: 0;
     width: 1.2rem;
     height: 1.2rem;
-    background-image: url("../images-src/correct-red.png");
+    background-image: url("./images-src/correct-red.png");
     background-size:contain ;
     transform: scale(0);
     opacity: 0;
@@ -305,6 +305,10 @@ div.selected-container:hover {
 
 
 @media only screen and (max-width: 1200px) {
+
+    .vehicle-path {
+        display: none;
+    }
 
     .form {
         margin-top: 2rem;

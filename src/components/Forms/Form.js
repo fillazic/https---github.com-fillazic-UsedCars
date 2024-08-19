@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Vehicle from './Vehicle';
 import './Form.css';
 
 
@@ -16,8 +17,14 @@ function Form() {
     }
 
     return (
+
         <div className={!formVisible? 'form' : 'form-visible'} >
-            <form>
+            
+            <div className='vehicle-path'>
+            <   Vehicle/>
+            </div>
+
+             <form>
                 <div className='model' >
                     <div className='selected-container'>
                         <select name="mark" id="selected-items" >

@@ -29,11 +29,11 @@ function Posts() {
             {cars.map((car) => (
              <div id="car" className="car" key={car.id} >
                 <div className="car-image">
-                    <img src="./images/truck.png" alt="Volvo 480" />
+                    <img src={car.images} alt={car.Makes.make_name}  />
                 </div>
 
                 <div className="info">
-                    <p id="mark">{car.make}  {car.model}</p>
+                    <p id="mark">{car.Makes.make_name}  {car.Models.model_name}</p>
                     <p className="price">{car.price}$</p>
                 </div>
 

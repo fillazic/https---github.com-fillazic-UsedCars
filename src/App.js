@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header  from './components/Header';
-import Vehicle from './components/Vehicle';
-import Form from './components/Form';
-import Posts from './components/Posts';
+import CarHomePage from './components/CarHomePage';
 import Footer from './components/Footer';
 
 function App() {
 
   return (
+    <Router>
     <div className="App">
       <Header />
-      <div className='vehicle-path'>
-      <Vehicle/>
-      </div>
-      <Form />
-      <Posts />
+      <Routes>
+          <Route path="/" element={<CarHomePage />} />     
+      </Routes>
       <Footer />
+
     </div>
+    </Router>
   );
 }
 

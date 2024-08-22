@@ -1,0 +1,363 @@
+
+
+
+.form {
+    width: 100%;
+    margin: auto;
+    border-bottom: 2px solid black;
+}
+
+form {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    background-color: #ffffff;
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.model input,  .power input{
+    font-size: 1rem;
+    color: #7f8286;
+    background-color: #fff;
+    border: 1px solid #7f8286;
+}
+
+.model input:hover,  .power input:hover {
+    border: 1px solid #db1212;
+}
+
+.model {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.selected-container {
+    width: 20rem;
+    height: 2.6rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #7f8286;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+div.selected-container:hover {
+    border: 1px solid #db1212;
+    .icon i {
+        color:#db1212;
+    }
+
+}
+
+#selected-items {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    font-size: 1rem;
+    color: #7f8286;
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+}
+
+#selected-items option {
+    padding-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.icon {
+    height: 100%;
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.icon i {
+    font-size: 1.5rem;
+    color: #7f8286;
+}
+
+
+.model input {
+    width: 19.59rem;
+    height: 2.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.search-button {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.search-button button {
+    width: 20rem;
+    height: 2.3rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+.search-form {
+    height: 3rem;
+    background-color: #db1212;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border:none;
+}
+
+
+
+
+.detail {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #afb2b6;
+    cursor: pointer;
+}
+
+.hidden-btn {
+    visibility: hidden;
+    width: 20rem;
+}
+
+/*Detail form*/
+.detail-form-hidden {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease-out, opacity 0.2s;
+    visibility: hidden;
+}
+
+
+
+.detail-form-visible {
+    max-height: auto;
+    opacity: 1;
+    transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
+    visibility: visible;
+}
+
+.power {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid black;
+    
+}
+
+
+.power-input {
+    width: 20rem;
+    display: flex;
+    justify-content: left;
+    margin: 1rem;
+}
+
+.power input {
+    width: 5.5rem; 
+    height: 2rem;
+    border-radius: 0.5rem;
+}
+
+#kw, #ccm {
+    margin-right: 1rem;
+}
+
+
+
+.feature-one, .feature-two {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*SAFETY*/
+
+.safety {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    border-top: 1px solid black;
+}
+
+.safety div{
+    width: 10rem;
+    margin: 1rem;
+    text-align: start;
+}
+
+.all-feature {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    border-top: 1px solid black;
+}
+
+.all-feature div{
+    width: 10rem;
+    margin: 1rem;
+    text-align: start;
+}
+
+[type="checkbox"] {
+    opacity: 0;
+}
+
+[type="checkbox"] + label {
+    position: relative;
+    padding-left: 1.5rem;
+    cursor: pointer;
+    display: inline-block;
+    color:#7f8286;
+}
+
+[type="checkbox"] + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    outline: 2px solid #7f8286 ;
+    background-color: white;
+}
+
+[type="checkbox"]:checked + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    outline: 3px solid #db1212 ;
+    background-color: white;
+}
+
+[type="checkbox"]:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url("../Forms/images-src/correct-red.png");
+    background-size:contain ;
+    transform: scale(1);
+    opacity: 1;
+    transition: all .3s ease;
+}
+
+[type="checkbox"]:not(:checked) + label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url("../Forms/images-src/correct-red.png");
+    background-size:contain ;
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+    .vehicle-path {
+        display: none;
+    }
+
+    .form {
+        margin-top: 2rem;
+    }
+    form {
+        border-top-left-radius: 0.8rem;
+        border-top-right-radius: 0.8rem;
+        width: 90%;
+    }
+
+    #kw {
+        margin-right: 0.4rem;
+    }
+    
+    #ccm {
+        margin-right: 0.4rem;
+     }
+    
+}
+
+@media only screen and (max-width: 820px){
+    form {
+        text-align: center;
+        width: 100%;
+    }
+    .model, .features, .power, .search-button, .feature-one, .feature-two {
+        display: block;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .model {
+        padding-top: 0.5rem;
+    }
+
+    div.selected-container, .model input{
+        margin: 1rem auto;
+
+    }
+
+    .search-button button{
+        margin: 1rem 5rem;
+    }
+
+    .hidden-btn {
+        display: none;
+    }
+
+    .power-input {
+        margin: 1rem auto;
+    }
+
+
+
+}
+
+@media only screen and (max-width: 500px){
+
+    form {
+        width: 100%;
+        border-radius: 0;
+    }
+    .form {
+        margin-top: 0;
+    }
+
+    .search-button button{
+        margin: 1rem auto;
+    }
+
+}

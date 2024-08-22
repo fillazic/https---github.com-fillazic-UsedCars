@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
@@ -25,7 +26,7 @@ function Header() {
 
         <div className='desctop-btn'>
           <h3 className='log'>LOG IN</h3>
-          <button className='post'>POST AN AD</button>
+          <a href='/add_post'><button className='post'>POST AN AD</button></a>
         </div>
 
         <div className='menu'>

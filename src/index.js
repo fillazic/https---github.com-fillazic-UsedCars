@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import {supabase} from './config/supaBase';
+import { SessionContextProvider } from '@supabase/auth-helpers-react';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
@@ -9,10 +12,12 @@ import {store} from './store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode> 
-    <Provider store={store}>
+  <React.StrictMode>
+    <SessionContextProvider supabaseClient={supabase}>
+    <Provider store={store} >
       <App /> 
     </Provider>
+    </SessionContextProvider>
   </React.StrictMode>
 );
 

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import supabase from '../config/supaBase';
+import {supabase} from '../config/supaBase';
 
 // Thunk to fetch car makers from Supabase
 export const fetchCars = createAsyncThunk(

@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import supabase from '../../config/supaBase';
+
+import {supabase} from '../../config/supaBase';
+import { useUser } from '@supabase/auth-helpers-react';
+import {v4 as uuidv4} from 'uuid';
 import Vehicle from '../Forms/Vehicle';
 import './AddPost.css'
 
-
+const CDNURL= "https://dcyhbisdusfgptxeuczc.supabase.co/storage/v1/object/public/car-images/";
 function AddPost () {
+    const user = useUser();
 
+    const [email, setEmail] = useState('');
     const [make, setMake] = useState('');
     const [model, setModel] = useState([]);
     const [year, setYear] = useState('');
@@ -22,8 +27,24 @@ function AddPost () {
       } else {
         setModel([]);
       }
+
     }, [make]);
   
+//Auth
+
+
+    const LinkForLogIn = async () => {
+        const {data, error} = await supabase.auth.signInWithOtp({
+            email: email,
+        })
+        if (error) {
+            alert('Error, make sure you use real emali')
+            console.log(error)
+        } else {
+            alert('Check your email for link to log in')
+        }
+    }
+
     const fetchModelsForMark = async (make) => {
       const { data, error } = await supabase
         .from('Models')
@@ -42,49 +63,50 @@ function AddPost () {
       setMake(e.target.value);
       setSelectedModelId(''); // Reset model selection
     };
+ 
+
+    const getImages = async () => {
+        const {data, error} = await supabase 
+            .storage
+            .from('car-images')
+            .list(user?.id + "/" , {
+                limit: 100,
+                offset:0,
+                sortBy: { column: "name", order: "asc"}
+            })
+
+            if(data !== null) {
+                let datas= data.map(image => `${CDNURL}${user.id}/${image.name}`);
+                setImages(datas);
+                console.log(images)
+            } else {
+                console.log(error)
+            }
+ 
+    }
   
-    const handleImageChange = (e) => {
-      setImages([...e.target.files]);
-    };
+    const uploadImages = async (e) => {
   
-    const uploadImages = async (files) => {
-      const uploadedImageUrls = [];
+        let file = e.target.files[0]
   
-      for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-        const fileNameWithoutExtension = file.name.split('.').slice(0, -1).join('.');
-        const currentDate = new Date().toISOString();
-        const folderName = `${fileNameWithoutExtension}-${currentDate}`;
-        const filePath = `${folderName}/${file.name}`;
+        const { data, error } = await supabase
+            .storage
+            .from('car-images')
+            .upload(user.id + "/" + uuidv4(), file);
   
-        const { data, error } = await supabase.storage
-          .from('car-images')
-          .insert(filePath, file);
-  
-        if (error) {
-          console.error('Error uploading image:', error.message);
+        if (data) {
+          getImages()
         }else {
-            console.log('Image uploaded successfully:', data);
+            console.log(error);
         }
   
-        const { publicUrl } = supabase.storage
-          .from('car-images')
-          .getPublicUrl(filePath)
-          .data;
-  
-        uploadedImageUrls.push(publicUrl);
-      }
-  
-      return uploadedImageUrls;
-    };
-  
+    }
+
     const handleSubmit = async (e) => {
       e.preventDefault();
       setUploading(true);
   
       // Step 1: Upload images to Supabase Storage
-      const imageUrls = await uploadImages(images);
-  
       // Step 2: Insert the car details along with the image URLs
       const { error: carError } = await supabase
         .from('Car')
@@ -96,7 +118,7 @@ function AddPost () {
             price,
             vehicleType,
             fuel,
-            image: imageUrls, // Store the array of image URLs
+           image: images,
           },
         ]);
   
@@ -120,7 +142,14 @@ function AddPost () {
     return (
 
         <div className='form' >
-            
+            { user === null ? 
+            (<div>
+            <h1>Press button for link</h1>
+            <input type='email' onChange={(e)=> setEmail(e.target.value)}/>
+            <button onClick={() => LinkForLogIn()}>Get a link</button>
+            </div>)
+            :
+        ( <>
             <div className='vehicle-path'>
             <   Vehicle/>
             </div>
@@ -478,7 +507,7 @@ function AddPost () {
             */}
              <div>
             <label>Images:</label>
-            <input type="file" multiple onChange={handleImageChange} />
+            <input type="file" multiple onChange={(e) => uploadImages(e)} />
             </div>
             <div className='search-button' >
                     <button className='hidden-btn'>More Detail</button>
@@ -490,6 +519,9 @@ function AddPost () {
             {/*</div>*/}
 
             </form>
+         </>)
+        }       
+
         </div>
     )
 }

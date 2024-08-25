@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-function Header() {
+function Header({login}) {
 
    const [isVisible, setIsVisible] = useState(false);
    const [isVisibleLogIn, setIsVisibleLogIn] = useState(false);
@@ -25,7 +25,10 @@ function Header() {
         </div>
 
         <div className='desctop-btn'>
-          <h3 className='log'>LOG IN</h3>
+          { !login ?
+            <h3 className='log'>LOG IN</h3>
+          : <h3 className='log'>My Profile</h3>
+          }
           <a href='/add_post'><button className='post'>POST AN AD</button></a>
         </div>
 

@@ -7,7 +7,8 @@ import Vehicle from '../Forms/Vehicle';
 import './AddPost.css'
 
 const CDNURL= "https://dcyhbisdusfgptxeuczc.supabase.co/storage/v1/object/public/car-images/";
-function AddPost () {
+
+function AddPost ({setLogin}) {
     const user = useUser();
 
     const [email, setEmail] = useState('');
@@ -149,7 +150,7 @@ function AddPost () {
             <button onClick={() => LinkForLogIn()}>Get a link</button>
             </div>)
             :
-        ( <>
+        ( setLogin(true) || <>
             <div className='vehicle-path'>
             <   Vehicle/>
             </div>

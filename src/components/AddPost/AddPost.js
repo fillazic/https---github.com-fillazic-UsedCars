@@ -6,6 +6,8 @@ import {v4 as uuidv4} from 'uuid';
 import Vehicle from '../Forms/Vehicle';
 import './AddPost.css'
 
+
+
 const CDNURL= "https://dcyhbisdusfgptxeuczc.supabase.co/storage/v1/object/public/car-images/";
 
 function AddPost ({setLogin}) {
@@ -18,18 +20,26 @@ function AddPost ({setLogin}) {
     const [price, setPrice] = useState('');
     const [vehicleType, setVehicleType] = useState('');
     const [fuel, setFuel] = useState('');
-    const [images, setImages] = useState([]);
+    const [images, setImages] = useState('');
     const [uploading, setUploading] = useState(false);
     const [selectedModelId, setSelectedModelId] = useState('');
+    const [form, setForm] = useState(false)
   
     useEffect(() => {
-      if (make) {
-        fetchModelsForMark(make);
+      if (user) {
+        setForm(true);
+        setLogin(true)
       } else {
-        setModel([]);
-      }
-
-    }, [make]);
+        // User is not authenticated, show the login page
+        setForm(false);
+    }
+    if (make){
+        fetchModelsForMark(make)
+    }
+    
+    console.log(form)
+    console.log(user)
+    }, [user, form, make]);
   
 //Auth
 
@@ -45,6 +55,11 @@ function AddPost ({setLogin}) {
             alert('Check your email for link to log in')
         }
     }
+
+    const signOut = async () => {
+        const {error} = await supabase.auth.signOut()
+    }
+
 
     const fetchModelsForMark = async (make) => {
       const { data, error } = await supabase
@@ -141,16 +156,21 @@ function AddPost ({setLogin}) {
    
   
     return (
-
+        
         <div className='form' >
-            { user === null ? 
-            (<div>
+            { form === false ? 
+            <>
+            <div className='loginpage'>
             <h1>Press button for link</h1>
-            <input type='email' onChange={(e)=> setEmail(e.target.value)}/>
+            <input type='email' placeholder='Enter your email' onChange={(e)=> setEmail(e.target.value)}/>
+            <br/>
             <button onClick={() => LinkForLogIn()}>Get a link</button>
-            </div>)
+            </div>
+            </>
             :
-        ( setLogin(true) || <>
+           <>
+          <div>
+            <button onClick={signOut}>More Detail</button>
             <div className='vehicle-path'>
             <   Vehicle/>
             </div>
@@ -516,11 +536,11 @@ function AddPost ({setLogin}) {
                         {uploading ? 'Uploading...' : 'Post Ad'}
                     </button>
             </div>
-
             {/*</div>*/}
 
             </form>
-         </>)
+         </div>
+         </> 
         }       
 
         </div>

@@ -52,6 +52,57 @@ span {
     margin-right: 4rem;
     cursor: pointer;
 }
+.container-log {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.h-icon {
+    height: 100%;
+    position: absolute;
+    right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.h-icon i {
+    color: white;
+    font-size: 1.4rem;
+}
+
+.my-profile {
+    position: relative;
+    margin-right: 1rem;
+}
+
+
+.profile {
+    display: none;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+}
+.profile button {
+    display: block;
+    text-align: left;
+    width: 100%;
+    height: 2rem;
+    background-color: #afb2b6;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+}
+
+.container-log:hover .profile {
+    display: block;
+}
 
 .post {
     height: 3rem;

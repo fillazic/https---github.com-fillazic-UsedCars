@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Header.css';
 
 function Header({login}) {
 
    const [isVisible, setIsVisible] = useState(false);
    const [isVisibleLogIn, setIsVisibleLogIn] = useState(false);
+   const [isProfile, setProfile] = useState(false);
 
    const changeVisibility = () => {
       setIsVisible(!isVisible)
@@ -15,6 +15,9 @@ function Header({login}) {
    const changeVisibilityLogIn = () => {
     setIsVisibleLogIn(!isVisibleLogIn)
  }
+  const profileHover = () => {
+    setProfile(!isProfile)
+  }
 
     return (
       <div className='header' >
@@ -26,8 +29,21 @@ function Header({login}) {
 
         <div className='desctop-btn'>
           { !login ?
-            <h3 className='log'>LOG IN</h3>
-          : <h3 className='log'>My Profile</h3>
+            <h3 className='log'>LOG IN</h3> 
+          : <div className='my-profile' >
+            <div className='container-log'> 
+                <h3 className='log'>
+                    My Profile
+                </h3>
+                <div className='h-icon'>
+                  <i className='fa fa-caret-down' ></i>
+                </div>
+            </div>
+            <div className= 'profile' >
+              <button>My Posts</button>
+              <button >Sign out</button>
+            </div>
+            </div>
           }
           <a href='/add_post'><button className='post'>POST AN AD</button></a>
         </div>

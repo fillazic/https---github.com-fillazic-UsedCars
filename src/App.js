@@ -7,22 +7,21 @@ import CarHomePage from './components/CarHomePage';
 import AddPost from './components/AddPost/AddPost';
 import Footer from './components/Footer';
 
-
 function App() {
-
-  const [login, setLogin] = useState(false);
+  
   return (
-    <Router>
+
+   <Router>
     <div className="App">
-      <Header login={login} />
+      <Header  />
       <Routes>
           <Route path="/" element={<CarHomePage />} />
-          <Route path="/add_post" element={<AddPost setLogin={setLogin}/>} />      
+          <Route path="/add_post" element={<AddPost />} />   
       </Routes>
-      <Footer />
-
-    </div>
+    <Footer />
+   </div>
     </Router>
+
   );
 }
 

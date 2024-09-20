@@ -1,6 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+
 import {supabase} from '../../config/supaBase';
 import { useUser } from '@supabase/auth-helpers-react';
 import {v4 as uuidv4} from 'uuid';
@@ -21,10 +22,10 @@ function AddPost () {
     const [price, setPrice] = useState('');
     const [vehicleType, setVehicleType] = useState('');
     const [fuel, setFuel] = useState('');
+    const [images, setImages] = useState([]);
     const [uploading, setUploading] = useState(false);
     const [selectedModelId, setSelectedModelId] = useState('');
-    const [form, setForm] = useState(false);
-    let slike = [];
+    const [form, setForm] = useState(false)
   
     useEffect(() => {
       if (user) {
@@ -33,12 +34,11 @@ function AddPost () {
         // User is not authenticated, show the login page
         setForm(false);
     }
-    if (make) {
-      fetchModelsForMark(make)
-    } 
-    }, [user, make]);
+
+    }, [user]);
   
 //Auth
+
 
     const LinkForLogIn = async () => {
         const {data, error} = await supabase.auth.signInWithOtp({
@@ -55,14 +55,6 @@ function AddPost () {
     const signOut = async () => {
         const {error} = await supabase.auth.signOut()
     }
-
-    const handleFileChange = (e) => {
-        const selectedFiles = Array.from(e.target.files);
-        selectedFiles.forEach(file => slike.push(file));  // Update the state with selected files
-    
-        // Call the upload function
-        console.log(slike)
-      };
 
 
     const fetchModelsForMark = async (make) => {
@@ -85,52 +77,47 @@ function AddPost () {
     };
  
 
-    const getImages = async (subfolder) => {
-        const { data, error } = await supabase
-          .storage
-          .from('car-images')
-          .list(user?.id + "/" + subfolder + "/", {
-            limit: 100,
-            offset: 0,
-            sortBy: { column: "name", order: "asc" }
-          });
-      
-        if (data) {
-          const urls = data.map(image => `${CDNURL}${user.id}/${subfolder}/${image.name}`);
-          return urls; // Return the image URLs
-        } else {
-          console.log(error);
-          return []; // Return an empty array in case of error
-        }
-      }
-  
-      const uploadImages = async (e) => {
-        let subfolder = 'images' + uuidv4();
-      
-        for (const file of e) {
-          console.log(file);
-          const { data, error } = await supabase
+    const getImages = async () => {
+        const {data, error} = await supabase 
             .storage
             .from('car-images')
-            .upload(user.id + "/" + subfolder + "/" + uuidv4(), file);
-      
-          if (data) {
-            console.log('Image uploaded successfully');
-          } else {
+            .list(user?.id + "/" , {
+                limit: 100,
+                offset:0,
+                sortBy: { column: "name", order: "asc"}
+            })
+
+            if(data !== null) {
+                let datas= data.map(image => `${CDNURL}${user.id}/${image.name}`);
+                setImages(datas);
+                console.log(images)
+            } else {
+                console.log(error)
+            }
+ 
+    }
+  
+    const uploadImages = async (e) => {
+  
+        let file = e.target.files[0]
+  
+        const { data, error } = await supabase
+            .storage
+            .from('car-images')
+            .upload(user.id + "/" + uuidv4(), file);
+  
+        if (data) {
+          getImages()
+        }else {
             console.log(error);
-          }
         }
-      
-        // Get the images after all uploads are complete
-        const images = await getImages(subfolder);
-        return images; // Return the image URLs
-      };
+  
+    }
 
     const handleSubmit = async (e) => {
       e.preventDefault();
       setUploading(true);
-      const images = await uploadImages(slike);
-
+  
       // Step 1: Upload images to Supabase Storage
       // Step 2: Insert the car details along with the image URLs
       const { error: carError } = await supabase
@@ -146,8 +133,7 @@ function AddPost () {
            image: images,
           },
         ]);
-
-
+  
       if (carError) {
         console.error('Error inserting car:', carError);
         setUploading(false);
@@ -156,10 +142,14 @@ function AddPost () {
   
       setUploading(false);
   
-
-    
-
+      // Reset form after successful submission
+      setMake('');
+      setModel([]);
+      setYear('');
+      setPrice('');
+      setImages([]);
     };
+   
   
     return (
         
@@ -528,9 +518,9 @@ function AddPost () {
 
             </div>
             */}
+             <div>
             <label>Images:</label>
-            <div>
-                <input type='file' multiple onChange={handleFileChange}/>
+            <input type="file" multiple onChange={(e) => uploadImages(e)} />
             </div>
             <div className='search-button' >
                     <button className='hidden-btn'>More Detail</button>
@@ -548,4 +538,4 @@ function AddPost () {
     )
 }
 
-export default AddPost;
+//export default AddPost;

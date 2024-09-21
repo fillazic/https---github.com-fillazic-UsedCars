@@ -24,11 +24,12 @@ function AddPost () {
     const [uploading, setUploading] = useState(false);
     const [selectedModelId, setSelectedModelId] = useState('');
     const [form, setForm] = useState(false);
-    let slike = [];
+    let[imgs, setImgs] = useState([]);
   
     useEffect(() => {
       if (user) {
         setForm(true);
+
       } else {
         // User is not authenticated, show the login page
         setForm(false);
@@ -36,7 +37,7 @@ function AddPost () {
     if (make) {
       fetchModelsForMark(make)
     } 
-    }, [user, make]);
+    }, [user, make, imgs]);
   
 //Auth
 
@@ -58,10 +59,10 @@ function AddPost () {
 
     const handleFileChange = (e) => {
         const selectedFiles = Array.from(e.target.files);
-        selectedFiles.forEach(file => slike.push(file));  // Update the state with selected files
-    
+        setImgs((prevImgs) => [...prevImgs, ...selectedFiles]);
+       // setPicture(imgs)  // Update the state with selected files
+       console.log(imgs)
         // Call the upload function
-        console.log(slike)
       };
 
 
@@ -129,7 +130,7 @@ function AddPost () {
     const handleSubmit = async (e) => {
       e.preventDefault();
       setUploading(true);
-      const images = await uploadImages(slike);
+      const images = await uploadImages(imgs);
 
       // Step 1: Upload images to Supabase Storage
       // Step 2: Insert the car details along with the image URLs
@@ -155,9 +156,6 @@ function AddPost () {
       }
   
       setUploading(false);
-  
-
-    
 
     };
   
@@ -246,6 +244,33 @@ function AddPost () {
                         </div>
                     </div>
                 </div>
+
+                <div className='images'>
+                  <label htmlFor='file-upload' className='custom-file-upload'>
+                    Upload Images
+                  </label>
+                  <input id='file-upload' type='file' multiple onChange={handleFileChange} />
+
+                <div className='image-container'>
+                  {imgs.map((file, index) => (
+                    <div className="car" key={index}>
+                      <img src={URL.createObjectURL(file)} alt={file.name} />
+                      <span className='delete-btn' >
+                      <i class="fa fa-close"></i>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+
+
+            <div className='search-button' >
+                    <button className='hidden-btn'>More Detail</button>
+                    <button className='search-form' type="submit" disabled={uploading} >
+                        {uploading ? 'Uploading...' : 'Post Ad'}
+                    </button>
+            </div>
             
           {/*  <div className='detail-form-visible' >
                 <div className="power" >
@@ -528,16 +553,7 @@ function AddPost () {
 
             </div>
             */}
-            <label>Images:</label>
-            <div>
-                <input type='file' multiple onChange={handleFileChange}/>
-            </div>
-            <div className='search-button' >
-                    <button className='hidden-btn'>More Detail</button>
-                    <button className='search-form' type="submit" disabled={uploading} >
-                        {uploading ? 'Uploading...' : 'Post Ad'}
-                    </button>
-            </div>
+            
             
 
             </form>

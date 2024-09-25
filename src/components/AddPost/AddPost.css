@@ -47,7 +47,7 @@ form {
     margin-bottom: 2rem;
 }
 
-.model input,  .power input{
+#ap-input {
     font-size: 1rem;
     color: #7f8286;
     background-color: #fff;
@@ -117,15 +117,17 @@ div.selected-container:hover {
 }
 
 
-.model input {
-    width: 19.59rem;
+#ap-input {
+    width: 19rem;
     height: 2.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 0.5rem;
     margin: 1rem;
+    padding-left: 1rem;
 }
+
 
 .features {
     display: flex;
@@ -193,29 +195,14 @@ div.selected-container:hover {
 .power {
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-top: 1px solid black;
-    
+    justify-content: center;    
 }
 
 
 .power-input {
     width: 20rem;
     display: flex;
-    justify-content: left;
-    margin: 1rem;
 }
-
-.power input {
-    width: 5.5rem; 
-    height: 2rem;
-    border-radius: 0.5rem;
-}
-
-#kw, #ccm {
-    margin-right: 1rem;
-}
-
 
 
 .feature-one, .feature-two {
@@ -320,7 +307,8 @@ input[type='file'] {
 
   .images {
     border: 1px dashed #7f8286;
-    margin: auto 1rem;
+    min-height: 15rem;
+    margin: auto 1.5rem;
     padding: 1rem;
   }
   /* Style for the custom file upload button */
@@ -349,7 +337,7 @@ input[type='file'] {
   }
   
   /* Style for each image and its container */
-  .car {
+  .upload-img {
     position: relative;
     width: 12rem; /* Small image size */
     height: 12rem;
@@ -357,14 +345,14 @@ input[type='file'] {
     transition: opacity 0.3s ease;
   }
   
-  .car img {
+  .upload-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
   }
   
-  .car:hover {
+  .upload-img:hover {
     opacity: 1; /* Full opacity on hover */
   }
   
@@ -389,13 +377,63 @@ input[type='file'] {
     align-items: center;
   }
   
-  .car:hover .delete-btn {
+  .upload-img:hover .delete-btn {
     opacity: 1; /* Visible on hover */
+  }
+
+  /* Container to align the label and textarea */
+  .textarea-container {
+    display: flex;
+    flex-direction: column; /* Stack label and textarea vertically */
+    align-items: center; /* Horizontally center the label and textarea */
+    justify-content: center; /* Vertically center the container */
+   /* width: 100%; /* Full width */
+  }
+  
+  /* Style the label */
+  .textarea-container label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+    text-align: center; /* Center text in the label */
+  }
+  
+  /* Style for the textarea */
+  textarea {
+    width: 92%;
+    margin: auto 1.5rem; /* Set a fixed width for the textarea */
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: Arial, sans-serif;
+    box-shadow: none;
+    background-color: #f9f9f9;
+    outline: none;
+  }
+  
+  /* On focus, highlight the textarea */
+  textarea:focus {
+    background-color: #fff;
+  }
+  
+  /* Placeholder styling */
+  textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+  }
+  
+  /* Optional: Hover effect for textarea */
+  textarea:hover {
+    border-color: #888;
   }
 
 @media only screen and (max-width: 1200px) {
 
-    .vehicle-path {
+    .vehicle-ap {
         display: none;
     }
 
@@ -407,14 +445,6 @@ input[type='file'] {
         border-top-right-radius: 0.8rem;
         width: 90%;
     }
-
-    #kw {
-        margin-right: 0.4rem;
-    }
-    
-    #ccm {
-        margin-right: 0.4rem;
-     }
     
 }
 
@@ -434,7 +464,7 @@ input[type='file'] {
         padding-top: 0.5rem;
     }
 
-    div.selected-container, .model input{
+    div.selected-container, #ap-input{
         margin: 1rem auto;
 
     }

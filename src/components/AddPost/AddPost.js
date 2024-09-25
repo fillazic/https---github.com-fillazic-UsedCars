@@ -15,7 +15,7 @@ function AddPost () {
     const user = useUser();
 
     const [email, setEmail] = useState('');
-    const [make, setMake] = useState('');
+    const [make, setMake] = useState([]);
     const [model, setModel] = useState([]);
     const [year, setYear] = useState('');
     const [price, setPrice] = useState('');
@@ -23,8 +23,14 @@ function AddPost () {
     const [fuel, setFuel] = useState('');
     const [uploading, setUploading] = useState(false);
     const [selectedModelId, setSelectedModelId] = useState('');
+    const [selectedMakeId, setSelectedMakeId] = useState('');
     const [form, setForm] = useState(false);
     let[imgs, setImgs] = useState([]);
+    const years = [];
+
+    for (let i = 2024; i > 1905; i--) {
+      years.push(i);
+    }
   
     useEffect(() => {
       if (user) {
@@ -33,11 +39,14 @@ function AddPost () {
       } else {
         // User is not authenticated, show the login page
         setForm(false);
-    }
-    if (make) {
-      fetchModelsForMark(make)
+    };
+
+    fetchMakes();
+
+    if (selectedMakeId) {
+      fetchModelsForMark(selectedMakeId)
     } 
-    }, [user, make, imgs]);
+    }, [user, selectedMakeId, imgs]);
   
 //Auth
 
@@ -65,12 +74,16 @@ function AddPost () {
         // Call the upload function
       };
 
+    const handleDelete = (index) => {
+        setImgs((prevImgs) => prevImgs.filter((_, i) => i !== index));
+      };
 
-    const fetchModelsForMark = async (make) => {
+
+    const fetchModelsForMark = async (selectedMakeId) => {
       const { data, error } = await supabase
         .from('Models')
         .select('id, model_name')
-        .eq('make_id', make);
+        .eq('make_id', selectedMakeId);
   
       if (error) {
         console.error('Error fetching models:', error);
@@ -79,10 +92,22 @@ function AddPost () {
   
       setModel(data || []);
     };
+
+    const fetchMakes = async () => {
+      const { data, error } = await supabase
+        .from('Makes')
+        .select('id, make_name');
+  
+      if (error) {
+        console.error('Error fetching makes:', error);
+        return;
+      }
+  
+      setMake(data || []);
+    };
   
     const handleMarkChange = (e) => {
-      setMake(e.target.value);
-      setSelectedModelId(''); // Reset model selection
+      setSelectedMakeId(e.target.value);
     };
  
 
@@ -138,7 +163,7 @@ function AddPost () {
         .from('Car')
         .insert([
           {
-            make_id: make,
+            make_id: selectedMakeId,
             model_id: selectedModelId,
             year,
             price,
@@ -160,7 +185,7 @@ function AddPost () {
     };
   
     return (
-        
+  
         <div className='form' >
             { form === false ? 
             <>
@@ -174,26 +199,25 @@ function AddPost () {
             :
            <>
             <button onClick={signOut}>More Detail</button>
-
+            <div className='vehicle-ap'><Vehicle /></div>
              <form onSubmit={handleSubmit} >
                 <div className='model' >
                     <div className='selected-container'>
-                        <select value={make} name="mark" id="selected-items" onChange={handleMarkChange} >
-                                <option value="All models" >All models</option>
-                                <option value="5" >Mercedes-Benz</option>
-                                <option value="1">Audi</option>
-                                <option value="Wolksvagen">Wolksvagen</option>
-                                <option value="BMW">BMW</option>
-                                <option value="Volvo">Volvo</option>
-                                <option value="Saab">Saab</option>
+                        <select value={selectedMakeId} name="mark" id="selected-items" onChange={handleMarkChange}>
+                                <option value="" disabled hidden>Make</option>
+                                {make.map((makes) => (
+                                <option key={makes.id} value={makes.id}>
+                                {makes.make_name}
+                                </option>
+                                ))} 
                         </select>
                         <div className='icon'>
                             <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
                     <div className='selected-container'>
-                    <select disabled={!make} value={selectedModelId} name="mark" id="selected-items" onChange={(e) => setSelectedModelId(e.target.value)} >
-                                <option value="All models" >All models</option>
+                    <select disabled={!selectedMakeId} value={selectedModelId} name="mark" id="selected-items" onChange={(e) => setSelectedModelId(e.target.value)} >
+                                <option value="">Model</option>
                                 {model.map((models) => (
                                 <option key={models.id} value={models.id}>
                                 {models.model_name}
@@ -204,13 +228,17 @@ function AddPost () {
                             <i className='fa fa-caret-down' ></i>
                     </div>
                     </div>
-                    <input type='number' name='price' placeholder='price'  onChange={(e) => setPrice(e.target.value)} />
+                    <input type='number' min={0} id='ap-input' name='price' placeholder='Price'  onChange={(e) => setPrice(e.target.value)} />
                 </div>
 
                 <div className='features'>
                     <div className='selected-container'>
                         <select type='text' name="year" id="selected-items" onChange={(e) => setYear(e.target.value)} >
-                                <option value='1997' >1997</option>
+                            {years.map((year) => (
+                              <option key={year} value={year}>
+                              {year}
+                              </option>
+                            ))}                       
                         </select>
                         <div className='icon'>
                             <i className='fa fa-caret-down' ></i>
@@ -222,8 +250,10 @@ function AddPost () {
                                 <option value="Vehicle-type" >Vehicle type</option>
                                 <option value="Saloon">Saloon</option>
                                 <option value="Estate-Car">Estate Car</option>
-                                <option value="Off-road">Off-road/Pickup Truck/SUV</option>
+                                <option value="Estate-Car">SUV</option>
+                                <option value="Off-road">Off-road</option>
                                 <option value="Sports">Sports Car/Coupe</option>
+                                <option value="Estate-Car">Pickup Truck</option>
                                 <option value="Van">Van/Minibus</option>
                         </select>
                         <div className='icon'>
@@ -244,45 +274,11 @@ function AddPost () {
                         </div>
                     </div>
                 </div>
-
-                <div className='images'>
-                  <label htmlFor='file-upload' className='custom-file-upload'>
-                    Upload Images
-                  </label>
-                  <input id='file-upload' type='file' multiple onChange={handleFileChange} />
-
-                <div className='image-container'>
-                  {imgs.map((file, index) => (
-                    <div className="car" key={index}>
-                      <img src={URL.createObjectURL(file)} alt={file.name} />
-                      <span className='delete-btn' >
-                      <i class="fa fa-close"></i>
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-
-
-            <div className='search-button' >
-                    <button className='hidden-btn'>More Detail</button>
-                    <button className='search-form' type="submit" disabled={uploading} >
-                        {uploading ? 'Uploading...' : 'Post Ad'}
-                    </button>
-            </div>
-            
-          {/*  <div className='detail-form-visible' >
+        
+            <div className='detail-form-visible' >
                 <div className="power" >
-                    <div className='power-input'>
-                        <input type="number" id="kw" name="kw" placeholder="kW From" />
-                        <input type="number" id="kw-1" name="kw-1" placeholder="kW To" />
-                     </div>
-
-                    <div className='power-input'>
-                        <input type="number" id="ccm" name="ccm" placeholder="ccm From" />
-                        <input type="number" id="ccm-1" name="ccm-1" placeholder="ccm To" />
-                    </div>
+                      <input id='ap-input' min={0} type="number"  name="kw" placeholder="kW" />
+                      <input id='ap-input' min={0} type="number" name="ccm" placeholder="ccm" />
 
                     <div className='selected-container'>
                         <select name="trensmission" id="selected-items">
@@ -296,6 +292,7 @@ function AddPost () {
                         </div>
                     </div>
                 </div>
+            </div>
 
                 <div className='feature-one' >
                 <div className='selected-container'>
@@ -377,6 +374,24 @@ function AddPost () {
                             <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
+                </div>
+
+                <div className='images'>
+                  <label htmlFor='file-upload' className='custom-file-upload'>
+                    Upload Images
+                  </label>
+                  <input id='file-upload' type='file' multiple onChange={handleFileChange} />
+
+                  <div className='image-container'>
+                    {imgs.map((file, index) => (
+                      <div className="upload-img" key={index}>
+                        <img src={URL.createObjectURL(file)} alt={file.name} />
+                        <span className='delete-btn' onClick={() => handleDelete(index)} >
+                        <i className="fa fa-close"></i>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
                 <h3>Safety</h3>
@@ -552,14 +567,38 @@ function AddPost () {
                     </div>
 
             </div>
-            */}
-            
+
+            <div className="textarea-container">
+              <label htmlFor="message">Your Message</label>
+              <textarea
+                id="message"
+                placeholder="Type your message here...">
+                </textarea>
+            </div>
+
+            <div className="power" >
+                  <input id='ap-input' type="text"  name="kw" placeholder="Name" />
+                  <input id='ap-input' type="text" name="ccm" placeholder="Last Name" />
+                  <input id='ap-input' type="phone" name="ccm" placeholder="Phone number" />
+            </div>
+
+            <div className="power" >
+                  <input id='ap-input' type="phone" name="ccm" placeholder="Other phone number" />  
+                  <input id='ap-input' type="text"  name="kw" placeholder="Addres" />
+                  <input id='ap-input' type="text" name="ccm" placeholder="City" />                
+            </div>
+
+            <div className='search-button' >
+                    <button className='hidden-btn'>More Detail</button>
+                    <button className='search-form' type="submit" disabled={uploading} >
+                        {uploading ? 'Uploading...' : 'Post Ad'}
+                    </button>
+            </div>
             
 
             </form>
-         </> 
-        }       
-
+         </>       
+            }
         </div>
     )
 }

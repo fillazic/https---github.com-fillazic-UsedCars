@@ -5,7 +5,7 @@ import {supabase} from '../../config/supaBase';
 import { useUser } from '@supabase/auth-helpers-react';
 import {v4 as uuidv4} from 'uuid';
 import Vehicle from '../Forms/Vehicle';
-import './AddPost.css'
+import './AddPost.css';
 
 
 
@@ -54,7 +54,6 @@ function AddPost () {
     useEffect(() => {
       if (user) {
         setForm(true);
-
       } else {
         // User is not authenticated, show the login page
         setForm(false);
@@ -66,6 +65,7 @@ function AddPost () {
       fetchModelsForMark(selectedMakeId)
     } 
     }, [user, selectedMakeId, imgs]);
+
   
 //Auth
 
@@ -79,10 +79,6 @@ function AddPost () {
         } else {
             alert('Check your email for link to log in')
         }
-    }
-
-    const signOut = async () => {
-        const {error} = await supabase.auth.signOut()
     }
 
     const handleFileChange = (e) => {
@@ -203,6 +199,7 @@ function AddPost () {
             other_phone_number: otherphone,
             addres: addres,
             city: city,
+            userID: user.id,
 
           },
         ]);
@@ -221,7 +218,7 @@ function AddPost () {
     return (
   
         <div className='form' >
-            { form === false ? 
+            { !user ? 
             <>
             <div className='loginpage'>
             <h1>Press button for link</h1>
@@ -232,7 +229,6 @@ function AddPost () {
             </>
             :
            <>
-            <button onClick={signOut}>More Detail</button>
             <div className='vehicle-ap'><Vehicle /></div>
              <form onSubmit={handleSubmit} >
                 <div className='model' >
@@ -262,7 +258,7 @@ function AddPost () {
                             <i className='fa fa-caret-down' ></i>
                     </div>
                     </div>
-                    <input type='number' min={0} id='ap-input' name='price' placeholder='Price'  onChange={(e) => setPrice(e.target.value)} />
+                    <input type='number' min={0} id='ap-input' name='price' placeholder='Price in €'  onChange={(e) => setPrice(e.target.value)} />
                 </div>
 
                 <div className='features'>

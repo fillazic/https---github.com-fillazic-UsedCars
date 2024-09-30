@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     height: 6rem;
-    background-color: rgb(39, 35, 35);
+    background-color: #272323;
     box-shadow: 12px 12px 15px 15px #8b9092;
 }
 
@@ -57,17 +57,27 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 2rem;
     z-index: 10;
+    cursor: pointer;
+}
+
+.logProfile {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 1.5rem;
+    border: none;
+    cursor: pointer;
 }
 
 .h-icon {
     height: 100%;
     position: absolute;
-    right: 2rem;
+    right: 0rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    pointer-events: none;
 }
 
 .h-icon i {
@@ -77,31 +87,41 @@ span {
 
 .my-profile {
     position: relative;
-    margin-right: 1rem;
+    text-align: center;
+    padding-left: 2rem;
 }
 
+.my-profile:hover {
+    .profile {
+        display: block;
+    }
+}
 
 .profile {
     display: none;
     position: absolute;
     left: 0;
-    width: 100%;
-    height: 4rem;
+    width: 120%;
+    padding-top: 1rem;
+    border: 1px solid #272323;
+    border-top: none;
 }
+
 .profile button {
     display: block;
     text-align: left;
+    padding-left: 2rem;
     width: 100%;
-    height: 2rem;
-    background-color: #afb2b6;
+    height: 3rem;
+    background-color: #272323;
     color: white;
     font-size: 1.2rem;
     font-weight: bold;
     border: none;
 }
 
-.container-log:hover .profile {
-    display: block;
+.profile button:hover {
+    background-color:  #8b9092;
 }
 
 .post {

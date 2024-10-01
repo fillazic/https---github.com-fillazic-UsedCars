@@ -1,0 +1,103 @@
+.info-fullpost {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.image-slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20rem;
+  }
+
+  .car-card {
+    position: relative;
+    width: 60rem;
+    height: 40rem;
+    background-color: white;
+    margin: 1rem;
+    margin-top: 0;
+  }
+
+  .car-images-gallery {
+    margin: auto;
+    height: 100%;
+    max-width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+  }
+  
+  .slider-button {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  .slider-button.left {
+    left: 0.5rem;
+  }
+  
+  .slider-button.right {
+    right: 0.5rem;
+  }
+  
+  .slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .image-counter {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+  h2 {
+    margin: 0;
+    padding: 0.5rem 0 0 2rem;
+  }
+
+  .basic-info {
+    background-color: white;
+    border-radius: 1rem;
+    margin: 2rem 20rem;
+  }
+  .basic-data {
+    padding-top: 0;
+    display: flex;
+    background-color: white;
+    border-radius: 1rem;
+  }
+
+  .basic-data div {
+    display: block;
+    margin: 0 2rem;
+    width: 50%;
+  }
+
+  .basic-data p {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+  }
+
+  .basic-data span {
+    color: black;
+    font-weight: bold;
+  } 

@@ -12,6 +12,10 @@
     border: 1px #585353 solid;
     box-shadow: 10px 10px 5px #bdb3b3;
   }
+
+  a {
+    text-decoration: none;
+  }
    .info {
     cursor: pointer;
   }

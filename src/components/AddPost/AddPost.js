@@ -185,6 +185,8 @@ function AddPost () {
             vehicleType,
             fuel,
             image: images,
+            ccm: ccm,
+            kv: kv,
             transmission: transmission,
             color: color,
             doors: door,

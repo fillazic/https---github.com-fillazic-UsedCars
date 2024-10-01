@@ -105,6 +105,7 @@ span {
     padding-top: 1rem;
     border: 1px solid #272323;
     border-top: none;
+    z-index: 15;
 }
 
 .profile button {

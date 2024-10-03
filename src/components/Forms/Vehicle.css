@@ -18,9 +18,7 @@
     height: 6rem;
     width: 10rem;
     border: none;
-    background:  linear-gradient( 0deg, #afb2b6, #555e61);
 }
-
 
 .vehicle img {
     height: 4rem;
@@ -34,7 +32,7 @@
 
 .type-motorcycle img {
     padding-top: 0.5rem;
-    height: 5.5rem;
+    height: 5.2rem;
 }
 
 .type-truck img{
@@ -45,5 +43,13 @@
     background: white;
     cursor: pointer;
 }
+
+.white-background {
+    background-color: white;
+  }
+  
+  .color-background {
+    background:  linear-gradient( 0deg, #afb2b6, #555e61);
+  }
 
 }

@@ -106,12 +106,20 @@ const FullPost = () => {
 
         <div className='basic-info'>
             <h2 className='tech'>Description</h2>
-            <div className="basic-data">
+            <div className="basic-data-desc">
                 { car.description? 
                     <p>{car.description}</p>
                     :
                 <p></p>
                 }
+            </div>
+        </div>
+
+        <div className='basic-info'>
+            <h2 className='tech'>Contact</h2>
+            <div className="post-contact">
+                <p>{car.city}</p>
+                <p>{car.addres}</p>
             </div>
         </div>
 

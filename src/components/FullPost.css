@@ -78,11 +78,15 @@
     border-radius: 1rem;
     margin: 2rem 20rem;
   }
-  .basic-data {
+  .basic-data, .basic-data-desc, .post-contact {
     padding-top: 0;
     display: flex;
     background-color: white;
     border-radius: 1rem;
+  }
+
+  .basic-data-desc, .post-contact{
+    margin: 0 2rem;
   }
 
   .basic-data div {
@@ -101,3 +105,17 @@
     color: black;
     font-weight: bold;
   } 
+
+  .basic-data-desc p {
+    border: none;
+  }
+
+  .post-contact {
+    display: block;
+    padding-top: 0;
+    margin-left: 2rem;
+  }
+
+  .post-contact p {
+    padding: 0.5rem;
+  }

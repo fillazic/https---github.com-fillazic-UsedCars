@@ -1,20 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { searchVehicle } from '../../slices/searchSlice';
+import { supabase } from '../../config/supaBase';
 import Vehicle from './Vehicle';
 import './Form.css';
 
 
 function Form() {
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { cars, loading, error } = useSelector((state) => state.search);
+
     const [formVisible, setFormVisible] = useState(false);
     const [detailForm, setDetailForm]= useState(false);
+    const [make, setMake] = useState([]);
+    const [model, setModel] = useState([]);
+    const [selectedModelId, setSelectedModelId] = useState('');
+    const [selectedMakeId, setSelectedMakeId] = useState('');
+    const [price, setPrice] = useState('');
+    const [year, setYear] = useState('');
+    const [vehicleType, setVehicleType] = useState('');
+    const [fuel, setFuel] = useState('');
+    const years = [];
+
+    for (let i = 2024; i > 1905; i--) {
+      years.push(i);
+    }
+
+    useEffect(() => {
+  
+      fetchMakes();
+  
+      if (selectedMakeId) {
+        fetchModelsForMark(selectedMakeId)
+      } 
+      }, [selectedMakeId]);
 
     const detailHandler = () => {
         setDetailForm(!detailForm)
     }
 
-    const formHandler = () => {
-         setFormVisible(!formVisible)
-    }
+    const handleMarkChange = (e) => {
+        setSelectedMakeId(e.target.value);
+      };
+
+    const fetchMakes = async () => {
+        const { data, error } = await supabase
+          .from('Makes')
+          .select('id, make_name');
+    
+        if (error) {
+          console.error('Error fetching makes:', error);
+          return;
+        }
+    
+        setMake(data || []);
+      };
+
+      const fetchModelsForMark = async (selectedMakeId) => {
+        const { data, error } = await supabase
+          .from('Models')
+          .select('id, model_name')
+          .eq('make_id', selectedMakeId);
+    
+        if (error) {
+          console.error('Error fetching models:', error);
+          return;
+        }
+    
+        setModel(data || []);
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        const searchCriteria = {
+          makeId: selectedMakeId,
+          modelId: selectedModelId,
+          price,
+          year,
+          vehicleType,
+        };
+    
+        // Dispatch the async action to fetch cars based on criteria
+        dispatch(searchVehicle(searchCriteria));
+        navigate('/search');
+      };
 
     return (
 
@@ -24,30 +96,45 @@ function Form() {
             <   Vehicle/>
             </div>
 
-             <form>
-                <div className='model' >
+             <form onSubmit={handleSubmit}>
+             <div className='model' >
                     <div className='selected-container'>
-                        <select name="mark" id="selected-items" >
-                                <option value="All models" >All models</option>
-                                <option value="Mercedes-Benz">Mercedes-Benz</option>
-                                <option value="Audi">Audi</option>
-                                <option value="Wolksvagen">Wolksvagen</option>
-                                <option value="BMW">BMW</option>
-                                <option value="Volvo">Volvo</option>
-                                <option value="Saab">Saab</option>
+                        <select value={selectedMakeId} name="mark" id="selected-items" onChange={handleMarkChange}>
+                                <option value="">All Makes</option>
+                                {make.map((makes) => (
+                                <option key={makes.id} value={makes.id}>
+                                {makes.make_name}
+                                </option>
+                                ))} 
                         </select>
                         <div className='icon'>
                             <i className='fa fa-caret-down' ></i>
                         </div>
                     </div>
-                    <input name='model' placeholder='model'/>
-                    <input name='price' placeholder='price'/>
+                    <div className='selected-container'>
+                    <select disabled={!selectedMakeId} value={selectedModelId} name="mark" id="selected-items" onChange={(e) => setSelectedModelId(e.target.value)} >
+                                <option value="">All Models</option>
+                                {model.map((models) => (
+                                <option key={models.id} value={models.id}>
+                                {models.model_name}
+                                </option>
+                                ))} 
+                    </select>
+                    <div className='icon'>
+                            <i className='fa fa-caret-down' ></i>
+                    </div>
+                    </div>
+                    <input type='number' min={0} id='ap-input' name='price' placeholder='Price in €'  onChange={(e) => setPrice(e.target.value)}  />
                 </div>
 
                 <div className='features'>
                     <div className='selected-container'>
-                        <select name="year" id="selected-items">
-                                <option value="year" >Year</option>
+                        <select type='text' name="year" id="selected-items" onChange={(e) => setYear(e.target.value)} >
+                            {years.map((year) => (
+                              <option key={year} value={year}>
+                              {year}
+                              </option>
+                            ))}                       
                         </select>
                         <div className='icon'>
                             <i className='fa fa-caret-down' ></i>
@@ -55,12 +142,14 @@ function Form() {
                     </div>
 
                     <div className='selected-container'>                    
-                        <select name="type" id="selected-items">
+                        <select name="type" type='text' id="selected-items" onChange={(e) => setVehicleType(e.target.value)} >
                                 <option value="Vehicle-type" >Vehicle type</option>
                                 <option value="Saloon">Saloon</option>
                                 <option value="Estate-Car">Estate Car</option>
-                                <option value="Off-road">Off-road/Pickup Truck/SUV</option>
+                                <option value="Estate-Car">SUV</option>
+                                <option value="Off-road">Off-road</option>
                                 <option value="Sports">Sports Car/Coupe</option>
+                                <option value="Estate-Car">Pickup Truck</option>
                                 <option value="Van">Van/Minibus</option>
                         </select>
                         <div className='icon'>
@@ -68,7 +157,7 @@ function Form() {
                         </div>
                     </div>
                     <div className='selected-container'>
-                        <select name="fuel" id="selected-items">
+                        <select type='text' name="fuel" id="selected-items" onChange={(e) => setFuel(e.target.value)} >
                                 <option value="Fuel" >Fuel</option>
                                 <option value="Petrol">Petrol</option>
                                 <option value="Diesel">Diesel</option>
@@ -87,10 +176,10 @@ function Form() {
                         {!detailForm? 'More Detail' : 'Less Detail'}
                     </button>
                     <button id='search-form'>
-                       <div className='search-div'>
-                        <h4>Search</h4>
-                        <img src="./images/search-white.png"/>
-                       </div>
+                            <div className='search-div'>
+                                <h4>Search</h4>
+                                <img src="./images/search-white.png"/>
+                            </div>
                     </button>
             </div>
             
@@ -121,13 +210,23 @@ function Form() {
 
                 <div className='feature-one' >
                 <div className='selected-container'>
-                    <select name="color" id="selected-items">
+                <select name="color" id="selected-items" /*value={color} /*onChange={(e)=> setColor(e.target.value)}*/>
                         <option value="Color" >Color</option>
                         <option value="Silver">Silver</option>
+                        <option value="Red">Grey</option>
                         <option value="Black">Black</option>
                         <option value="White">White</option>
                         <option value="Blue">Blue</option>
                         <option value="Red">Red</option>
+                        <option value="Red">Beige</option>
+                        <option value="Red">Gold</option>
+                        <option value="Red">Purple</option>
+                        <option value="Red">Yellow</option>
+                        <option value="Red">Metallic</option>
+                        <option value="Red">Brown</option>
+                        <option value="Red">Green</option>
+                        <option value="Red">Orange</option>
+                        <option value="Red">Matte</option>
                     </select>
                     <div className='icon'>
                             <i className='fa fa-caret-down' ></i>
@@ -148,8 +247,15 @@ function Form() {
                 <div className='selected-container'>
                     <select name="seats" id="selected-items">
                         <option value="Number od seats" >Number of seats</option>
-                        <option value="two-doors">2/3</option>
-                        <option value="four-doors">4/5</option>
+                        <option value="" >Number of seats</option>
+                        <option value="Color">1</option>
+                        <option value="Color">2</option>
+                        <option value="Color">3</option>
+                        <option value="Color">4</option>
+                        <option value="Color">5</option>
+                        <option value="Color">6</option>
+                        <option value="Color">7</option>
+                        <option value="Color">8</option>
                     </select>
                     <div className='icon'>
                             <i className='fa fa-caret-down' ></i>

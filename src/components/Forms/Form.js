@@ -130,6 +130,7 @@ function Form() {
                 <div className='features'>
                     <div className='selected-container'>
                         <select type='text' name="year" id="selected-items" onChange={(e) => setYear(e.target.value)} >
+                            <option>Year</option>
                             {years.map((year) => (
                               <option key={year} value={year}>
                               {year}
@@ -181,7 +182,7 @@ function Form() {
                                 <img src="./images/search-white.png"/>
                             </div>
                     </button>
-            </div>
+                </div>
             
             <div className={ !detailForm? 'detail-form-hidden' : 'detail-form-visible' } >
                 <div className="power" >

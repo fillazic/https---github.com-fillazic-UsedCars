@@ -59,11 +59,11 @@ const FullPost = () => {
                     <div className="image-counter">
                         {currentImageIndex + 1} / {car.image.length}
                     </div>
-                    <img
-                        src={car.image[currentImageIndex]}
-                        alt={`Car ${currentImageIndex + 1}`}
-                        className="car-images-gallery"
-                    />
+                        <img
+                            src={car.image[currentImageIndex]}
+                            alt={`Car ${currentImageIndex + 1}`}
+                            className="car-images-gallery"
+                        />
                     <button className="slider-button right" onClick={nextImage}>
                         &#62;
                     </button>

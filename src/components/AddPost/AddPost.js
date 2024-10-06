@@ -266,6 +266,7 @@ function AddPost () {
                 <div className='features'>
                     <div className='selected-container'>
                         <select type='text' name="year" id="selected-items" onChange={(e) => setYear(e.target.value)} >
+                            <option>Year</option>
                             {years.map((year) => (
                               <option key={year} value={year}>
                               {year}
@@ -618,28 +619,29 @@ function AddPost () {
             </div>
 
             <div className="textarea-container">
-              <label htmlFor="message">Your Message</label>
+              <label htmlFor="message">Ad description</label>
               <textarea
                 id="message"
-                placeholder="Type your message here..."
+                placeholder="Type here..."
                 value={message}
                 onChange={(e)=> setMessage(e.target.value)}>
                 </textarea>
             </div>
 
             <div className="power" >
-                  <input id='ap-input' type="text"  name="kw" placeholder="Name" onChange={(e)=> setName(e.target.value)}/>
-                  <input id='ap-input' type="text" name="ccm" placeholder="Last Name" onChange={(e)=> setLastname(e.target.value)}/>
-                  <input id='ap-input' type="phone" name="ccm" placeholder="Phone number" onChange={(e)=> setPhone(e.target.value)} />
+                  <input id='ap-input' type="text"  placeholder="Name" onChange={(e)=> setName(e.target.value)}/>
+                  <input id='ap-input' type="text"  placeholder="Last Name" onChange={(e)=> setLastname(e.target.value)}/>
+                  <input id='ap-input' type="phone" placeholder="Phone number" onChange={(e)=> setPhone(e.target.value)} />
             </div>
 
             <div className="power" >
-                  <input id='ap-input' type="phone" name="ccm" placeholder="Other phone number" onChange={(e)=> setOtherphone(e.target.value)}/>  
-                  <input id='ap-input' type="text"  name="kw" placeholder="Addres" onChange={(e)=> setAddres(e.target.value)}/>
-                  <input id='ap-input' type="text" name="ccm" placeholder="City" onChange={(e)=> setCity(e.target.value)}/>                
+                  <input id='ap-input' type="phone" placeholder="Other phone number" onChange={(e)=> setOtherphone(e.target.value)}/>  
+                  <input id='ap-input' type="text"  placeholder="Addres" onChange={(e)=> setAddres(e.target.value)}/>
+                  <input id='ap-input' type="text"  placeholder="City" onChange={(e)=> setCity(e.target.value)}/>                
             </div>
 
-            <div className='search-button' >
+            <div className='search-button-add' >
+                    <button className='hidden-btn'>More Detail</button>
                     <button className='hidden-btn'>More Detail</button>
                     <button className='search-form' type="submit" disabled={uploading} >
                         {uploading ? 'Uploading...' : 'Post Ad'}

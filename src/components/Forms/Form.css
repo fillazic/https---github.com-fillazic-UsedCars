@@ -4,7 +4,6 @@
 .form {
     width: 100%;
     margin: auto;
-    border-bottom: 2px solid black;
 }
 
 form {
@@ -25,7 +24,7 @@ form {
 }
 
 .model input:hover,  .power input:hover {
-    border: 1px solid #db1212;
+    border: 1px solid black;
 }
 
 .model {
@@ -47,9 +46,9 @@ div.selected-container {
 }
 
 div.selected-container:hover {
-    border: 1px solid #db1212;
+    border: 1px solid black;
     .icon i {
-        color:#db1212;
+        color:black;
     }
 
 }
@@ -108,14 +107,16 @@ div.selected-container:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: auto ;
 }
 
 .search-button button {
     width: 20rem;
-    height: 2.3rem;
+    height: 2.6rem;
+    position: relative;
     border: none;
     border-radius: 0.5rem;
-    margin: 1rem;
+    margin: 1rem 1.1rem;
 }
 
 
@@ -160,7 +161,6 @@ div.selected-container:hover {
 
 .hidden-btn {
     visibility: hidden;
-    width: 20rem;
 }
 
 /*Detail form*/

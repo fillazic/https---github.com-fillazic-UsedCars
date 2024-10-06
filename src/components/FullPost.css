@@ -1,7 +1,7 @@
 .info-fullpost {
     display: flex;
-    justify-content: space-around;
-    margin: auto;
+    justify-content: space-between;
+    margin: auto 20%;
     margin-top: 2rem;
     margin-bottom: 0;
     font-size: 2rem;
@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 20rem;
+    margin: auto;
   }
 
   .car-card {
@@ -76,7 +76,7 @@
   .basic-info {
     background-color: white;
     border-radius: 1rem;
-    margin: 2rem 20rem;
+    margin: 2rem 15%;
   }
   .basic-data, .basic-data-desc, .post-contact {
     padding-top: 0;

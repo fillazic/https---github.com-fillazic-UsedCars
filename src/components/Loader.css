@@ -1,0 +1,33 @@
+/* Loader.css */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;  /* Full screen height */
+  }
+  
+  .spinner {
+    border: 0.8rem solid rgba(0, 0, 0, 0.1);
+    border-left-color: #0088a9;  /* Change this color to customize the spinner */
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .spinner p {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: #333;
+  }
+  

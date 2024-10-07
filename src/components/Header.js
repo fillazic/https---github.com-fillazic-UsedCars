@@ -32,7 +32,10 @@ function Header() {
 
         <div className='desctop-btn'>
           { !user ?
-            <h3 className='log'>LOG IN</h3> 
+            <>
+            <a href='/login' className='log'>Log In</a>
+            <a href='/login' className='log'>Sign In</a> 
+            </> 
           : <div className='my-profile' >
             <div className='container-log'> 
                 <h3 className='logProfile'>
@@ -44,7 +47,7 @@ function Header() {
             </div>      
             <div className= 'profile' >
               <button>My Posts</button>
-              <button onClick={signOut}>Sign out</button>
+              <button onClick={signOut}>Log out</button>
             </div>
             </div>
           }
@@ -77,7 +80,7 @@ function Header() {
                   <h4>Close</h4>
                   <img src="images/close.png" alt="close" />
             </div>
-            <button className='logIn' >Log In</button>
+            <button className='logIn' >Log In / Sign In</button>
             <button className='post-ad' >Post an ad</button>
           </div>
           <div className='under-profile'>

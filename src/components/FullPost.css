@@ -68,7 +68,8 @@
     font-size: 1.2rem;
     padding: 0.5rem;
   }
-  h2 {
+  
+  .basic-info h2 {
     margin: 0;
     padding: 0.5rem 0 0 2rem;
   }
@@ -78,7 +79,7 @@
     border-radius: 1rem;
     margin: 2rem 15%;
   }
-  .basic-data, .basic-data-desc, .post-contact {
+  .basic-data, .basic-data-desc {
     padding-top: 0;
     display: flex;
     background-color: white;
@@ -113,9 +114,11 @@
   .post-contact {
     display: block;
     padding-top: 0;
+    padding-bottom: 1rem;
     margin-left: 2rem;
+    
   }
 
   .post-contact p {
-    padding: 0.5rem;
+    margin: 0;
   }

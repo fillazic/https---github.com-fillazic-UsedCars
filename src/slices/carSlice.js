@@ -4,9 +4,9 @@ import {supabase} from '../config/supaBase';
 // Thunk to fetch car makers from Supabase
 export const fetchCars = createAsyncThunk(
     'cars/fetchCars',
-    async () => {
+    async (vehicle) => {
       const { data, error } = await supabase
-        .from('Car')
+        .from(vehicle)
         .select(` *, Models ( model_name ), Makes ( make_name )`); 
   
       if (error) {

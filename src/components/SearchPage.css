@@ -1,7 +1,6 @@
 
  .car-container-search {
     justify-content: center;
-
   }
 
   .car-container-search h2 {
@@ -81,7 +80,19 @@
         margin-top: 0;
     }
     
-   
+   .fail-search {
+    color: black;
+    margin: auto;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    width: 60%;
+    height: 15rem;
+    border: 1px solid #555e61;
+    background-color: white;
+    border-radius: 1rem;
+   }
   
   
     @media only screen and (max-width: 820px){

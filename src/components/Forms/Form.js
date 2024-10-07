@@ -84,8 +84,8 @@ function Form() {
         };
     
         // Dispatch the async action to fetch cars based on criteria
-        dispatch(searchVehicle(searchCriteria));
-        navigate('/search');
+        const queryParams = new URLSearchParams(searchCriteria).toString();
+        navigate(`/search?${queryParams}`);
       };
 
     return (
@@ -93,7 +93,7 @@ function Form() {
         <div className={!formVisible? 'form' : 'form-visible'} >
             
             <div className='vehicle-path'>
-            <   Vehicle/>
+            < Vehicle/>
             </div>
 
              <form onSubmit={handleSubmit}>

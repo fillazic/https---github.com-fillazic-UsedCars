@@ -20,6 +20,8 @@
 
   .popular button {
     height: 2.2rem;
+    width: 12rem;
+    margin: auto;
     margin-top: 1rem;
     margin-right: 1rem;
     border: none;
@@ -30,11 +32,11 @@
     cursor: pointer;
   }
 
- #popular-btn {
+ .popular-btn {
     z-index: 2;
   }
 
-  #popular-btn:hover {
+  .popular-btn:hover {
     color: white;
     background-color: #0088a9;
 

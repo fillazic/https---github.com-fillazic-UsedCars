@@ -1,10 +1,10 @@
 
-
 import React, { useState, useEffect } from 'react';
 import {supabase} from '../../config/supaBase';
 import { useUser } from '@supabase/auth-helpers-react';
 import {v4 as uuidv4} from 'uuid';
 import Vehicle from '../Forms/Vehicle';
+import Login from '../Login';
 import './AddPost.css';
 
 
@@ -14,7 +14,6 @@ const CDNURL= "https://dcyhbisdusfgptxeuczc.supabase.co/storage/v1/object/public
 function AddPost () {
     const user = useUser();
 
-    const [email, setEmail] = useState('');
     const [make, setMake] = useState([]);
     const [model, setModel] = useState([]);
     const [year, setYear] = useState('');
@@ -68,18 +67,6 @@ function AddPost () {
 
   
 //Auth
-
-    const LinkForLogIn = async () => {
-        const {data, error} = await supabase.auth.signInWithOtp({
-            email: email,
-        })
-        if (error) {
-            alert('Error, make sure you use real emali')
-            console.log(error)
-        } else {
-            alert('Check your email for link to log in')
-        }
-    }
 
     const handleFileChange = (e) => {
         const selectedFiles = Array.from(e.target.files);
@@ -221,14 +208,7 @@ function AddPost () {
   
         <div className='form' >
             { !user ? 
-            <>
-            <div className='loginpage'>
-            <h1>Press button for link</h1>
-            <input type='email' placeholder='Enter your email' onChange={(e)=> setEmail(e.target.value)}/>
-            <br/>
-            <button onClick={() => LinkForLogIn()}>Get a link</button>
-            </div>
-            </>
+            <Login />
             :
            <>
             <div className='vehicle-ap'><Vehicle /></div>

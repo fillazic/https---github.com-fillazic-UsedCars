@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { supabase } from '../config/supaBase';
+import Loader from './Loader';
 import './FullPost.css';
 
 const FullPost = () => {
@@ -23,6 +24,9 @@ const FullPost = () => {
   };
 
   useEffect(() => {
+
+    window.scrollTo(0, 0);
+    
     const fetchCarDetails = async () => {
       const { data, error } = await supabase
         .from('Car')
@@ -38,10 +42,15 @@ const FullPost = () => {
       setLoading(false);
     };
 
-    fetchCarDetails();
+    const timer = setTimeout(() => {
+      fetchCarDetails();  // Call fetch function after delay
+    }, 1500);
+
+    return () => clearTimeout(timer);
+
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader />;
   if (!car) return <p>Car not found</p>;
 
   return (

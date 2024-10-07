@@ -1,0 +1,29 @@
+.loginpage {
+    display: block;
+    text-align: center;
+    background-color: #7f8286;
+    margin: 2rem 30%;
+    height: 15rem;
+    color: white;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+}
+
+.loginpage input {
+    height: 2rem;
+    width: 70%;
+    font-size: 1.2rem;
+}
+
+.loginpage button {
+    margin-top: 1rem;
+    height: 2rem;
+    width: 30%;
+    background-color: #0088a9;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}

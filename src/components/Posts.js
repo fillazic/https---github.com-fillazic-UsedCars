@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from '../slices/carSlice';
+import Loader from './Loader';
 import './Posts.css';
 
-function Posts() {
+function Posts({vehicle}) {
 
     const dispatch = useDispatch();
     const cars = useSelector(state => state.cars.cars);
@@ -12,14 +13,17 @@ function Posts() {
     const error = useSelector(state => state.cars.error);
 
     useEffect(() => {
+
+      window.scrollTo(0, 0);
+  
         if (status === 'idle') {
-          dispatch(fetchCars());
+          dispatch(fetchCars(vehicle));
         }
       }, [status, dispatch]);
     
       if (status === 'loading') {
-        return <div>Loading...</div>;
-      }
+        return <Loader />;
+      } 
     
       if (status === 'failed') {
         return <div>Error: {error}</div>;
@@ -46,7 +50,7 @@ function Posts() {
                 </div>
               </Link> 
             </div>
-    
+            
 ))}
             </div>
     )

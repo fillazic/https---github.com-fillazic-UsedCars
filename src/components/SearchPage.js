@@ -15,8 +15,23 @@ function SearchPage() {
   const makeId = searchParams.get('makeId');
   const modelId = searchParams.get('modelId');
   const price = searchParams.get('price');
-  const year = searchParams.get('year');
+  const yearFrom = searchParams.get('yearFrom');
+  const yearTo = searchParams.get('yearTo');
   const vehicleType = searchParams.get('vehicleType');
+  const priceFrom = searchParams.get('priceFrom');
+  const priceTo = searchParams.get('priceTo');
+  const fuel = searchParams.get('fuel');
+  const kvFrom = searchParams.get('kvFrom');
+  const kvTo = searchParams.get('kvTo');
+  const ccmFrom = searchParams.get('ccmFrom');
+  const ccmTo = searchParams.get('ccmTo');   
+  const transmission = searchParams.get('transmission');   
+  const color = searchParams.get('color');   
+  const door = searchParams.get('door');   
+  const seats = searchParams.get('seats');   
+  const aircon = searchParams.get('aircon');   
+  const emission = searchParams.get('emission');   
+  const interior = searchParams.get('interior');   
 
   // Fetch cars when search criteria change
   useEffect(() => {
@@ -30,9 +45,23 @@ function SearchPage() {
       // Apply filters based on search params
       if (makeId) query = query.eq('make_id', makeId);
       if (modelId) query = query.eq('model_id', modelId);
-      if (price) query = query.lte('price', price);
-      if (year) query = query.eq('year', year);
+      if (priceFrom) query = query.gte('price', priceFrom);
+      if (priceTo) query = query.lte('price', priceTo);
+      if (yearFrom) query = query.gte('year', yearFrom);
+      if (yearTo) query = query.lte('year', yearTo);
+      if (kvFrom) query = query.gte('kv', kvFrom);
+      if (kvTo) query = query.lte('kv', kvTo);
+      if (ccmFrom) query = query.gte('ccm', ccmFrom);
+      if (ccmTo) query = query.lte('ccm', ccmTo);
       if (vehicleType) query = query.eq('vehicleType', vehicleType);
+      if (fuel) query = query.eq('fuel', fuel);
+      if (transmission) query = query.eq('transmission', transmission);
+      if (door) query = query.eq('doors', door);
+      if (seats) query = query.eq('seats', seats);
+      if (color) query = query.eq('color', color);
+      if (aircon) query = query.eq('air_condition', aircon);
+      if (emission) query = query.eq('emission', emission);
+      if (interior) query = query.eq('interior', interior);
 
       const { data, error } = await query;
 
@@ -51,7 +80,7 @@ function SearchPage() {
 
     return () => clearTimeout(timer);
 
-  }, [makeId, modelId, price, year, vehicleType]);  // Trigger effect when any of these change
+  }, []);  // Trigger effect when any of these change
 
 
   if (loading) return <Loader /> ;

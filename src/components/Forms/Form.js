@@ -15,7 +15,8 @@ function Form() {
     const [model, setModel] = useState([]);
     const [selectedModelId, setSelectedModelId] = useState('');
     const [selectedMakeId, setSelectedMakeId] = useState('');
-    const [year, setYear] = useState('');
+    const [yearFrom, setYearFrom] = useState('');
+    const [yearTo, setYearTo] = useState('');
     const [priceTo, setPriceTo] = useState('');
     const [priceFrom, setPriceFrom] = useState('');
     const [vehicleType, setVehicleType] = useState('');
@@ -91,8 +92,23 @@ function Form() {
         const searchCriteria = {
           makeId: selectedMakeId,
           modelId: selectedModelId,
-          year,
+          yearFrom,
+          yearTo,
           vehicleType,
+          priceFrom,
+          priceTo,
+          fuel,
+          kvFrom,
+          kvTo,
+          ccmFrom,
+          ccmTo,
+          transmission,
+          color,
+          door,
+          seats,
+          aircon,
+          emission,
+          interior,
         };
     
         // Dispatch the async action to fetch cars based on criteria
@@ -145,8 +161,8 @@ function Form() {
                 <div className='features'>
                     <div className='years'>
                     <div className='selected-container-year'>
-                        <select type='text' name="year" id="selected-items-year" onChange={(e) => setYear(e.target.value)} >
-                            <option>Year</option>
+                        <select type="number" name="year" id="selected-items-year" value={yearFrom} onChange={(e) => setYearFrom(e.target.value)} >
+                            <option>Year From</option>
                             {years.map((year) => (
                               <option key={year} value={year}>
                               {year}
@@ -158,8 +174,8 @@ function Form() {
                         </div>
                     </div>
                     <div className='selected-container-year'>
-                        <select type='text' name="year" id="selected-items-year" onChange={(e) => setYear(e.target.value)} >
-                            <option>Year</option>
+                        <select type="number" name="year" id="selected-items-year" value={yearTo} onChange={(e) => setYearTo(e.target.value)} >
+                            <option>Year To</option>
                             {years.map((year) => (
                               <option key={year} value={year}>
                               {year}

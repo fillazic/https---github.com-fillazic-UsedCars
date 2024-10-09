@@ -215,7 +215,7 @@ function AddPost () {
              <form onSubmit={handleSubmit} >
                 <div className='model' >
                     <div className='selected-container'>
-                        <select value={selectedMakeId} name="mark" id="selected-items" onChange={handleMarkChange}>
+                        <select value={selectedMakeId} name="mark" id="selected-items" onChange={handleMarkChange} required>
                                 <option value="" disabled hidden>Make</option>
                                 {make.map((makes) => (
                                 <option key={makes.id} value={makes.id}>
@@ -228,7 +228,7 @@ function AddPost () {
                         </div>
                     </div>
                     <div className='selected-container'>
-                    <select disabled={!selectedMakeId} value={selectedModelId} name="mark" id="selected-items" onChange={(e) => setSelectedModelId(e.target.value)} >
+                    <select disabled={!selectedMakeId} value={selectedModelId} name="mark" id="selected-items" onChange={(e) => setSelectedModelId(e.target.value)} required >
                                 <option value="">Model</option>
                                 {model.map((models) => (
                                 <option key={models.id} value={models.id}>
@@ -245,7 +245,7 @@ function AddPost () {
 
                 <div className='features'>
                     <div className='selected-container'>
-                        <select type='text' name="year" id="selected-items" onChange={(e) => setYear(e.target.value)} >
+                        <select type='text' name="year" id="selected-items" onChange={(e) => setYear(e.target.value)} required >
                             <option>Year</option>
                             {years.map((year) => (
                               <option key={year} value={year}>
@@ -259,7 +259,7 @@ function AddPost () {
                     </div>
 
                     <div className='selected-container'>                    
-                        <select name="type" type='text' id="selected-items" onChange={(e) => setVehicleType(e.target.value)}>
+                        <select name="type" type='text' id="selected-items" onChange={(e) => setVehicleType(e.target.value)} required >
                                 <option value="Vehicle-type" >Vehicle type</option>
                                 <option value="Saloon">Saloon</option>
                                 <option value="Estate-Car">Estate Car</option>
@@ -274,7 +274,7 @@ function AddPost () {
                         </div>
                     </div>
                     <div className='selected-container'>
-                        <select type='text' name="fuel" id="selected-items" onChange={(e) => setFuel(e.target.value)}>
+                        <select type='text' name="fuel" id="selected-items" onChange={(e) => setFuel(e.target.value)} required>
                                 <option value="Fuel" >Fuel</option>
                                 <option value="Petrol">Petrol</option>
                                 <option value="Diesel">Diesel</option>
@@ -290,11 +290,11 @@ function AddPost () {
         
             <div className='detail-form-visible' >
                 <div className="power" >
-                      <input id='ap-input' min={0} type="number"  name="kw" placeholder="kW" onChange={(e)=> setKv(e.target.value)}/>
-                      <input id='ap-input' min={0} type="number" name="ccm" placeholder="ccm" onChange={(e)=> setCcm(e.target.value)}/>
+                      <input id='ap-input' min={0} type="number"  name="kw" placeholder="kW" onChange={(e)=> setKv(e.target.value)} required/>
+                      <input id='ap-input' min={0} type="number" name="ccm" placeholder="ccm" onChange={(e)=> setCcm(e.target.value)} required/>
 
                     <div className='selected-container'>
-                        <select name="trensmission" id="selected-items" value={transmission} onChange={(e)=> setTransmission(e.target.value)}>
+                        <select name="trensmission" id="selected-items" value={transmission} onChange={(e)=> setTransmission(e.target.value)} required>
                             <option value="">Transmission</option>
                             <option value="Automatic" >Automatic</option>
                             <option value="Manual gearbox">Manual gearbox</option>
@@ -309,7 +309,7 @@ function AddPost () {
 
                 <div className='feature-one' >
                 <div className='selected-container'>
-                    <select name="color" id="selected-items" value={color} onChange={(e)=> setColor(e.target.value)}>
+                    <select name="color" id="selected-items" value={color} onChange={(e)=> setColor(e.target.value)} required>
                         <option value="Color" >Color</option>
                         <option value="Silver">Silver</option>
                         <option value="Red">Grey</option>
@@ -333,7 +333,7 @@ function AddPost () {
                 </div>
 
                 <div className='selected-container'>
-                    <select name="door" id="selected-items" value={door} onChange={(e)=> setDoor(e.target.value)}>
+                    <select name="door" id="selected-items" value={door} onChange={(e)=> setDoor(e.target.value)} required>
                         <option value="Number od doors" >Number of doors</option>
                         <option value="two-doors">2/3</option>
                         <option value="four-doors">4/5</option>
@@ -344,7 +344,7 @@ function AddPost () {
                 </div>
 
                 <div className='selected-container'>
-                    <select name="seats" id="selected-items" value={seats} onChange={(e)=> setSeats(e.target.value)}>
+                    <select name="seats" id="selected-items" value={seats} onChange={(e)=> setSeats(e.target.value)} required>
                         <option value="" >Number of seats</option>
                         <option value="Color">1</option>
                         <option value="Color">2</option>
@@ -365,7 +365,7 @@ function AddPost () {
 
                 <div className='feature-two' >
                     <div className='selected-container'>
-                        <select name="AC" id="selected-items" value={aircon} onChange={(e)=> setAircon(e.target.value)}>
+                        <select name="AC" id="selected-items" value={aircon} onChange={(e)=> setAircon(e.target.value)} required>
                             <option value="Air-condition" >Air-condition</option>
                             <option value="No-AC">No air conditioning</option>
                             <option value="Manual-AC">Manual air conditionig</option>
@@ -377,7 +377,7 @@ function AddPost () {
                     </div>
 
                     <div className='selected-container'>
-                        <select name="emission" id="selected-items" value={emission} onChange={(e)=> setEmission(e.target.value)}>
+                        <select name="emission" id="selected-items" value={emission} onChange={(e)=> setEmission(e.target.value)} required>
                             <option value="Any" >Emission</option>
                             <option value="Euro1">Euro1</option>
                             <option value="Euro2">Euro2</option>
@@ -395,7 +395,7 @@ function AddPost () {
                     </div>
 
                     <div className='selected-container'>
-                        <select name="Interior" id="selected-items" value={interior} onChange={(e)=> setInterior(e.target.value)}>
+                        <select name="Interior" id="selected-items" value={interior} onChange={(e)=> setInterior(e.target.value)} required>
                             <option value="Interior" >Interior</option>
                             <option value="Cloth">Cloth</option>
                             <option value="Full-leather">Full-leather</option>
@@ -599,7 +599,7 @@ function AddPost () {
             </div>
 
             <div className="textarea-container">
-              <label htmlFor="message">Ad description</label>
+              <label htmlFor="message">About Ad</label>
               <textarea
                 id="message"
                 placeholder="Type here..."
@@ -609,15 +609,15 @@ function AddPost () {
             </div>
 
             <div className="power" >
-                  <input id='ap-input' type="text"  placeholder="Name" onChange={(e)=> setName(e.target.value)}/>
-                  <input id='ap-input' type="text"  placeholder="Last Name" onChange={(e)=> setLastname(e.target.value)}/>
-                  <input id='ap-input' type="phone" placeholder="Phone number" onChange={(e)=> setPhone(e.target.value)} />
+                  <input id='ap-input' type="text"  placeholder="Name" onChange={(e)=> setName(e.target.value)} required/>
+                  <input id='ap-input' type="text"  placeholder="Last Name" onChange={(e)=> setLastname(e.target.value)} required/>
+                  <input id='ap-input' type="phone" placeholder="Phone number" onChange={(e)=> setPhone(e.target.value)} required/>
             </div>
 
             <div className="power" >
                   <input id='ap-input' type="phone" placeholder="Other phone number" onChange={(e)=> setOtherphone(e.target.value)}/>  
-                  <input id='ap-input' type="text"  placeholder="Addres" onChange={(e)=> setAddres(e.target.value)}/>
-                  <input id='ap-input' type="text"  placeholder="City" onChange={(e)=> setCity(e.target.value)}/>                
+                  <input id='ap-input' type="text"  placeholder="Addres" onChange={(e)=> setAddres(e.target.value)} />
+                  <input id='ap-input' type="text"  placeholder="City" onChange={(e)=> setCity(e.target.value)} required/>                
             </div>
 
             <div className='search-button-add' >

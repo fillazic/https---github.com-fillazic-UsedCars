@@ -7,7 +7,7 @@
 }
 
 form {
-    width: 60%;
+    width: 70%;
     margin: auto;
     text-align: center;
     background-color: #ffffff;
@@ -16,21 +16,26 @@ form {
     margin-bottom: 2rem;
 }
 
-.model input,  .power input{
+.model-input,  .power input, .power-input input {
     font-size: 1rem;
     color: #7f8286;
     background-color: #fff;
     border: 1px solid #7f8286;
+
+}
+.power-input input::placeholder {
+    padding-left: 1rem;
 }
 
-.model input:hover,  .power input:hover {
+
+.model-input:hover,  .power input:hover, .power-input input:hover {
     border: 1px solid black;
 }
 
 .model {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 div.selected-container {
@@ -42,16 +47,29 @@ div.selected-container {
     justify-content: center;
     border: 1px solid #7f8286;
     border-radius: 0.5rem;
-    margin: 1rem;
+    
 }
 
-div.selected-container:hover {
+.selected-container-year {
+    width: 47%;
+    height: 2.6rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #7f8286;
+    border-radius: 0.5rem;
+    margin: auto 0;
+}
+
+div.selected-container:hover, .selected-container-year:hover {
     border: 1px solid black;
     .icon i {
         color:black;
     }
 
 }
+
 
 #selected-items {
     width: 100%;
@@ -65,10 +83,23 @@ div.selected-container:hover {
     padding-left: 1rem;
 }
 
+#selected-items-year {
+    width: 100%;
+    height: 2.6rem;
+    box-sizing: border-box;
+    appearance: none;
+    font-size: 1rem;
+    color: #7f8286;
+    border: none;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+}
+
 #selected-items option {
     padding-top: 1rem;
     font-size: 1.2rem;
 }
+
 
 .icon {
     height: 100%;
@@ -86,7 +117,7 @@ div.selected-container:hover {
 }
 
 
-.model input {
+.model-input {
     width: 19.59rem;
     height: 2.3rem;
     display: flex;
@@ -98,14 +129,14 @@ div.selected-container:hover {
 
 .features {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: auto;
 }
 
 .search-button {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: auto ;
 }
@@ -183,28 +214,34 @@ div.selected-container:hover {
 .power {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     
 }
 
 
 .power-input {
     width: 20rem;
+    height: 2.4rem;
     display: flex;
-    justify-content: left;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
     margin: 1rem;
 }
 
-.power input {
-    width: 5.5rem; 
-    height: 2rem;
+.years {
+    display: flex;
+    width: 20rem;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+}
+
+.power input, .power-input input {
+    width: 45.5%;
+    height: 100%;
     border-radius: 0.5rem;
 }
-
-#kw, #ccm {
-    margin-right: 1rem;
-}
-
 
 
 .feature-one, .feature-two {
@@ -318,13 +355,6 @@ div.selected-container:hover {
         width: 90%;
     }
 
-    #kw {
-        margin-right: 0.4rem;
-    }
-    
-    #ccm {
-        margin-right: 0.4rem;
-     }
     
 }
 
@@ -344,9 +374,24 @@ div.selected-container:hover {
         padding-top: 0.5rem;
     }
 
-    div.selected-container, .model input{
+    div.selected-container, .model input, .years, .power-input {
         margin: 1rem auto;
 
+    }
+
+    .power-input input {
+        width: 50%;
+    }
+
+    .selected-container-year {
+        width: 46.5%;
+    }
+    #ccm {
+        margin-right: 1rem;
+    }
+
+    #kw {
+        margin-right: 1rem;
     }
 
     .search-button button{
@@ -356,11 +401,6 @@ div.selected-container:hover {
     .hidden-btn {
         display: none;
     }
-
-    .power-input {
-        margin: 1rem auto;
-    }
-
 
 
 }

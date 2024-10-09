@@ -35,7 +35,7 @@
 }
 
 form {
-    width: 60%;
+    width: 70%;
     margin: auto;
     text-align: center;
     background-color: #ffffff;
@@ -58,7 +58,7 @@ form {
 .model {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 div.selected-container {
@@ -127,14 +127,14 @@ div.selected-container:hover {
 
 .features {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: auto;
 }
 
 .search-button-add {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: auto;
 }
@@ -193,19 +193,12 @@ div.selected-container:hover {
 .power {
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: space-around;    
 }
-
-
-.power-input {
-    width: 20rem;
-    display: flex;
-}
-
 
 .feature-one, .feature-two {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 

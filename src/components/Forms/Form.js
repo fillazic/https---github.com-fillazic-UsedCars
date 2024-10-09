@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { searchVehicle } from '../../slices/searchSlice';
 import { supabase } from '../../config/supaBase';
 import Vehicle from './Vehicle';
 import './Form.css';
@@ -9,9 +7,7 @@ import './Form.css';
 
 function Form() {
 
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { cars, loading, error } = useSelector((state) => state.search);
 
     const [formVisible, setFormVisible] = useState(false);
     const [detailForm, setDetailForm]= useState(false);
@@ -19,10 +15,26 @@ function Form() {
     const [model, setModel] = useState([]);
     const [selectedModelId, setSelectedModelId] = useState('');
     const [selectedMakeId, setSelectedMakeId] = useState('');
-    const [price, setPrice] = useState('');
     const [year, setYear] = useState('');
+    const [priceTo, setPriceTo] = useState('');
+    const [priceFrom, setPriceFrom] = useState('');
     const [vehicleType, setVehicleType] = useState('');
     const [fuel, setFuel] = useState('');
+    const [kvFrom, setKvFrom] = useState('');
+    const [kvTo, setKvTo] = useState('');
+    const [ccmFrom, setCcmFrom] = useState('');
+    const [ccmTo, setCcmTo] = useState('');
+    const [transmission, setTransmission] = useState('');
+    const [color, setColor] = useState('');
+    const [door, setDoor] = useState('');
+    const [seats, setSeats] = useState('');
+    const [aircon,setAircon] = useState('');
+    const [emission, setEmission] = useState('');
+    const [interior, setInterior] = useState('');
+    const [safety, setSafety] = useState('');
+    const [features, setFeatures] = useState('');
+    const [city, setCity] = useState('');
+
     const years = [];
 
     for (let i = 2024; i > 1905; i--) {
@@ -39,6 +51,7 @@ function Form() {
       }, [selectedMakeId]);
 
     const detailHandler = () => {
+        window.scrollTo(0, 0);
         setDetailForm(!detailForm)
     }
 
@@ -78,7 +91,6 @@ function Form() {
         const searchCriteria = {
           makeId: selectedMakeId,
           modelId: selectedModelId,
-          price,
           year,
           vehicleType,
         };
@@ -124,12 +136,16 @@ function Form() {
                             <i className='fa fa-caret-down' ></i>
                     </div>
                     </div>
-                    <input type='number' min={0} id='ap-input' name='price' placeholder='Price in €'  onChange={(e) => setPrice(e.target.value)}  />
+                    <div className='power-input'>
+                        <input type="number" id="ccm" name="ccm" placeholder="Price From" value={priceFrom} onChange={(e)=> setPriceFrom(e.target.value)} />
+                        <input type="number" id="ccm-1" name="ccm-1" placeholder="Price To" value={priceTo} onChange={(e)=> setPriceTo(e.target.value)} />
+                    </div>
                 </div>
 
                 <div className='features'>
-                    <div className='selected-container'>
-                        <select type='text' name="year" id="selected-items" onChange={(e) => setYear(e.target.value)} >
+                    <div className='years'>
+                    <div className='selected-container-year'>
+                        <select type='text' name="year" id="selected-items-year" onChange={(e) => setYear(e.target.value)} >
                             <option>Year</option>
                             {years.map((year) => (
                               <option key={year} value={year}>
@@ -140,6 +156,20 @@ function Form() {
                         <div className='icon'>
                             <i className='fa fa-caret-down' ></i>
                         </div>
+                    </div>
+                    <div className='selected-container-year'>
+                        <select type='text' name="year" id="selected-items-year" onChange={(e) => setYear(e.target.value)} >
+                            <option>Year</option>
+                            {years.map((year) => (
+                              <option key={year} value={year}>
+                              {year}
+                              </option>
+                            ))}                       
+                        </select>
+                        <div className='icon'>
+                            <i className='fa fa-caret-down' ></i>
+                        </div>
+                    </div>
                     </div>
 
                     <div className='selected-container'>                    
@@ -187,17 +217,17 @@ function Form() {
             <div className={ !detailForm? 'detail-form-hidden' : 'detail-form-visible' } >
                 <div className="power" >
                     <div className='power-input'>
-                        <input type="number" id="kw" name="kw" placeholder="kW From" />
-                        <input type="number" id="kw-1" name="kw-1" placeholder="kW To" />
+                        <input type="number" id="kw" name="kw" placeholder="kW From" value={kvFrom} onChange={(e)=> setKvFrom(e.target.value)} />
+                        <input type="number" id="kw-1" name="kw-1" placeholder="kW To" value={kvTo} onChange={(e)=> setKvTo(e.target.value)} />
                      </div>
 
                     <div className='power-input'>
-                        <input type="number" id="ccm" name="ccm" placeholder="ccm From" />
-                        <input type="number" id="ccm-1" name="ccm-1" placeholder="ccm To" />
+                        <input type="number" id="ccm" name="ccm" placeholder="ccm From" value={ccmFrom} onChange={(e)=> setCcmFrom(e.target.value)} />
+                        <input type="number" id="ccm-1" name="ccm-1" placeholder="ccm To" value={ccmTo} onChange={(e)=> setCcmTo(e.target.value)} />
                     </div>
 
                     <div className='selected-container'>
-                        <select name="trensmission" id="selected-items">
+                        <select name="trensmission" id="selected-items" value={transmission} onChange={(e)=> setTransmission(e.target.value)} >
                             <option value="">Transmission</option>
                             <option value="Automatic" >Automatic</option>
                             <option value="Manual gearbox">Manual gearbox</option>
@@ -211,7 +241,7 @@ function Form() {
 
                 <div className='feature-one' >
                 <div className='selected-container'>
-                <select name="color" id="selected-items" /*value={color} /*onChange={(e)=> setColor(e.target.value)}*/>
+                <select name="color" id="selected-items" value={color} onChange={(e)=> setColor(e.target.value)} >
                         <option value="Color" >Color</option>
                         <option value="Silver">Silver</option>
                         <option value="Red">Grey</option>
@@ -235,7 +265,7 @@ function Form() {
                 </div>
 
                 <div className='selected-container'>
-                    <select name="door" id="selected-items">
+                    <select name="door" id="selected-items" value={door} onChange={(e)=> setDoor(e.target.value)} >
                         <option value="Number od doors" >Number of doors</option>
                         <option value="two-doors">2/3</option>
                         <option value="four-doors">4/5</option>
@@ -246,7 +276,7 @@ function Form() {
                 </div>
 
                 <div className='selected-container'>
-                    <select name="seats" id="selected-items">
+                    <select name="seats" id="selected-items" value={seats} onChange={(e)=> setSeats(e.target.value)} >
                         <option value="Number od seats" >Number of seats</option>
                         <option value="" >Number of seats</option>
                         <option value="Color">1</option>
@@ -267,7 +297,7 @@ function Form() {
 
                 <div className='feature-two' >
                     <div className='selected-container'>
-                        <select name="AC" id="selected-items">
+                        <select name="AC" id="selected-items" value={aircon} onChange={(e)=> setAircon(e.target.value)}>
                             <option value="Air-condition" >Air-condition</option>
                             <option value="No-AC">No air conditioning</option>
                             <option value="Manual-AC">Manual air conditionig</option>
@@ -279,7 +309,7 @@ function Form() {
                     </div>
 
                     <div className='selected-container'>
-                        <select name="emission" id="selected-items">
+                        <select name="emission" id="selected-items" value={emission} onChange={(e)=> setEmission(e.target.value)} >
                             <option value="Any" >Emission</option>
                             <option value="Euro1">Euro1</option>
                             <option value="Euro2">Euro2</option>
@@ -297,7 +327,7 @@ function Form() {
                     </div>
 
                     <div className='selected-container'>
-                        <select name="Interior" id="selected-items">
+                        <select name="Interior" id="selected-items" value={interior} onChange={(e)=> setInterior(e.target.value)} >
                             <option value="Interior" >Interior</option>
                             <option value="Cloth">Cloth</option>
                             <option value="Full-leather">Full-leather</option>

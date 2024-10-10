@@ -38,7 +38,6 @@ function Posts({vehicle}) {
                 <div className="car-image">
                     <img src={car.image[0]} alt={car.Makes.make_name}  />
                 </div>
-
                 <div className="info">
                     <p id="mark">{car.Makes.make_name}  {car.Models.model_name}</p>
                     <p className="price">{car.price}$</p>
@@ -46,8 +45,9 @@ function Posts({vehicle}) {
 
                 <div className="engine">
                     <p className="fuel">{car.fuel} | {car.ccm + 'ccm'}</p>
+                    <p className="second-price">{car.price}$</p>
                     <p className="year">{car.year}</p>
-                </div>
+                </div>      
               </Link> 
             </div>
             

@@ -294,7 +294,6 @@ function Form() {
                 <div className='selected-container'>
                     <select name="seats" id="selected-items" value={seats} onChange={(e)=> setSeats(e.target.value)} >
                         <option value="Number od seats" >Number of seats</option>
-                        <option value="" >Number of seats</option>
                         <option value="Color">1</option>
                         <option value="Color">2</option>
                         <option value="Color">3</option>
@@ -457,13 +456,13 @@ function Form() {
                     </div>
 
                     <div>
-                    <input type="checkbox" id="electric-windows" name="electric-windows" value="Electric windows" />
-                    <label htmlFor="electric-windows">Electric windows</label>
+                    <input type="checkbox" id="electric-windows" name="electric-windows" value="El. windows" />
+                    <label htmlFor="electric-windows">El. windows</label>
                     </div>
                     
                     <div>
-                    <input type="checkbox" id="electric-mirrors" name="electric-mirrors" value="Electric mirrors" />
-                    <label htmlFor="electric-mirrors">Electric mirrors</label>
+                    <input type="checkbox" id="electric-mirrors" name="electric-mirrors" value="El. mirrors" />
+                    <label htmlFor="electric-mirrors">El. mirrors</label>
                     </div>
                     
                     <div>

@@ -7,8 +7,6 @@ import Vehicle from '../Forms/Vehicle';
 import Login from '../Login';
 import './AddPost.css';
 
-
-
 const CDNURL= "https://dcyhbisdusfgptxeuczc.supabase.co/storage/v1/object/public/car-images/";
 
 function AddPost () {
@@ -54,7 +52,7 @@ function AddPost () {
       if (user) {
         setForm(true);
       } else {
-        // User is not authenticated, show the login page
+
         setForm(false);
     };
 
@@ -71,9 +69,7 @@ function AddPost () {
     const handleFileChange = (e) => {
         const selectedFiles = Array.from(e.target.files);
         setImgs((prevImgs) => [...prevImgs, ...selectedFiles]);
-       // setPicture(imgs)  // Update the state with selected files
        console.log(imgs)
-        // Call the upload function
       };
 
     const handleDelete = (index) => {
@@ -125,10 +121,10 @@ function AddPost () {
       
         if (data) {
           const urls = data.map(image => `${CDNURL}${user.id}/${subfolder}/${image.name}`);
-          return urls; // Return the image URLs
+          return urls; 
         } else {
           console.log(error);
-          return []; // Return an empty array in case of error
+          return []; 
         }
       }
   
@@ -149,9 +145,9 @@ function AddPost () {
           }
         }
       
-        // Get the images after all uploads are complete
+        
         const images = await getImages(subfolder);
-        return images; // Return the image URLs
+        return images;
       };
 
     const handleSubmit = async (e) => {
@@ -159,8 +155,7 @@ function AddPost () {
       setUploading(true);
       const images = await uploadImages(imgs);
 
-      // Step 1: Upload images to Supabase Storage
-      // Step 2: Insert the car details along with the image URLs
+   
       const { error: carError } = await supabase
         .from('Car')
         .insert([
@@ -527,13 +522,13 @@ function AddPost () {
                     </div>
 
                     <div>
-                    <input type="checkbox" id="electric-windows" name="electric-windows" value="Electric windows" />
-                    <label htmlFor="electric-windows">Electric windows</label>
+                    <input type="checkbox" id="electric-windows" name="electric-windows" value="El. windows" />
+                    <label htmlFor="electric-windows">El. windows</label>
                     </div>
                     
                     <div>
-                    <input type="checkbox" id="electric-mirrors" name="electric-mirrors" value="Electric mirrors" />
-                    <label htmlFor="electric-mirrors">Electric mirrors</label>
+                    <input type="checkbox" id="electric-mirrors" name="electric-mirrors" value="El. mirrors" />
+                    <label htmlFor="electric-mirrors">El. mirrors</label>
                     </div>
                     
                     <div>

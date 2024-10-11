@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from 'react-router-dom';
 import Loader from "./Loader";
-import { supabase } from '../config/supaBase';  // Import your supabase client
+import { supabase } from '../config/supaBase'; 
 import "./SearchPage.css";
 
 function SearchPage() {
@@ -9,8 +9,8 @@ function SearchPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
-  const location = useLocation();  // This provides access to the current URL's search params
-  const searchParams = new URLSearchParams(location.search);  // Parse the query parameters
+  const location = useLocation(); 
+  const searchParams = new URLSearchParams(location.search); 
   
   const makeId = searchParams.get('makeId');
   const modelId = searchParams.get('modelId');
@@ -33,7 +33,7 @@ function SearchPage() {
   const emission = searchParams.get('emission');   
   const interior = searchParams.get('interior');   
 
-  // Fetch cars when search criteria change
+
   useEffect(() => {
     window.scrollTo(0, 0);
     
@@ -42,7 +42,7 @@ function SearchPage() {
         .from('Car')
         .select(`*, Models ( model_name ), Makes ( make_name )`);
 
-      // Apply filters based on search params
+     
       if (makeId) query = query.eq('make_id', makeId);
       if (modelId) query = query.eq('model_id', modelId);
       if (priceFrom) query = query.gte('price', priceFrom);
@@ -69,18 +69,18 @@ function SearchPage() {
         setError('Error fetching car listings');
         console.error('Error:', error);
       } else {
-        setCars(data);  // Set the list of cars
+        setCars(data); 
       }
-      setLoading(false);  // Stop loading
+      setLoading(false); 
     };
 
     const timer = setTimeout(() => {
-      fetchCars();  // Call fetch function after delay
+      fetchCars();  
     }, 1500);
 
     return () => clearTimeout(timer);
 
-  }, []);  // Trigger effect when any of these change
+  }, []);  
 
 
   if (loading) return <Loader /> ;

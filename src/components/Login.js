@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { supabase } from '../config/supaBase';
-import './Login.css';  // Import the CSS file for styling
+import './Login.css';
 
 const Login = () => {
 

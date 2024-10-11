@@ -4,7 +4,7 @@ import './Header.css';
 import { supabase } from '../config/supaBase';
 import { useUser } from '@supabase/auth-helpers-react';
 
-function Header() {
+function Header({searchForm}) {
 
    const user= useUser();
    const [isVisible, setIsVisible] = useState(false);
@@ -24,10 +24,9 @@ function Header() {
 
     return (
       <div className='header' >
-
         <div className='logo' >
           <img  src="./images/logo3.png" alt="logo"/>
-          <h2>Used <br/><span>Cars</span></h2>
+          <a href='/'><h2>Used <br/><span>Cars</span></h2></a>
         </div>
 
         <div className='desctop-btn'>
@@ -56,7 +55,7 @@ function Header() {
 
         <div className='menu'>
           <img  className='sedan-btn' src="images/sedann.png" alt="car" onClick={changeVisibility}  />
-          <img  className='search-btn' src="images/search.png" alt="search"/>
+          <img  className='search-btn' src="images/search.png" alt="search" onClick={searchForm} />
           <img  className='menu-btn' src="images/hamburger-menu.png" alt="menu" onClick={changeVisibilityLogIn} />
         </div>
 
@@ -80,8 +79,15 @@ function Header() {
                   <h4>Close</h4>
                   <img src="images/close.png" alt="close" />
             </div>
-            <button className='logIn' >Log In / Sign In</button>
-            <button className='post-ad' >Post an ad</button>
+            <a href='/add_post'><button className='post-ad' >Post an ad </button></a>
+              { !user ?
+                <a href='/login'><button className='logIn' >Log In / Sign In </button></a>
+                :
+                <>
+                <a href='#' ><button className='logIn'> My Profile </button></a>
+                <button className='logIn' onClick={signOut}>Log out</button>
+                </>
+              } 
           </div>
           <div className='under-profile'>
             

@@ -1,6 +1,7 @@
 
  .car-container-search {
     justify-content: center;
+    margin: auto;
   }
 
   .car-container-search h2 {
@@ -16,6 +17,7 @@
       border-radius: 1rem;        
       overflow: hidden;     
     }
+
      .info-search {
       cursor: pointer;
     }

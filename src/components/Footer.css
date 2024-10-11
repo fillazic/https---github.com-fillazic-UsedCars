@@ -4,8 +4,9 @@
     display: flex;
     justify-content: space-between;
     background-color: #555e61;
-    height: 25rem;
-    z-index: 3;
+    height: 100%;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
   }
 
   .popular {
@@ -64,14 +65,9 @@
 
   @media only screen and (max-width: 1200px) {
 
-    .popular div {
-        width: 90%;
-      }
-
     .popular button {
         font-size: 1.2rem;
     }
-
 
   }
 
@@ -93,11 +89,46 @@
         margin: auto;
         margin-top: 0;
         margin-left: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 0rem;
+        column-gap: 0rem;
+      }
+
+      .popular-btn {
+        font-size: 1rem;
       }
 
     .contact {
         margin: auto;
         margin-left: 1rem ;
-        padding-bottom: 2rem;
+       padding-bottom: 1rem;
     }
   }
+
+  @media only screen and (max-width: 530px) { 
+
+    .popular div {
+      margin: auto;
+      margin-top: 0;
+      margin-left: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+    }
+  }
+  @media only screen and (max-width: 500px) { 
+
+    .popular { 
+      width: 90%;
+
+    }
+    .contact div, .popular div, .popular-btn {
+      font-size: 0.8rem;
+      width: 100%;
+    }
+
+    .contact img.logo{
+      padding-left: 0;
+    }
+}

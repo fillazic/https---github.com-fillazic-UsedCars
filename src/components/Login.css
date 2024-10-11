@@ -27,3 +27,30 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 1200px){  
+    .loginpage {
+        margin: 2rem 10%; 
+    }
+}
+
+@media only screen and (max-width: 820px){  
+    .loginpage {
+        margin: auto; 
+        background-color: #d5d9df;
+        border: none;
+        color: black;
+    }
+
+    .loginpage h1 {
+        font-size: 1.2rem;
+    }
+
+    .loginpage input {
+        border-radius: 0.5rem;
+        font-size: 1rem;
+    }
+    .loginpage button {
+        font-size: 1rem;
+    }
+}

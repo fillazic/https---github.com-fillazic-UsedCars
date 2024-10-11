@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header  from './components/Header';
@@ -11,14 +11,18 @@ import Login from './components/Login';
 
 function App() {
 
-  
+  const [search, setSearch ]= useState(false);
+  const searchHandler = () => {
+    setSearch(!search);
+  };
+
   return (
 
    <Router>
     <div className="App">
-      <Header />
+      <Header searchForm={searchHandler} />
       <Routes>
-          <Route path="/" element={<CarHomePage />} />
+          <Route path="/" element={<CarHomePage search={search} />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/car/:id" element={<FullPost />} />
           <Route path="/add_post" element={<AddPost />} />

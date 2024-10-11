@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Footer.css';
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { searchVehicle } from '../slices/searchSlice';
 
 
 function Footer() {

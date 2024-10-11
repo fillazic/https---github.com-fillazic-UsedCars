@@ -4,36 +4,6 @@
     margin: auto;
 }
 
-.loginpage {
-    display: block;
-    text-align: center;
-    background-color: #7f8286;
-    margin: 2rem 30%;
-    height: 15rem;
-    color: white;
-    border: 1px solid white;
-    border-radius: 0.5rem;
-}
-
-.loginpage input {
-    height: 2rem;
-    width: 70%;
-    font-size: 1.2rem;
-}
-
-.loginpage button {
-    margin-top: 1rem;
-    height: 2rem;
-    width: 30%;
-    background-color: #0088a9;
-    border: 1px solid white;
-    border-radius: 0.5rem;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 form {
     width: 70%;
     margin: auto;
@@ -214,7 +184,6 @@ div.selected-container:hover {
 .safety div{
     width: 10rem;
     margin: 1rem;
-    text-align: start;
 }
 
 .all-feature {
@@ -227,7 +196,6 @@ div.selected-container:hover {
 .all-feature div{
     width: 10rem;
     margin: 1rem;
-    text-align: start;
 }
 
 [type="checkbox"] {
@@ -236,6 +204,8 @@ div.selected-container:hover {
 
 [type="checkbox"] + label {
     position: relative;
+    display: flex;
+    justify-content: baseline;
     padding-left: 1.5rem;
     cursor: pointer;
     display: inline-block;
@@ -244,9 +214,6 @@ div.selected-container:hover {
 
 [type="checkbox"] + label::before {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 1.2rem;
     height: 1.2rem;
     outline: 2px solid #7f8286 ;
@@ -255,9 +222,6 @@ div.selected-container:hover {
 
 [type="checkbox"]:checked + label::before {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 1.2rem;
     height: 1.2rem;
     outline: 3px solid #db1212 ;
@@ -266,9 +230,6 @@ div.selected-container:hover {
 
 [type="checkbox"]:checked + label::after {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 1.2rem;
     height: 1.2rem;
     background-image: url("../Forms/images-src/correct-red.png");
@@ -280,9 +241,6 @@ div.selected-container:hover {
 
 [type="checkbox"]:not(:checked) + label::after {
     content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 1.2rem;
     height: 1.2rem;
     background-image: url("../Forms/images-src/correct-red.png");
@@ -309,7 +267,7 @@ input[type='file'] {
     padding: 1rem;
     background-color: #f9f9f9;
   }
-  /* Style for the custom file upload button */
+
   .custom-file-upload {
     display: inline-block;
     text-align: center;
@@ -327,7 +285,7 @@ input[type='file'] {
     background-color: #037794;
   }
   
-  /* Container to arrange images */
+
   .image-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -335,12 +293,12 @@ input[type='file'] {
     row-gap: 1rem;
   }
   
-  /* Style for each image and its container */
+ 
   .upload-img {
     position: relative;
-    max-width: 12rem; /* Small image size */
+    max-width: 12rem; 
     max-height: 12rem;
-    opacity: 0.6; /* Default opacity */
+    opacity: 0.6; 
     transition: opacity 0.3s ease;
   }
   
@@ -352,7 +310,7 @@ input[type='file'] {
   }
   
   .upload-img:hover {
-    opacity: 1; /* Full opacity on hover */
+    opacity: 1; 
   }
   
   /* Delete button style */
@@ -366,7 +324,7 @@ input[type='file'] {
     padding: 0.2rem;
     border-radius: 60%;
     cursor: pointer;
-    opacity: 0; /* Hidden by default */
+    opacity: 0; 
     transition: opacity 0.3s ease;
   }
 
@@ -377,10 +335,9 @@ input[type='file'] {
   }
   
   .upload-img:hover .delete-btn {
-    opacity: 1; /* Visible on hover */
+    opacity: 1; 
   }
 
-  /* Container to align the label and textarea */
   .textarea-container {
     display: flex;
     flex-direction: column; 
@@ -389,19 +346,18 @@ input[type='file'] {
     width: 100%;
   }
   
-  /* Style the label */
   .textarea-container label {
     font-size: 16px;
     margin-bottom: 10px;
     color: #333;
     font-weight: bold;
-    text-align: center; /* Center text in the label */
+    text-align: center; 
   }
   
-  /* Style for the textarea */
+
   textarea {
     width: 93%;
-    margin: auto; /* Set a fixed width for the textarea */
+    margin: auto; 
     padding: 15px;
     font-size: 16px;
     border: 2px solid #ccc;
@@ -414,18 +370,15 @@ input[type='file'] {
     outline: none;
   }
   
-  /* On focus, highlight the textarea */
   textarea:focus {
     background-color: #fff;
   }
   
-  /* Placeholder styling */
   textarea::placeholder {
     color: #aaa;
     font-style: italic;
   }
   
-  /* Optional: Hover effect for textarea */
   textarea:hover {
     border-color: #888;
   }
@@ -443,6 +396,46 @@ input[type='file'] {
         border-top-left-radius: 0.8rem;
         border-top-right-radius: 0.8rem;
         width: 90%;
+    }
+
+    .safety, .all-feature {
+        margin: 1rem;
+    }
+    
+    .safety div, .all-feature div{
+        width: 10rem;
+        margin: 1rem 0.5rem;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    [type="checkbox"] + label {
+        padding-left: 1.2rem;
+    }
+
+    [type="checkbox"] + label::before {
+        top: 0.3rem;
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+    
+    [type="checkbox"]:checked + label::before {
+        top: 0.3rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        outline: 2px solid #db1212 ;
+    }
+    
+    [type="checkbox"]:checked + label::after {
+        top: 0.3rem;
+        width: 0.8rem;
+        height: 0.8rem;
+    }
+    
+    [type="checkbox"]:not(:checked) + label::after {
+        top: 0.3rem;
+        width: 0.8rem;
+        height: 0.8rem;
     }
     
 }
@@ -494,8 +487,20 @@ input[type='file'] {
         margin-top: 0;
     }
 
-    .search-button-add button{
+    .search-button-add button {
         margin: 1rem auto;
+    }
+
+    .safety , .all-feature {
+      margin-left: 3rem;
+    }
+
+    .safety div , .all-feature div {
+        justify-content: start;
+    }
+
+    textarea {
+        width: 90%;
     }
 
 }

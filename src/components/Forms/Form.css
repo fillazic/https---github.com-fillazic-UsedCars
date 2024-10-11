@@ -199,7 +199,7 @@ div.selected-container:hover, .selected-container-year:hover {
     max-height: 0;
     opacity: 0;
     transition: max-height 0.5s ease-out, opacity 0.2s;
-    visibility: hidden;
+    
 }
 
 
@@ -208,7 +208,7 @@ div.selected-container:hover, .selected-container-year:hover {
     max-height: auto;
     opacity: 1;
     transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
-    visibility: visible;
+   
 }
 
 .power {

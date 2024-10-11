@@ -1,7 +1,8 @@
 .info-fullpost {
     display: flex;
     justify-content: space-between;
-    margin: auto 20%;
+    max-width: 60rem;
+    margin: auto;
     margin-top: 2rem;
     margin-bottom: 0;
     font-size: 2rem;
@@ -15,15 +16,18 @@
     justify-content: center;
     align-items: center;
     margin: auto;
+    width: 55rem;
+    height: 40rem;
+    overflow: hidden;
+    background-color: white;
   }
 
   .car-card {
-    position: relative;
-    width: 60rem;
-    height: 40rem;
+    display: flex;
+    max-width: 100%;
+    height: 100%;
     background-color: white;
-    margin: 1rem;
-    margin-top: 0;
+    margin: 0;
   }
 
   .car-images-gallery {
@@ -32,7 +36,8 @@
     max-width: 100%;
     cursor: pointer;
     display: flex;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
   }
   
   .slider-button {
@@ -69,45 +74,45 @@
     padding: 0.5rem;
   }
   
-  .basic-info h2 {
+  .full-basic-info h2 {
     margin: 0;
     padding: 0.5rem 0 0 2rem;
   }
 
-  .basic-info {
+  .full-basic-info {
     background-color: white;
     border-radius: 1rem;
     margin: 2rem 15%;
   }
-  .basic-data, .basic-data-desc {
+  .full-basic-data, .full-basic-data-desc {
     padding-top: 0;
     display: flex;
     background-color: white;
     border-radius: 1rem;
   }
 
-  .basic-data-desc, .post-contact{
+  .full-basic-data-desc, .post-contact{
     margin: 0 2rem;
   }
 
-  .basic-data div {
+  .full-basic-data div {
     display: block;
     margin: 0 2rem;
     width: 50%;
   }
 
-  .basic-data p {
+  .full-basic-data p {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #bdb3b3;
   }
 
-  .basic-data span {
+  .full-basic-data span {
     color: black;
     font-weight: bold;
   } 
 
-  .basic-data-desc p {
+  .full-basic-data-desc p {
     border: none;
   }
 
@@ -121,4 +126,77 @@
 
   .post-contact p {
     margin: 0;
+  }
+
+  @media only screen and (max-width: 1200px){ 
+    .full-all {
+      margin-top: 0;
+    }
+
+    .info-fullpost { 
+      margin-top: 0.5rem;
+    }
+
+    .full-basic-info {
+      background-color: white;
+      border-radius: 1rem;
+      margin: 2rem auto;
+    }
+
+  }
+
+  @media only screen and (max-width: 720px){ 
+    .image-slider {
+      width: 100%;
+      height: 25rem;
+    }
+    .info-fullpost { 
+     font-size: 1.4rem;
+    }
+  }
+
+  @media only screen and (max-width: 520px){ 
+
+    .full-all {
+      justify-content: center;
+    }
+
+    .image-slider {
+      width: 27rem;
+      height: 18rem;
+    }
+
+    .info-fullpost {
+      margin-left: 0.5rem;
+      font-size: 1rem;
+     }
+
+    .full-basic-data, .full-basic-data-desc {
+      padding-top: 0;
+      display: block;
+      background-color: white;
+      border-radius: 1rem;
+      padding-bottom: 0.5rem;
+    }
+    
+    .full-basic-data div {
+      width: 80%;
+      padding-left: 0;
+    }
+    .full-basic-data-desc, .post-contact{
+      margin: 0 2rem;
+    }
+  
+    .full-basic-data p {
+      display: flex;
+      width: 100%;
+    }
+
+     .full-basic-info h2 {
+      font-size: 1rem;
+     }
+
+     .full-basic-info p {
+      font-size: 0.8rem;
+     }
   }

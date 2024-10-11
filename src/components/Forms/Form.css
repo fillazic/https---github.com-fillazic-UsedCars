@@ -199,16 +199,13 @@ div.selected-container:hover, .selected-container-year:hover {
     max-height: 0;
     opacity: 0;
     transition: max-height 0.5s ease-out, opacity 0.2s;
-    
+    display: none;
 }
-
-
 
 .detail-form-visible {
     max-height: auto;
     opacity: 1;
     transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
-   
 }
 
 .power {
@@ -354,7 +351,6 @@ div.selected-container:hover, .selected-container-year:hover {
         border-top-right-radius: 0.8rem;
         width: 90%;
     }
-
     
 }
 

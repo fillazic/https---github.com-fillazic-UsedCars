@@ -236,7 +236,7 @@ span {
         right: 0;
         width: 45%;
         height: 100vh;
-        z-index: 10;
+        z-index: 15;
         background-color: #555e61;
         border-left: 1px solid black;
     }
@@ -300,7 +300,7 @@ span {
     .logIn-menu-visible {
         display: block;
         position: absolute;
-        z-index: 10;
+        z-index: 15;
         right: 0;
         height: 100vh;
         width: 45%;

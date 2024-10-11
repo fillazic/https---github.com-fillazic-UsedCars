@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;  
+    min-height: 60vh;  
   }
   
   .spinner {
@@ -33,9 +33,7 @@
   
 
   @media only screen and (max-width: 820px){  
-    .loader-container {
-      min-height: 20vh;
-    }
+
     .spinner {
       border: 0.3rem solid rgba(0, 0, 0, 0.1);
       border-left-color: #0088a9;  
@@ -44,5 +42,6 @@
       height: 2rem;
       animation: spin 1s linear infinite;
     }
+
     }
   

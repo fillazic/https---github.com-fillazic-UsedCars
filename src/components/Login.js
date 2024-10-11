@@ -1,10 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { supabase } from '../config/supaBase';
 import './Login.css';
+import Loader from './Loader';
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setLoading(false); 
+        }, 1500);
+  
+        return () => clearTimeout(timer);
+      }, []);
 
     const LinkForLogIn = async () => {
         const {data, error} = await supabase.auth.signInWithOtp({
@@ -19,12 +29,16 @@ const Login = () => {
     }
 
   return (
+    <>
+    {loading ? <Loader /> :
     <div className='loginpage'>
         <h1>Press button for link</h1>
             <input type='email' placeholder='Enter your email' onChange={(e)=> setEmail(e.target.value)}/>
             <br/>
         <button onClick={() => LinkForLogIn()}>Get a link</button>
     </div>
+    }
+    </>
   );
 };
 

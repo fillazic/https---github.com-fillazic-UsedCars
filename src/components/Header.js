@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './Header.css';
 import { supabase } from '../config/supaBase';
 import { useUser } from '@supabase/auth-helpers-react';
+import { Link } from 'react-router-dom';
 
 function Header({searchForm}) {
 
@@ -32,8 +33,8 @@ function Header({searchForm}) {
         <div className='desctop-btn'>
           { !user ?
             <>
-            <a href='/login' className='log'>Log In</a>
-            <a href='/login' className='log'>Sign In</a> 
+            <Link to='/login' className='log'>Log In</Link>
+            <Link to='/login' className='log'>Sign In</Link> 
             </> 
           : <div className='my-profile' >
             <div className='container-log'> 
@@ -50,7 +51,7 @@ function Header({searchForm}) {
             </div>
             </div>
           }
-          <a href='/add_post'><button className='post'>POST AN AD</button></a>
+          <Link to='/add_post'><button className='post'>POST AN AD</button></Link>
         </div>
 
         <div className='menu'>
@@ -79,9 +80,9 @@ function Header({searchForm}) {
                   <h4>Close</h4>
                   <img src="images/close.png" alt="close" />
             </div>
-            <a href='/add_post'><button className='post-ad' >Post an ad </button></a>
+            <Link to='/add_post'><button className='post-ad' >Post an ad </button></Link>
               { !user ?
-                <a href='/login'><button className='logIn' >Log In / Sign In </button></a>
+                <Link to='/login'><button className='logIn' >Log In / Sign In </button></Link>
                 :
                 <>
                 <a href='#' ><button className='logIn'> My Profile </button></a>

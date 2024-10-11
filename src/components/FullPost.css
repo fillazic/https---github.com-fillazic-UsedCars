@@ -199,4 +199,8 @@
      .full-basic-info p {
       font-size: 0.8rem;
      }
+
+     .full-price {
+      margin-right: 0.5rem;
+     }
   }

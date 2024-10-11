@@ -87,11 +87,12 @@
     font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
-    width: 60%;
-    height: 15rem;
+    width: 80%;
+    height: 20rem;
     border: 1px solid #555e61;
     background-color: white;
     border-radius: 1rem;
+    margin-bottom: 12rem;
    }
   
   
@@ -112,6 +113,7 @@
         width: 45%;
         max-height: 15rem;
         padding: 0%;
+        margin-top: 0.3rem;
       }
       .car-image-search img {
         margin: auto;
@@ -140,7 +142,7 @@
     }
 
     .price-search {
-      margin-top: 5%;
+      margin-top: 2%;
   }
 
     .baseinfo {

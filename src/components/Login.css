@@ -1,9 +1,13 @@
+.loginpage-container {
+    height: 27rem;
+}
+
 .loginpage {
     display: block;
     text-align: center;
     background-color: #7f8286;
     margin: 2rem 30%;
-    height: 15rem;
+    min-height: 15rem;
     color: white;
     border: 1px solid white;
     border-radius: 0.5rem;
@@ -35,6 +39,11 @@
 }
 
 @media only screen and (max-width: 820px){  
+
+    .loginpage-container {
+        height: 35rem;
+    }
+
     .loginpage {
         margin: auto; 
         background-color: #d5d9df;

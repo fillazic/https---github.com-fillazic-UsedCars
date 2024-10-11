@@ -29,7 +29,7 @@ const Login = () => {
     }
 
   return (
-    <>
+    <div className='loginpage-container'>
     {loading ? <Loader /> :
     <div className='loginpage'>
         <h1>Press button for link</h1>
@@ -38,7 +38,7 @@ const Login = () => {
         <button onClick={() => LinkForLogIn()}>Get a link</button>
     </div>
     }
-    </>
+    </div>
   );
 };
 

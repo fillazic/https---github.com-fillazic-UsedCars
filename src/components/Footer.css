@@ -129,7 +129,8 @@
     }
 
     .popular button {
-      width: 13.4rem;
+      width: 12rem;
+      font-size: 1rem;
     }
 
     .contact img.logo{

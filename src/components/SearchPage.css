@@ -9,7 +9,7 @@
   }
 
   .car-search {
-      max-width: 60rem;
+      max-width: 62rem;
       height: 25rem;
       margin: 2rem auto;
       box-shadow: 10px 10px 5px #bdb3b3;
@@ -96,10 +96,10 @@
    }
   
   
-    @media only screen and (max-width: 820px){
+    @media only screen and (max-width: 890px){
       
       .car-container-search {
-        margin: 0.5rem;
+        margin: auto 0.5rem;
       }
       .car-image-search {
         width: 55%;
@@ -135,7 +135,7 @@
     }
   }
 
-  @media only screen and (max-width: 600px){ 
+  @media only screen and (max-width: 620px){ 
 
     .info-search {
       font-size: 1rem;

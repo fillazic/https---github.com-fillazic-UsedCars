@@ -116,7 +116,7 @@ function AddPost () {
           .list(user?.id + "/" + subfolder + "/", {
             limit: 100,
             offset: 0,
-            sortBy: { column: "name", order: "asc" }
+            sortBy: { column: "updated_at", order: "asc" }
           });
       
         if (data) {
@@ -257,6 +257,7 @@ function AddPost () {
                         <select name="type" type='text' id="selected-items" onChange={(e) => setVehicleType(e.target.value)} required >
                                 <option value="Vehicle-type" >Vehicle type</option>
                                 <option value="Saloon">Saloon</option>
+                                <option value="Hatchback">Hatchback</option>
                                 <option value="Estate-Car">Estate Car</option>
                                 <option value="Estate-Car">SUV</option>
                                 <option value="Off-road">Off-road</option>
@@ -305,22 +306,22 @@ function AddPost () {
                 <div className='feature-one' >
                 <div className='selected-container'>
                     <select name="color" id="selected-items" value={color} onChange={(e)=> setColor(e.target.value)} required>
-                        <option value="Color" >Color</option>
-                        <option value="Silver">Silver</option>
-                        <option value="Red">Grey</option>
-                        <option value="Black">Black</option>
-                        <option value="White">White</option>
-                        <option value="Blue">Blue</option>
-                        <option value="Red">Red</option>
-                        <option value="Red">Beige</option>
-                        <option value="Red">Gold</option>
-                        <option value="Red">Purple</option>
-                        <option value="Red">Yellow</option>
-                        <option value="Red">Metallic</option>
-                        <option value="Red">Brown</option>
-                        <option value="Red">Green</option>
-                        <option value="Red">Orange</option>
-                        <option value="Red">Matte</option>
+                        <option value="" >Color</option>
+                        <option>Silver</option>
+                        <option>Grey</option>
+                        <option>Black</option>
+                        <option>White</option>
+                        <option>Blue</option>
+                        <option>Red</option>
+                        <option>Beige</option>
+                        <option>Gold</option>
+                        <option>Purple</option>
+                        <option>Yellow</option>
+                        <option>Metallic</option>
+                        <option>Brown</option>
+                        <option>Green</option>
+                        <option>Orange</option>
+                        <option>Matte</option>
                     </select>
                     <div className='icon'>
                             <i className='fa fa-caret-down' ></i>
@@ -329,9 +330,9 @@ function AddPost () {
 
                 <div className='selected-container'>
                     <select name="door" id="selected-items" value={door} onChange={(e)=> setDoor(e.target.value)} required>
-                        <option value="Number od doors" >Number of doors</option>
-                        <option value="two-doors">2/3</option>
-                        <option value="four-doors">4/5</option>
+                        <option value="" >Number of doors</option>
+                        <option >2/3</option>
+                        <option >4/5</option>
                     </select>
                     <div className='icon'>
                             <i className='fa fa-caret-down' ></i>
@@ -341,15 +342,14 @@ function AddPost () {
                 <div className='selected-container'>
                     <select name="seats" id="selected-items" value={seats} onChange={(e)=> setSeats(e.target.value)} required>
                         <option value="" >Number of seats</option>
-                        <option value="Color">1</option>
-                        <option value="Color">2</option>
-                        <option value="Color">3</option>
-                        <option value="Color">4</option>
-                        <option value="Color">5</option>
-                        <option value="Color">6</option>
-                        <option value="Color">7</option>
-                        <option value="Color">8</option>
-                      
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>                     
                     </select>
                     <div className='icon'>
                             <i className='fa fa-caret-down' ></i>

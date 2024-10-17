@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { supabase } from '../config/supaBase';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Loader from './Loader';
 import './FullPost.css';
 
@@ -10,18 +13,32 @@ const FullPost = () => {
   const [loading, setLoading] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === car.image.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+const SamplePrevArrow = ({ onClick }) => {
+  return (
+      <div onClick={onClick}  className="prev-arrow" >
+          &#10094;
+      </div>
+  );
+};
 
+const SampleNextArrow = ({ onClick }) => {
+  return (
+    <div onClick={onClick}  className="next-arrow" >
+     &#10095;
+</div>
+  );
+};
 
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? car.image.length - 1 : prevIndex - 1
-    );
-  };
+const settings = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+
+};
+
 
   useEffect(() => {
 
@@ -59,24 +76,18 @@ const FullPost = () => {
             <p id="full-mark">{car.Makes.make_name}  {car.Models.model_name}</p>
             <p className="full-price">{car.price}$</p>
         </div>
-
+        
         <div className="image-slider">
-                <div className='car-card'>
-                    <button className="slider-button left" onClick={prevImage}>
-                        &#60;
-                    </button>
-                    <div className="image-counter">
-                        {currentImageIndex + 1} / {car.image.length}
-                    </div>
+                <Slider {...settings} className='car-card'>                
+                {car.image.map((img, index) => (
                         <img
-                            src={car.image[currentImageIndex]}
-                            alt={`Car ${currentImageIndex + 1}`}
+                            src={img}
+                            alt={'car'}
+                            key={index}
                             className="car-images-gallery"
                         />
-                    <button className="slider-button right" onClick={nextImage}>
-                        &#62;
-                    </button>
-                </div>
+                ))}
+                </Slider>
         </div>
 
         <div className='full-basic-info'>
@@ -102,7 +113,7 @@ const FullPost = () => {
                 <div>
                     <p className="full-year">Color<span>{car.color}</span></p>
                     <p className="full-year">Transmission<span>{car.transmission}</span></p>
-                    <p className="full-year">Number of doors<span>{car.door}</span></p>
+                    <p className="full-year">Number of doors<span>{car.doors}</span></p>
                     <p className="full-year">Number of seats<span>{car.seats}</span></p>
                     <p className="full-year">Emission<span>{car.emission}</span></p>
                 </div>

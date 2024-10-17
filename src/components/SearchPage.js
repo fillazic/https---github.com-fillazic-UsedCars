@@ -114,7 +114,7 @@ function SearchPage() {
                   </div>
                   <div className="engine-search">
                     <p className="year-search">{car.transmission}</p>
-                    <p className="fuel-search">{car.door} doors</p>
+                    <p className="fuel-search">{car.doors} doors</p>
                   </div>
                 </div>
               </div>

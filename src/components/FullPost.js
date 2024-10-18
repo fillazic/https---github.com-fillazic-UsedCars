@@ -5,13 +5,16 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Loader from './Loader';
+import ImageFull from './ImageFull';
 import './FullPost.css';
 
 const FullPost = () => {
   const { id } = useParams(); 
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(currentImageIndex);
 
 const SamplePrevArrow = ({ onClick }) => {
   return (
@@ -36,8 +39,18 @@ const settings = {
   slidesToScroll: 1,
   nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />,
+  afterChange: (index) => {
+    setCurrentSlide(index);
+    setCurrentImageIndex(index);
+},
+}
 
+const openModal = (index) => {
+  setCurrentImageIndex(index);
+  setIsOpen(true);
 };
+
+const closeModal = () => setIsOpen(false);
 
 
   useEffect(() => {
@@ -78,16 +91,24 @@ const settings = {
         </div>
         
         <div className="image-slider">
-                <Slider {...settings} className='car-card'>                
+            <span className="img-number">{currentSlide + 1} / {car.image.length}</span>
+                <Slider {...settings} className='car-card'>               
                 {car.image.map((img, index) => (
                         <img
                             src={img}
                             alt={'car'}
                             key={index}
                             className="car-images-gallery"
+                            onClick={() => openModal(index)}
                         />
                 ))}
                 </Slider>
+                <ImageFull isOpen={isOpen}
+                    onClose={closeModal}
+                    car={car}
+                    currentImageIndex={currentImageIndex}
+                    setCurrentImageIndex={setCurrentImageIndex} 
+                />
         </div>
 
         <div className='full-basic-info'>

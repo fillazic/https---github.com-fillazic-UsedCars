@@ -176,17 +176,91 @@ span {
     width: auto;
 }
 
-.logIn-menu {
-    display: none;
+.logIn-menu-visible {
+    display: block;
+    position: absolute;
+    right: 0;
+    z-index: 15;
+    right: 0;
+    height: 100vh;
+    width: 45%;
+    background-color: #656668;
+    transform: translateX(100%);
+    transition: transform .5s ease-in-out;
 }
 
-.logIn-menu-visible {
-    display: none;
-}
-.logIn-menu button {
+.profile-btn {
+    height: 8rem;
+    width: 100%;
+    padding-bottom: 1rem;
+    text-align: center;
     display: block;
 }
 
+.under-profile {
+    opacity: 0.5;
+}
+
+.close-path-log{
+    height: 3rem;
+    display: flex;
+    position: relative;
+    text-align: center;
+    align-items: center ;
+    justify-content: center;
+    width: 90%;
+    background-color:white;
+    color:#555e61;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: auto;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.close-path-log img {
+    position: absolute;
+    right: 1rem;
+    height: 2rem;
+    width: auto;
+}
+
+.logIn {
+    height: 3rem;
+    width: 90%;
+    background-color:#0088a9;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem ;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.logIn a {
+    text-decoration: none;
+    color: white;
+}
+
+.post-ad {
+    height: 3rem;
+    width: 90%;
+    background-color:white;
+    color:#555e61;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.post-ad a {
+    text-decoration: none;
+    color:#555e61;
+}
 
 @media only screen and (max-width: 1200px){
 
@@ -293,103 +367,9 @@ span {
         width: auto;
     }
 
-    .logIn-menu {
-        display: none;
-    }
 
-    .logIn-menu-visible {
-        display: block;
-        position: absolute;
-        z-index: 15;
-        right: 0;
-        height: 100vh;
-        width: 45%;
-        background-color: #656668;
-    }
-
-    .profile-btn {
-        height: 8rem;
-        width: 100%;
-        padding-bottom: 1rem;
-        text-align: center;
-        display: block;
-    }
-
-    .under-profile {
-        opacity: 0.5;
-    }
-
-    .close-path-log{
-        height: 3rem;
-        display: flex;
-        position: relative;
-        text-align: center;
-        align-items: center ;
-        justify-content: center;
-        width: 90%;
-        background-color:white;
-        color:#555e61;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin: auto;
-        margin-top: 1rem;
-        border: none;
-        border-radius: 1rem;
-        cursor: pointer;
-    }
-    .close-path-log img {
-        position: absolute;
-        right: 1rem;
-        height: 2rem;
-        width: auto;
-    }
-
-    .logIn-menu button {
-        display: block;
-        height: 3rem;
-        font-size: 1rem;
-        font-weight: bold;
-        border: none;
-        border-radius: 1rem;
-    }
-
-    .logIn {
-        height: 3rem;
-        width: 90%;
-        background-color:#0088a9;
-        color: white;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-top: 1rem ;
-        border: none;
-        border-radius: 1rem;
-        cursor: pointer;
-    }
-
-    .logIn a {
-        text-decoration: none;
-        color: white;
-    }
-
-    .post-ad {
-        height: 3rem;
-        width: 90%;
-        background-color:white;
-        color:#555e61;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin-top: 1rem;
-        border: none;
-        border-radius: 1rem;
-        cursor: pointer;
-    }
-
-    .post-ad a {
-        text-decoration: none;
-        color:#555e61;
-    }
-    .search-btn {
-        display: none;
+    #menuVisible {
+        transform: translateX(0);
     }
 
 }
@@ -438,7 +418,7 @@ span {
         
     }
     .vehicle-type-visible, .logIn-menu-visible {
-        width: 50%;
+        width: 60%;
     }
 
 }

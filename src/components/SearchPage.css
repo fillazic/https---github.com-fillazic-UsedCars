@@ -1,11 +1,12 @@
 
- .car-container-search {
+ .car-container-search, .container-search {
     justify-content: center;
     margin: auto;
   }
 
-  .car-container-search h2 {
+  .car-container-search h2, .container-search h2 {
     text-align: center;
+    opacity: 0.8;
   }
 
   .car-search {
@@ -136,6 +137,12 @@
   }
 
   @media only screen and (max-width: 620px){ 
+
+    .container-search {
+      justify-content: center;
+      min-height: 80vh;
+      margin: auto;
+    }
 
     .info-search {
       font-size: 1rem;

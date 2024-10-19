@@ -9,15 +9,22 @@ function Header({searchForm}) {
 
    const user= useUser();
    const [isVisible, setIsVisible] = useState(false);
-   const [isVisibleLogIn, setIsVisibleLogIn] = useState(false);
+
+   const menu = document.querySelector('.menu-btn');
+   const close = document.querySelector('.close-path-log');
+   const log = document.querySelector('.logIn-menu-visible');
+
+   const menuVis = () => {
+    log.id = 'menuVisible'
+  }
+
+  const menuNotVis = () => {
+   log.id = '';
+}
 
    const changeVisibility = () => {
       setIsVisible(!isVisible)
    }
-
-   const changeVisibilityLogIn = () => {
-    setIsVisibleLogIn(!isVisibleLogIn)
- }
 
  const signOut = async () => {
   const {error} = await supabase.auth.signOut()
@@ -57,7 +64,7 @@ function Header({searchForm}) {
         <div className='menu'>
           <img  className='sedan-btn' src="images/sedann.png" alt="car" onClick={changeVisibility}  />
           <img  className='search-btn' src="images/search.png" alt="search" onClick={searchForm} />
-          <img  className='menu-btn' src="images/hamburger-menu.png" alt="menu" onClick={changeVisibilityLogIn} />
+          <img  className='menu-btn' src="images/hamburger-menu.png" alt="menu" onClick={menuVis} />
         </div>
 
         <div className={!isVisible? 'vehicle-type' : 'vehicle-type-visible'} >
@@ -73,10 +80,10 @@ function Header({searchForm}) {
           </div>
         </div>
 
-        <div className={!isVisibleLogIn? 'logIn-menu' : 'logIn-menu-visible'} >
+        <div className='logIn-menu-visible' >
 
           <div className='profile-btn'>
-            <div className='close-path-log' onClick={changeVisibilityLogIn} >
+            <div className='close-path-log' onClick={menuNotVis} >
                   <h4>Close</h4>
                   <img src="images/close.png" alt="close" />
             </div>

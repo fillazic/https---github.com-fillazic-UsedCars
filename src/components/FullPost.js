@@ -100,6 +100,7 @@ const closeModal = () => setIsOpen(false);
                             key={index}
                             className="car-images-gallery"
                             onClick={() => openModal(index)}
+                            title='click for full size'
                         />
                 ))}
                 </Slider>

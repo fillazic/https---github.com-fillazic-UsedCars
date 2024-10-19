@@ -36,6 +36,7 @@ function SearchPage() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setLoading(true);
     
     const fetchCars = async () => {
       let query = supabase
@@ -80,14 +81,14 @@ function SearchPage() {
 
     return () => clearTimeout(timer);
 
-  }, []);  
+  }, [location.search]);  
 
 
   if (loading) return <Loader /> ;
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="car-container-search">
+    <div className={ cars.length > 2? 'car-container-search' : 'container-search' }>
       <h2>Search Results</h2>
       {cars.length > 0 ? (
         cars.map((car) => (

@@ -168,15 +168,15 @@ div.selected-container:hover, .selected-container-year:hover {
 }
 .search-div h4 {
     margin: auto;
-    margin-right: 0;
     font-size: 1.2rem;
     height: 100%;
     align-content: center;
 }
 
 .search-div img{
+    position: absolute;
     margin: auto;
-    margin-left: 0;
+    right: 25%;
     margin-bottom: 0.2rem;
     height: 90%;
     align-content: center;

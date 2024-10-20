@@ -28,7 +28,7 @@ function AddPost () {
     const [emission, setEmission] = useState('');
     const [interior, setInterior] = useState('');
     const [safety, setSafety] = useState('');
-    const [features, setFeatures] = useState('');
+    const [feature, setFeature] = useState('');
     const [message, setMessage] = useState('');
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
@@ -76,6 +76,39 @@ function AddPost () {
         setImgs((prevImgs) => prevImgs.filter((_, i) => i !== index));
       };
 
+//safety
+      const handleCheckboxChange = (e) => {
+          const value = e.target.value;
+      
+          // If checkbox is checked, add the value to the array
+          if (e.target.checked) {
+              setSafety((prevSafety) => [...prevSafety, value]);
+          } else {
+              // If checkbox is unchecked, remove the value from the array
+              setSafety((prevSafety) =>
+                  prevSafety.filter((feature) => feature !== value)
+              );
+          }
+      
+          console.log(safety);  // Log the updated array for testing
+      };
+
+//feature
+const handleCheckboxFeatures = (e) => {
+  const value = e.target.value;
+
+  // If checkbox is checked, add the value to the array
+  if (e.target.checked) {
+      setFeature((prevFeature) => [...prevFeature, value]);
+  } else {
+      // If checkbox is unchecked, remove the value from the array
+      setFeature((prevFeature) =>
+          prevFeature.filter((features) => features !== value)
+      );
+  }
+
+  console.log(feature);  // Log the updated array for testing
+};
 
     const fetchModelsForMark = async (selectedMakeId) => {
       const { data, error } = await supabase
@@ -166,6 +199,8 @@ function AddPost () {
             price,
             vehicleType,
             fuel,
+            safety,
+            feature,
             image: images,
             ccm: ccm,
             kv: kv,
@@ -422,57 +457,57 @@ function AddPost () {
                 <h3>Safety</h3>
                 <div className='safety' >
                     <div>
-                    <input type="checkbox" id="ABS" name="ABS" value="ABS" />
+                    <input type="checkbox" id="ABS" name="ABS" value="ABS" onChange={handleCheckboxChange} />
                     <label htmlFor="ABS">ABS</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="ESP" name="ESP" value="ESP" />
+                    <input type="checkbox" id="ESP" name="ESP" value="ESP" onChange={handleCheckboxChange} />
                     <label htmlFor="ESP">ESP</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="ASR" name="ASR" value="ASR" />
+                    <input type="checkbox" id="ASR" name="ASR" value="ASR" onChange={handleCheckboxChange} />
                     <label htmlFor="ASR">ASR</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="driven-airbags" name="driven-airbags" value="Driven Airbags" />
-                    <label htmlFor="driven-airbags">Driven Airbags</label>
+                    <input type="checkbox" id="driven-airbags" name="driven-airbags" value="Driven Airbags" onChange={handleCheckboxChange} />
+                    <label htmlFor="driven-airbags" >Driven Airbags</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="front-airbags" name="front-airbags" value="Front Airbags" />
+                    <input type="checkbox" id="front-airbags" name="front-airbags" value="Front Airbags"  onChange={handleCheckboxChange} />
                     <label htmlFor="front-airbags">Front Airbags</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="side-airbags" name="side-airbagss" value="Side Airbags" />
+                    <input type="checkbox" id="side-airbags" name="side-airbagss" value="Side Airbags"  onChange={handleCheckboxChange} />
                     <label htmlFor="side-airbags">Side Airbags</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="more-airbags" name="more-airbags" value="More Airbags" />
+                    <input type="checkbox" id="more-airbags" name="more-airbags" value="More Airbags"  onChange={handleCheckboxChange} />
                     <label htmlFor="more-airbags">More Airbags</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="alarm" name="alarm" value="Alarm system" />
+                    <input type="checkbox" id="alarm" name="alarm" value="Alarm system"  onChange={handleCheckboxChange} />
                     <label htmlFor="alarm">Alarm system</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="central-lock" name="central-lock" value="Central lock" />
+                    <input type="checkbox" id="central-lock" name="central-lock" value="Central lock"  onChange={handleCheckboxChange} />
                     <label htmlFor="central-lock">Central lock</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="child-lock" name="child-lock" value="Child Lock" />
+                    <input type="checkbox" id="child-lock" name="child-lock" value="Child Lock"  onChange={handleCheckboxChange} />
                     <label htmlFor="child-lock">Child lock</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="blind-spot" name="blind-spot" value="Blind spot monitor" />
+                    <input type="checkbox" id="blind-spot" name="blind-spot" value="Blind spot monitor"  onChange={handleCheckboxChange} />
                     <label htmlFor="blind-spot">Blind spot</label>
                     </div>
 
@@ -482,112 +517,112 @@ function AddPost () {
                 <div className='all-feature'>
                     
                     <div>
-                    <input type="checkbox" id="metalic-color" name="metalic-color" value="Metalic color" />
+                    <input type="checkbox" id="metalic-color" name="metalic-color" value="Metalic color" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="metalic-color">Metalic color</label>
                     </div>
                     
                     <div>
-                    <input type="checkbox" id="power-steering" name="power-steering" value="Power steering" />
+                    <input type="checkbox" id="power-steering" name="power-steering" value="Power steering" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="power-steering">Power steering</label>
                     </div>
                     
                     <div>
-                    <input type="checkbox" id="remote-locking" name="remote-locking" value="Remote locking" />
+                    <input type="checkbox" id="remote-locking" name="remote-locking" value="Remote locking" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="remote-locking">Remote locking</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="trip-computer" name="trip-computer" value="Trip computer" />
+                    <input type="checkbox" id="trip-computer" name="trip-computer" value="Trip computer" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="trip-computer">Trip computer</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="sunroof" name="sunroof" value="Sunroof" />
+                    <input type="checkbox" id="sunroof" name="sunroof" value="Sunroof" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="sunroof">Sunroof</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="tow-hitch" name="tow-hitch" value="Tow hitch" />
+                    <input type="checkbox" id="tow-hitch" name="tow-hitch" value="Tow hitch" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="tow-hitch">Tow hitch</label>
                     </div>
                     
                     <div>
-                    <input type="checkbox" id="panoramic-roof" name="spanoramic-roof" value="Panoramic roof" />
+                    <input type="checkbox" id="panoramic-roof" name="spanoramic-roof" value="Panoramic roof" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="panoramic-roof">Panoramic roof</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="tinted-windows" name="tinted-windows" value="Tinted windows" />
+                    <input type="checkbox" id="tinted-windows" name="tinted-windows" value="Tinted windows" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="tinted-windows" >Tinted-windows</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="electric-windows" name="electric-windows" value="El. windows" />
+                    <input type="checkbox" id="electric-windows" name="electric-windows" value="El. windows" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="electric-windows">El. windows</label>
                     </div>
                     
                     <div>
-                    <input type="checkbox" id="electric-mirrors" name="electric-mirrors" value="El. mirrors" />
+                    <input type="checkbox" id="electric-mirrors" name="electric-mirrors" value="El. mirrors" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="electric-mirrors">El. mirrors</label>
                     </div>
                     
                     <div>
-                    <input type="checkbox" id="mirror-heaters" name="mirror-heaters" value="Mirror heaters" />
+                    <input type="checkbox" id="mirror-heaters" name="mirror-heaters" value="Mirror heaters" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="mirror-heaters">Mirror heaters</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="s.-wheel-heater" name="s.-wheel-heater" value="S. wheel heater" />
+                    <input type="checkbox" id="s.-wheel-heater" name="s.-wheel-heater" value="S. wheel heater" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="s.-wheel-heater">S. wheel heater</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="height-adj-seat" name="height-adj-seat" value="Height adj. seat" />
+                    <input type="checkbox" id="height-adj-seat" name="height-adj-seat" value="Height adj. seat" onChange={handleCheckboxFeatures}/>
                     <label htmlFor="height-adj-seat">Height adj. seat</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="electrically-adj-seat" name="electrically-adj-seat" value="El. adj. seat" />
+                    <input type="checkbox" id="electrically-adj-seat" name="electrically-adj-seat" value="El. adj. seat" onChange={handleCheckboxFeatures} />
                     <label htmlFor="helectrically-adj-seat">El. adj. seat</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="seat-heaters" name="seat-heaters" value="Seat heaters" />
+                    <input type="checkbox" id="seat-heaters" name="seat-heaters" value="Seat heaters" onChange={handleCheckboxFeatures} />
                     <label htmlFor="seat-heaters">Seat heaters</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="fog-lights" name="fog-lights" value="Fog lights" />
+                    <input type="checkbox" id="fog-lights" name="fog-lights" value="Fog lights" onChange={handleCheckboxFeatures} />
                     <label htmlFor="fog-lights">Fog lights</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="xenon-lights" name="xenon-lights" value="Xenon lights" />
+                    <input type="checkbox" id="xenon-lights" name="xenon-lights" value="Xenon lights" onChange={handleCheckboxFeatures} />
                     <label htmlFor="xenon-lights">Xenon lights</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="lights-sensors" name="lights-sensors" value="Lights sensors" />
+                    <input type="checkbox" id="lights-sensors" name="lights-sensors" value="Lights sensors" onChange={handleCheckboxFeatures} />
                     <label htmlFor="lights-sensors">Lights sensors</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="rain-sensors" name="rain-sensors" value="Rain sensors" />
+                    <input type="checkbox" id="rain-sensors" name="rain-sensors" value="Rain sensors" onChange={handleCheckboxFeatures} />
                     <label htmlFor="rain-sensors">Rain sensors</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="parking-sensors" name="parking-sensors" value="Praking sensors" />
+                    <input type="checkbox" id="parking-sensors" name="parking-sensors" value="Praking sensors" onChange={handleCheckboxFeatures} />
                     <label htmlFor="parking-sensors">Parking sensors</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="roof-rack" name="roof-rack" value="Roof rack" />
+                    <input type="checkbox" id="roof-rack" name="roof-rack" value="Roof rack" onChange={handleCheckboxFeatures} />
                     <label htmlFor="roof-rack">Roof rack</label>
                     </div>
 
                     <div>
-                    <input type="checkbox" id="aluminum-rims" name="aluminum-rims" value="Aluminum rims" />
+                    <input type="checkbox" id="aluminum-rims" name="aluminum-rims" value="Aluminum rims" onChange={handleCheckboxFeatures} />
                     <label htmlFor="aluminum-rims">Aluminum rims</label>
                     </div>
 

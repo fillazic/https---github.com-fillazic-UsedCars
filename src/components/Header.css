@@ -176,12 +176,12 @@ span {
     width: auto;
 }
 
+
 .logIn-menu-visible {
     display: block;
-    position: absolute;
+    position: fixed;
     right: 0;
     z-index: 15;
-    right: 0;
     height: 100vh;
     width: 45%;
     background-color: #656668;
@@ -396,14 +396,14 @@ span {
     .header {
         height: 4.55rem;
     }
-    .menu{
+    .menu {
         padding-right: 0rem;
         margin: auto 0;
     }
     .menu img {
         height: 2rem;
         width: auto;
-        margin-left: 0.2rem;
+        margin-left: 0.6rem;
     }
 
     .logo {
@@ -418,7 +418,7 @@ span {
         
     }
     .vehicle-type-visible, .logIn-menu-visible {
-        width: 60%;
+        width: 70%;
     }
 
 }

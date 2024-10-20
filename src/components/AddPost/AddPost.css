@@ -41,6 +41,7 @@ div.selected-container {
     border: 1px solid #7f8286;
     border-radius: 0.5rem;
     margin: 1rem;
+    background-color: white;
 }
 
 div.selected-container:hover {
@@ -60,6 +61,7 @@ div.selected-container:hover {
     border: none;
     border-radius: 0.5rem;
     padding-left: 1rem;
+    background-color: white;
 }
 
 #selected-items option {

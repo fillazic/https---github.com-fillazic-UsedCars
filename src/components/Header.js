@@ -60,9 +60,9 @@ function Header({searchForm}) {
         </div>
 
         <div className='menu'>
-          <img  className='sedan-btn' src="images/sedann.png" alt="car" onClick={changeVisibility}  />
-          <img  className='search-btn' src="images/search.png" alt="search" onClick={searchForm} />
-          <img  className='menu-btn' src="images/hamburger-menu.png" alt="menu" onClick={menuVis} />
+          <button><img  className='sedan-btn' src="images/sedann.png" alt="car" onClick={changeVisibility} /></button>
+          <button className='search-button-img' ><img  className='search-btn' src="images/search.png" alt="search" onClick={searchForm} /></button>
+          <button><img  className='menu-btn' src="images/hamburger-menu.png" alt="menu" onClick={menuVis} /></button>
         </div>
 
         <div className={!isVisible? 'vehicle-type' : 'vehicle-type-visible'} >

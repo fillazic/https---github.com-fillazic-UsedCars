@@ -147,6 +147,36 @@ const closeModal = () => setIsOpen(false);
         </div>
 
         <div className='full-basic-info'>
+        <h2 className='tech'>Safety</h2>
+        <div className="safety-data">
+        { car.safety? 
+                    <ul>
+                    {car.safety.map((saf, index) => (
+                      <li key={index}>{saf}</li>
+                    ))}
+                  </ul>
+                    :
+                <p></p>
+                }
+        </div>
+      </div>
+      
+      <div className='full-basic-info'>
+        <h2 className='tech'>Features</h2>
+        <div className="safety-data">
+          { car.feature? 
+                    <ul>
+                    {car.feature.map((features, index) => (
+                      <li key={index}>{features}</li>
+                    ))}
+                  </ul>
+                    :
+                <p></p>
+                }
+        </div>
+      </div>
+
+        <div className='full-basic-info'>
             <h2 className='tech'>Description</h2>
             <div className="full-basic-data-desc">
                 { car.description? 

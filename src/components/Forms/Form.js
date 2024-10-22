@@ -483,7 +483,7 @@ function Form() {
 
                     <div>
                     <input type="checkbox" id="electrically-adj-seat" name="electrically-adj-seat" value="El. adj. seat" />
-                    <label htmlFor="helectrically-adj-seat">El. adj. seat</label>
+                    <label htmlFor="electrically-adj-seat">El. adj. seat</label>
                     </div>
 
                     <div>

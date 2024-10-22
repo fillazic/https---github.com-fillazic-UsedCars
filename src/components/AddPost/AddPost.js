@@ -5,6 +5,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 import {v4 as uuidv4} from 'uuid';
 import Vehicle from '../Forms/Vehicle';
 import Login from '../Login';
+import Loader from '../Loader';
 import './AddPost.css';
 
 const CDNURL= "https://dcyhbisdusfgptxeuczc.supabase.co/storage/v1/object/public/car-images/";
@@ -36,7 +37,7 @@ function AddPost () {
     const [otherphone, setOtherphone] = useState('');
     const [addres, setAddres] = useState('');
     const [city, setCity] = useState('');
-
+    const [loading, setLoading] = useState(true);
     const [uploading, setUploading] = useState(false);
     const [selectedModelId, setSelectedModelId] = useState('');
     const [selectedMakeId, setSelectedMakeId] = useState('');
@@ -49,18 +50,19 @@ function AddPost () {
     }
   
     useEffect(() => {
-      if (user) {
-        setForm(true);
-      } else {
-
-        setForm(false);
-    };
+   
+    const timer = setTimeout(() => {
+        setLoading(false); 
+      }, 1500);
 
     fetchMakes();
 
     if (selectedMakeId) {
       fetchModelsForMark(selectedMakeId)
     } 
+
+    return () => clearTimeout(timer);
+
     }, [user, selectedMakeId, imgs]);
 
   
@@ -184,11 +186,10 @@ const handleCheckboxFeatures = (e) => {
       };
 
     const handleSubmit = async (e) => {
+      {!user? alert('If you want to post an ad, you must be logged in') :
       e.preventDefault();
       setUploading(true);
       const images = await uploadImages(imgs);
-
-   
       const { error: carError } = await supabase
         .from('Car')
         .insert([
@@ -231,16 +232,14 @@ const handleCheckboxFeatures = (e) => {
       }
   
       setUploading(false);
-
+      alert('Your ad has been successfully created')
+    }
     };
   
     return (
-  
         <div className='form' >
-            { !user ? 
-            <Login />
-            :
-           <>
+          {loading ? <Loader /> :
+          <>
             <div className='vehicle-ap'><Vehicle /></div>
              <form onSubmit={handleSubmit} >
                 <div className='model' >
@@ -583,7 +582,7 @@ const handleCheckboxFeatures = (e) => {
 
                     <div>
                     <input type="checkbox" id="electrically-adj-seat" name="electrically-adj-seat" value="El. adj. seat" onChange={handleCheckboxFeatures} />
-                    <label htmlFor="helectrically-adj-seat">El. adj. seat</label>
+                    <label htmlFor="electrically-adj-seat">El. adj. seat</label>
                     </div>
 
                     <div>
@@ -659,9 +658,9 @@ const handleCheckboxFeatures = (e) => {
             </div>
             
 
-            </form>
-         </>       
-            }
+            </form> 
+            </>
+          }
         </div>
     )
 }

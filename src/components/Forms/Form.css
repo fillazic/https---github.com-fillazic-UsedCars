@@ -60,6 +60,7 @@ div.selected-container {
     border: 1px solid #7f8286;
     border-radius: 0.5rem;
     margin: auto 0;
+    background-color: white;
 }
 
 div.selected-container:hover, .selected-container-year:hover {
@@ -176,7 +177,7 @@ div.selected-container:hover, .selected-container-year:hover {
 .search-div img{
     position: absolute;
     margin: auto;
-    right: 25%;
+    right: 20%;
     margin-bottom: 0.2rem;
     height: 90%;
     align-content: center;
@@ -359,11 +360,17 @@ div.selected-container:hover, .selected-container-year:hover {
         text-align: center;
         width: 100%;
     }
-    .model, .features, .power, .search-button, .feature-one, .feature-two {
+    .model, .features, .power, .feature-one, .feature-two {
         display: block;
         width: 100%;
-        margin: auto;
         text-align: center;
+    }
+
+    .search-button {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            margin: auto 1.5rem;
     }
 
     .model {

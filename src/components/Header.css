@@ -262,6 +262,10 @@ span {
     color:#555e61;
 }
 
+.search-btn,.search-button-img {
+    display: none;
+}
+
 @media only screen and (max-width: 1200px){
 
     .header {
@@ -291,13 +295,23 @@ span {
 
     .menu {
         display: flex;
-        align-items: baseline;
+        align-items: center;
         padding-right: 1rem;
         cursor: pointer;
     }
 
+    .menu button {
+        display: flex;
+        align-items: baseline;
+        cursor: pointer;
+        border: none;
+        background-color: none;
+        margin-left: 1rem;
+        background-color: #afb2b6;
+    }
+
     .menu img {
-        margin: auto 1rem;
+        margin: auto 0;
 
     }
 
@@ -385,7 +399,7 @@ span {
         border-radius: 50%;
         background-color: white;
     }
-    .search-btn {
+    .search-btn, .search-button-img {
         display: flex;
     }
     
@@ -395,15 +409,6 @@ span {
 
     .header {
         height: 4.55rem;
-    }
-    .menu {
-        padding-right: 0rem;
-        margin: auto 0;
-    }
-    .menu img {
-        height: 2rem;
-        width: auto;
-        margin-left: 0.6rem;
     }
 
     .logo {

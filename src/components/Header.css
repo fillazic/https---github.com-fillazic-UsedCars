@@ -325,7 +325,7 @@ span {
         width: 45%;
         height: 100vh;
         z-index: 15;
-        background-color: #555e61;
+        background-color: #747779;
         border-left: 1px solid black;
     }
 
@@ -335,7 +335,7 @@ span {
     .type-sedann-h, .type-motorcycle-h, .type-truck-h, .type-tire-h {
         width: 100%;
         height: 4.3rem;
-        background-color: #afb2b6;
+        background-color: #747779;
         border: none;
         border-bottom: 1px solid black;
         cursor: pointer;
@@ -351,7 +351,7 @@ span {
         height: 4.2rem;
         font-size: 1.4rem;
         font-weight: bold;
-        background-color: #afb2b6;
+        background-color: #747779;
         border-bottom: 1px solid black;
         cursor: pointer;
     }
